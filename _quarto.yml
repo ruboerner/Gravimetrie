@@ -21,10 +21,10 @@ book:
   title: "Gravimetrie"
   subtitle: "Modul Gravimetrie und Magnetik"
   author: "Ralph-Uwe Börner"
+  date: today
   chapters:
     - index.qmd
-    - history.qmd
-    - methods.qmd
+    - grundlagen.qmd
     - slidedecks.qmd
 
 format: 
@@ -44,5 +44,5 @@ format:
             }
           };
           </script>
-
+ 
 editor: source

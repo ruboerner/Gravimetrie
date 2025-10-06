@@ -6,5 +6,5 @@ format:
     lib-dir: site_libs
     slide-number: true
     hash: true
-    incremental: true
+    incremental: false
     mathjax: true

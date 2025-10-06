@@ -1,0 +1,96 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Gravimetrie",
+    "section": "",
+    "text": "Bemerkungen\nDieses GitHub-Repository enthält das Vorlesungsskript zur Vorlesung “Gravimetrie” im Rahmen des Moduls “Gravimetrie und Magnetik” im Wintersemester 2025/26. Das Modul ist für Studierende des Bachelorstudienganges “Geophysik und Geoinformatik” an der TU Bergakademie Freiberg entworfen.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#code",
+    "href": "index.html#code",
+    "title": "Gravimetrie",
+    "section": "Code",
+    "text": "Code\nDas Kursmaterial auf der Website enthält Abschnitte mit eingebettetem Python-Code.\nSie können den Code kopieren und in einer kompatiblen Python- oder Julia-Umgebung ausführen.\nFür optimales Arbeiten und Lernen wird empfohlen, Python über miniforge zu installieren.\nDarüber hinaus haben Sie die Möglichkeit, eigene Konzepte zu erkunden, indem Sie eigene Jupyter-Notebooks erstellen. Dabei können Sie eine der folgenden Plattformen verwenden:\n\nVisual Studio Code\nJupyterLab\nQuarto\nmarimo\n\nDie Arbeit mit Jupyter-Notebooks in Visual Studio Code ist besonders unkompliziert.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#selbststudium",
+    "href": "index.html#selbststudium",
+    "title": "Gravimetrie",
+    "section": "Selbststudium",
+    "text": "Selbststudium\nEs gibt kleine Übungsaufgaben, die über die Vorlesung verteilt sind.\n\n\n\n\n\n\nNoneSelf study\n\n\n\nDiese Aufgaben sind leicht zu erkennen.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#referenzen",
+    "href": "index.html#referenzen",
+    "title": "Gravimetrie",
+    "section": "Referenzen",
+    "text": "Referenzen\nDieses Skript basiert zum großen Teil auf Lehrmaterialien, welche mir freundlicherweise von meinen ehemaligen Kollegen Rolf Käppler und Jana Börner zur Verfügung gestellt wurden.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#lizenz",
+    "href": "index.html#lizenz",
+    "title": "Gravimetrie",
+    "section": "Lizenz",
+    "text": "Lizenz\nDas Material steht unter der Creative Commons Lizenz.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "grundlagen.html",
+    "href": "grundlagen.html",
+    "title": "2  Geophysikalische Grundlagen",
+    "section": "",
+    "text": "2.1 Gravitationsfeld der Erde\nAusgenutzt wird der Dichteunterschied zwischen Erkundungsobjekt und Nebengestein.\nDichte ist der physikalische Parameter.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Geophysikalische Grundlagen</span>"
+    ]
+  },
+  {
+    "objectID": "grundlagen.html#gravitationsfeld-der-erde",
+    "href": "grundlagen.html#gravitationsfeld-der-erde",
+    "title": "2  Geophysikalische Grundlagen",
+    "section": "",
+    "text": "Natürlich vorhandenes geophysikalisches Feld\nPassives geophysikalisches Messverfahren",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Geophysikalische Grundlagen</span>"
+    ]
+  },
+  {
+    "objectID": "slidedecks.html",
+    "href": "slidedecks.html",
+    "title": "3  Slide decks",
+    "section": "",
+    "text": "Here are the slide decks:\n\n👉 Grundlagen",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Slide decks</span>"
+    ]
+  },
+  {
+    "objectID": "grundlagen_slides.html#gravitationsfeld-der-erde",
+    "href": "grundlagen_slides.html#gravitationsfeld-der-erde",
+    "title": "Geophysikalische Grundlagen",
+    "section": "Gravitationsfeld der Erde",
+    "text": "Gravitationsfeld der Erde\n\nNatürlich vorhandenes geophysikalisches Feld\nPassives geophysikalisches Messverfahren\n\nAusgenutzt wird der Dichteunterschied zwischen Erkundungsobjekt und Nebengestein.\nDichte ist der physikalische Parameter."
+  },
+  {
+    "objectID": "methods_slides.html#section-title-visible-everywhere",
+    "href": "methods_slides.html#section-title-visible-everywhere",
+    "title": "Methods",
+    "section": "Section title visible everywhere",
+    "text": "Section title visible everywhere\n\\[\nc = \\sqrt{a^{2} + b^{2} - 2 a b \\cos\\varphi}\n\\]"
+  }
+]

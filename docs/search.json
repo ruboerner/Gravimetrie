@@ -1,0 +1,143 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Gravimetrie",
+    "section": "",
+    "text": "Bemerkungen\nDieses GitHub-Repository enthält das Vorlesungsskript zur Vorlesung “Gravimetrie” im Rahmen des Moduls “Gravimetrie und Magnetik” im Wintersemester 2025/26. Das Modul ist für Studierende des Bachelorstudienganges “Geophysik und Geoinformatik” an der TU Bergakademie Freiberg entworfen.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#code",
+    "href": "index.html#code",
+    "title": "Gravimetrie",
+    "section": "Code",
+    "text": "Code\nDas Kursmaterial auf der Website enthält Abschnitte mit eingebettetem Python-Code.\nSie können den Code kopieren und in einer kompatiblen Python- oder Julia-Umgebung ausführen.\nFür optimales Arbeiten und Lernen wird empfohlen, Python über miniforge zu installieren.\nDarüber hinaus haben Sie die Möglichkeit, eigene Konzepte zu erkunden, indem Sie eigene Jupyter-Notebooks erstellen. Dabei können Sie eine der folgenden Plattformen verwenden:\n\nVisual Studio Code\nJupyterLab\nQuarto\nmarimo\n\nDie Arbeit mit Jupyter-Notebooks in Visual Studio Code ist besonders unkompliziert.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#selbststudium",
+    "href": "index.html#selbststudium",
+    "title": "Gravimetrie",
+    "section": "Selbststudium",
+    "text": "Selbststudium\nEs gibt kleine Übungsaufgaben, die über die Vorlesung verteilt sind.\n\n\n\n\n\n\nNoneSelf study\n\n\n\nDiese Aufgaben sind leicht zu erkennen.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#referenzen",
+    "href": "index.html#referenzen",
+    "title": "Gravimetrie",
+    "section": "Referenzen",
+    "text": "Referenzen\nDieses Skript basiert zum großen Teil auf Lehrmaterialien, welche mir freundlicherweise von meinen ehemaligen Kollegen Rolf Käppler und Jana Börner zur Verfügung gestellt wurden.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#lizenz",
+    "href": "index.html#lizenz",
+    "title": "Gravimetrie",
+    "section": "Lizenz",
+    "text": "Lizenz\nDas Material steht unter der Creative Commons Lizenz.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorwort</span>"
+    ]
+  },
+  {
+    "objectID": "grundlagen.html",
+    "href": "grundlagen.html",
+    "title": "2  Geophysikalische Grundlagen",
+    "section": "",
+    "text": "2.1 Gravitationsfeld der Erde\nAusgenutzt wird der Dichteunterschied zwischen Erkundungsobjekt und Nebengestein.\nDichte ist der physikalische Parameter.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Geophysikalische Grundlagen</span>"
+    ]
+  },
+  {
+    "objectID": "grundlagen.html#gravitationsfeld-der-erde",
+    "href": "grundlagen.html#gravitationsfeld-der-erde",
+    "title": "2  Geophysikalische Grundlagen",
+    "section": "",
+    "text": "Natürlich vorhandenes geophysikalisches Feld\nPassives geophysikalisches Messverfahren",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Geophysikalische Grundlagen</span>"
+    ]
+  },
+  {
+    "objectID": "grundlagen.html#physikalische-grundlagen",
+    "href": "grundlagen.html#physikalische-grundlagen",
+    "title": "2  Geophysikalische Grundlagen",
+    "section": "2.2 Physikalische Grundlagen",
+    "text": "2.2 Physikalische Grundlagen\nGravitation ist eine fundamentale physikalische Eigenschaft von Masse\n\n\n2.2.1 Newtonsches Gravitationsgesetz\nBeschreibung der physikalischen Wechselwirkung zwischen Massen\n\n\nBetrag der Gravitationskraft: \\[\n|\\mathbf{F}| = f \\frac{m_{E}\\, m}{|\\mathbf{r}|^{2}}\n\\]\n\n\n\n\nGravitationskonstante \\(f = (6.6742 \\pm 0.0018) \\times 10^{-11} \\mathrm{~m^3 \\cdot kg^{-1} \\cdot s^{-2}}\\)\nDie auf beide Massen wirkende Kräfte haben denselben Betrag und zeigen jeweils auf den anderen Massepunkt.\n\nMit \\(\\mathbf{r}_{21} = \\mathbf{r}_{2} - \\mathbf{r}_{1}\\) ist \\[\n\\mathbf{F}_{21} = -f \\frac{m_{E}\\, m}{|\\mathbf{r}_{21}|^3} {\\mathbf{r}}_{21}\n\\]\nDie Kraft \\(\\mathbf{F}_{21}\\) weist von der Masse \\(m\\) zur Masse \\(m_{E}\\).\nEs folgt aus dem Zweiten Newtonschen Gesetz:\n\\[\n\\mathbf{F} = m \\mathbf{g},\n\\]\nalso ist\n\\[\n\\mathbf{g} = -f \\frac{m_{E}}{|\\mathbf{r}_{21}|^3} {\\mathbf{r}}_{21}.\n\\]\nDas ist die baryzentrische Gravitationsbeschleunigung.\nMit \\(\\mathbf{r} = \\mathbf{r}_{21}\\) und \\(\\hat{\\mathbf{r}} = \\mathbf{r}/|\\mathbf{r}|\\) erhalten wir\n\\[\n\\mathbf{g} = - f \\frac{m_{E}}{|\\mathbf{r}|^2} \\hat{\\mathbf{r}}\n\\]\nDie Richtung der Beschleunigung weist von \\(m\\) nach \\(m_{E}\\).\nDie in der angewandten Gravimetrie übliche Einheit der Gravitationsbeschleunigung ist das Gal.\n1 Gal = \\(10^{-2}\\, \\mathrm{m} \\cdot \\mathrm{s}^{-2}\\)\n1 mGal = \\(10^{-5}\\, \\mathrm{m} \\cdot \\mathrm{s}^{-2} = 10\\, \\mu\\mathrm{m} \\cdot \\mathrm{s}^{-2}\\)\nDas Gravitationsfeld ist konservativ.\nVerschiebungsarbeit \\[\nU_{12} = - \\int_{P_{1}}^{P_{2}} \\mathbf{F}\\cdot \\, \\dd {\\mathbf{r}}  = - m \\int_{P_{1}}^{P_{2}}  \\mathbf{g} \\cdot \\, \\dd {\\mathbf{r}}\n\\] \\[\n\\oint_{C} \\mathbf{g} \\cdot \\,\\dd{\\mathbf{r}} = 0\n\\] woraus folgt \\[\n\\oint_{C} \\mathbf{g} \\cdot \\,\\dd{\\mathbf{r}} =\n\\int _{A_{C}} (\\curl \\mathbf{g}) \\cdot \\,\\dd{\\mathbf{A}} = 0\n\\] und \\[\n\\curl \\mathbf{g} = \\mathbf{0}.\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Geophysikalische Grundlagen</span>"
+    ]
+  },
+  {
+    "objectID": "slidedecks.html",
+    "href": "slidedecks.html",
+    "title": "3  Slide decks",
+    "section": "",
+    "text": "Here are the slide decks:\n\n👉 Grundlagen",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Slide decks</span>"
+    ]
+  },
+  {
+    "objectID": "grundlagen_slides.html#gravitationsfeld-der-erde",
+    "href": "grundlagen_slides.html#gravitationsfeld-der-erde",
+    "title": "Geophysikalische Grundlagen",
+    "section": "Gravitationsfeld der Erde",
+    "text": "Gravitationsfeld der Erde\n\nNatürlich vorhandenes geophysikalisches Feld\nPassives geophysikalisches Messverfahren\n\nAusgenutzt wird der Dichteunterschied zwischen Erkundungsobjekt und Nebengestein.\nDichte ist der physikalische Parameter."
+  },
+  {
+    "objectID": "grundlagen_slides.html#physikalische-grundlagen",
+    "href": "grundlagen_slides.html#physikalische-grundlagen",
+    "title": "Geophysikalische Grundlagen",
+    "section": "Physikalische Grundlagen",
+    "text": "Physikalische Grundlagen\nGravitation ist eine fundamentale physikalische Eigenschaft von Masse"
+  },
+  {
+    "objectID": "grundlagen.html#newtonsches-gravitationsgesetz",
+    "href": "grundlagen.html#newtonsches-gravitationsgesetz",
+    "title": "2  Geophysikalische Grundlagen",
+    "section": "2.3 Newtonsches Gravitationsgesetz",
+    "text": "2.3 Newtonsches Gravitationsgesetz\nBeschreibung der physikalischen Wechselwirkung zwischen Massen\n\n\nGravitationskraft: \\[\n|\\mathbf{F}| = f \\frac{m_{E}\\, m}{|\\mathbf{r}|^{2}}\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Geophysikalische Grundlagen</span>"
+    ]
+  },
+  {
+    "objectID": "grundlagen_slides.html#section",
+    "href": "grundlagen_slides.html#section",
+    "title": "Geophysikalische Grundlagen",
+    "section": "",
+    "text": "Newtonsches Gravitationsgesetz\nBeschreibung der physikalischen Wechselwirkung zwischen Massen\n\n\nGravitationskraft: \\[\n|\\mathbf{F}| = f \\frac{m_{E}\\, m}{|\\mathbf{r}|^{2}}\n\\]"
+  },
+  {
+    "objectID": "grundlagen.html#gravitationspotential",
+    "href": "grundlagen.html#gravitationspotential",
+    "title": "2  Geophysikalische Grundlagen",
+    "section": "2.3 Gravitationspotential",
+    "text": "2.3 Gravitationspotential\n\\[\n\\mathbf{g} = -\\grad V\n\\]\nDarstellung der Gravitationskraft und der Schwerebeschleunigung für eine kugelförmige, homogene Erde durch Feldlinien:\n\nFeldlinien verlaufen radial zum Massenzentrum\nDichte der Feldlinien ist proportional zu \\(|\\mathbf{F}|\\) und \\(|\\mathbf{g}|\\)\nÄquipotentialflächen: Flächen mit konstantem Schwerepotential stehen senkrecht auf den Fedlinien\nNiveauflächen sind Kugelflächen",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Geophysikalische Grundlagen</span>"
+    ]
+  },
+  {
+    "objectID": "grundlagen.html#gravitationsbeschleunigung-der-erde",
+    "href": "grundlagen.html#gravitationsbeschleunigung-der-erde",
+    "title": "2  Geophysikalische Grundlagen",
+    "section": "2.4 Gravitationsbeschleunigung der Erde",
+    "text": "2.4 Gravitationsbeschleunigung der Erde\nBegriffe: Erdschwerebeschleunigung, Schwere\nModellvorstellung: Homogenes Rotationsellipsoid der Gesamtmasse \\(m_{E}\\) steht unter dem Einfluss der Anziehung durch weitere kosmische Massen (Sonne, Mond).\nDie Gravitationsbeschleunigung \\(\\mathbf{g}\\) setzt sich zusammen aus drei Beiträgen:\n\\(\\mathbf{g} = \\mathbf{a}_{E} + \\mathbf{a}_{Z} + \\mathbf{a}_{G}\\)\nAnziehungsterm: Gravitationsfeld \\(\\mathbf{a}_{E}\\)\nZentrifugalterm: Zentrifugalbeschleunigung \\(\\mathbf{a}_{Z}\\)\nGezeitenterm: Gezeitenbeschleunigung \\(\\mathbf{a}_{G}\\)\n\n\n2.4.1 Anziehungsterm\nBetrag: \\[\na_{E} = f \\frac{m_{E}}{R_{E}^2(\\varphi)}\n\\]\nmit\n\\(m_{E}\\): Masse der Erde, \\(m_{E} = 5.972 \\times 10^{24}\\,\\mathrm{kg}\\)\n\\(R_{E}(\\varphi)\\): breitenabhängiger Erdradius\nMathematische Beschreibung des Ellipsoids: Erdellipsoid\n\n\n\n\n\n\n\n\nParameter\nSymbol\nWert\n\n\n\n\nGroße Halbachse\n\\(a\\)\n\\(6378.137\\) km\n\n\nKleine Halbachse\n\\(c\\)\n\\(6356.7523142\\) km\n\n\nAbplattung \\((a-c)/a\\)\n\\(f\\)\n\\(1/298.257223563\\)\n\n\nExzentrizität\n\\(e\\)\n\\(6.69437999014 \\times 10^{-3}\\)\n\n\nGeozentrische Gravitationskonstante\n\\(GM\\)\n\\(3,986004418 \\times 10^{14} \\, m^3 \\cdot s^{-2}\\)\n\n\nWinkelgeschwindigkeit\n\\(\\omega\\)\n\\(72.92115 \\times 10^{-6}\\,\\mathrm{rad/s}\\)\n\n\n\n\n\n2.4.2 Zentrifugalterm\nErdrotation:\n\\[\n|\\mathbf{a}_{Z}| = \\omega_{E}^2 r(\\varphi) = \\omega_{E}^2 R_{E} \\cos\\varphi\n\\]\n\n\n2.4.3 Beispielrechnungen\n\nimport numpy as np\na = 6378.137e3\nc = 6356.7523142e3\nRE = (a*a*c)**(1/3)\nmE = 5.972168e24\nf = 6.6743e-11\nfmE = f * mE\nomega = 72.92115e-6\nazE = omega**2 * RE\ngE = fmE / RE**2 + azE\ngP = fmE / c**2\nprint(f\".     f*mE = {fmE:.3e} m^3/s^2\")\nprint(f\"Äquator: g = {gE:.3f} m/s^2\")\nprint(f\"Pol:     g = {gP:.3f} m/s^2\")\nprint(f\".       az = {azE:.3f} m/s^2\")\n\n.     f*mE = 3.986e+14 m^3/s^2\nÄquator: g = 9.854 m/s^2\nPol:     g = 9.864 m/s^2\n.       az = 0.034 m/s^2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Geophysikalische Grundlagen</span>"
+    ]
+  }
+]

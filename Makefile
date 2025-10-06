@@ -1,7 +1,7 @@
 SHELL := /usr/bin/env bash
 Q      ?= quarto
 DOCS   ?= docs
-CHAPTERS = methods.qmd history.qmd
+CHAPTERS = grundlagen.qmd methods.qmd history.qmd
 SLIDE_HTMLS = $(patsubst %.qmd,$(DOCS)/%_slides.html,$(CHAPTERS))
 
 .PHONY: all book slides clean
