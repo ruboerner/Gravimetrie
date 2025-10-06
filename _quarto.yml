@@ -2,13 +2,24 @@ project:
   type: book
   output-dir: docs
 
+lang: "de"
+
 profile:
   default: book
   group:
     - [book, slides]
 
+language:
+  toc-title: "Inhalt"
+  chapter: "Kapitel"
+  appendix: "Anhang"
+  references: "Literatur"
+  next: "Weiter"
+  previous: "Zurück"
+
 book:
-  title: "My Book"
+  title: "Gravimetrie"
+  subtitle: "Modul Gravimetrie und Magnetik"
   author: "Ralph-Uwe Börner"
   chapters:
     - index.qmd

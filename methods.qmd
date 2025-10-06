@@ -3,6 +3,9 @@ title: "Methods"
 format:
   revealjs:
     output-file: methods_slides.html
+jupyter:
+  kernel: python3
+  widgets: true
 editor: source
 ---
 

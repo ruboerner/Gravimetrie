@@ -1,1 +1,9 @@
 .quarto/
+
+/.quarto/
+
+/.ipynb_checkpoints/
+
+**/*.quarto_ipynb
+
+Untitled.ipynb
