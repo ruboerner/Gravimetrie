@@ -32,6 +32,7 @@ format:
     theme: cosmo
     number-sections: true
     lib-dir: site_libs
+    code-fold: true
     include-in-header:
       - text: |
           <script>

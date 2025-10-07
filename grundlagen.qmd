@@ -138,13 +138,13 @@ Zentrifugalterm: Zentrifugalbeschleunigung $\mathbf{a}_{Z}$
 
 Gezeitenterm: Gezeitenbeschleunigung $\mathbf{a}_{G}$
 
-![](images/Modell_Rotationsellipsoid_g.excalidraw.svg)
+![Die Erde als rotierendes System](images/Modell_Rotationsellipsoid_g.excalidraw.svg){width="60%"}
 
 ### Anziehungsterm
 
 Betrag:
 $$
-a_{E} = f \frac{m_{E}}{R_{E}^2(\varphi)} 
+a_{E}(\varphi) = f \frac{m_{E}}{R_{E}^2(\varphi)} 
 $$
 
 mit 
@@ -169,26 +169,359 @@ Mathematische Beschreibung des Ellipsoids: __Erdellipsoid__
 Erdrotation:
 
 $$
-|\mathbf{a}_{Z}| = \omega_{E}^2 r(\varphi) = \omega_{E}^2 R_{E} \cos\varphi
+|\mathbf{a}_{Z}(\varphi)| = \omega_{E}^2 r(\varphi) = \omega_{E}^2 R_{E} \cos\varphi
 $$
 
 ### Beispielrechnungen
 
+Berechnung der Normalschwere $\gamma$ eines Ellipsoids aus
+$$
+\begin{align}
+\mathbf{g} & = -\grad W = -\grad ( V + \Phi_{Z} ) \\
+\gamma(\varphi) & = \mathbf{g}(\varphi) \cdot \hat{\mathbf{r}}
+\end{align}
+$$
+
+mittels der _Somigliana-Gleichung_ für die geographische Breite $\varphi$
+$$
+\gamma(\varphi) = \gamma_{E}\,\frac{1 + k^2 \sin^2\varphi}{\sqrt{1 - e^2 \sin^2\varphi}}
+$$
+
+$$
+\begin{align}
+e^2 & = 2f - f^2 \\
+k & = \frac{b\,\gamma_p - a\,\gamma_e}{a\,\gamma_e} \\
+b & = a(1-f)
+\end{align}
+$$
+
+Mit den Daten aus WGS-84:
+
+$$
+\begin{align}
+a &= 6\,378\,137\ \text{m} \\
+f &= \frac{1}{298.257223563} \\
+\gamma_e &= 9.780\,325\,3359\ \text{m s}^{-2} \\
+\gamma_p &= 9.832\,184\,9378\ \text{m s}^{-2}.
+\end{align}
+$$
+
+
 ```{python}
 import numpy as np
 a = 6378.137e3
-c = 6356.7523142e3
-RE = (a*a*c)**(1/3)
-mE = 5.972168e24
-f = 6.6743e-11
-fmE = f * mE
+f = 1 / 298.257223563
+gamma_E = 9.7803253359
+gamma_P = 9.8321849378
 omega = 72.92115e-6
-azE = omega**2 * RE
-gE = fmE / RE**2 + azE
-gP = fmE / c**2
-print(f".     f*mE = {fmE:.3e} m^3/s^2")
-print(f"Äquator: g = {gE:.3f} m/s^2")
-print(f"Pol:     g = {gP:.3f} m/s^2")
-print(f".       az = {azE:.3f} m/s^2")
+e2 = 2 * f - f * f
+b = a * (1 - f)
+k = (b * gamma_P - a * gamma_E) / a / gamma_E
+
+gamma = lambda phi: gamma_E * (1 + k * np.sin(phi)**2) / np.sqrt(1 - e2 * np.sin(phi)**2)
+
+aE = omega**2 * a
+
+print(f"gamma(0)      = {gamma(np.deg2rad(0.0)):.4f} m/s**2")
+print(f"gamma(45)     = {gamma(np.deg2rad(45.0)):.4f} m/s**2")
+print(f"gamma(0) + az = {aE + gamma(np.deg2rad(0.0)):.4f} m/s**2")
+print(f"az            = {aE:.4f} m/s**2")
+
+print(f"gamma(0)/az   = {gamma(np.deg2rad(0.0))/aE:.4f}")
 ```
+
+
+Die Gravitationsbeschleunigung übertrifft die Zentrifugalbeschleunigung am Äquator um das 288-fache.
+
+## Gezeitenterm
+
+$$
+\mathbf{a}_{G} = f(\theta, \varphi, t) \le 3\ \mu \mathrm{m}\cdot \mathrm{s}^{-2} 
+$$
+
+Beschleunigung erfolgt durch kosmische Massen (Mond, Sonne).
+
+Die Gezeitenwirkung wird durch 
+
+- die Gangbestimmung am Basispunkt 
+- Vorausberechnung im Gravimeter ($\theta, \varphi$ bekannt)
+
+erfasst.
+
+Gezeitenkonzept: 
+
+- Revolution ohne Rotation
+- auf jedem Punkt in der Rotationsebene um den baryzentrischen Mittelpunkt wirkt konstante Zentrifugalbeschleunigung
+- entfernungsabhängige Beschleuigung durch kosmische Masse überlagert sich der Zentrifugalbeschleunigung vektoriell
+- es entstehen zwei Flutberge
+
+::: {.columns}
+::: {.column}
+![](images/revolution_earth_barycenter.gif)
+:::
+::: {.column}
+![](images/tiden.gif)
+:::
+:::
+
+## Das Schwerepotential und seine Ableitungen
+
+Das Vektorfeld $\mathbf{g}$ wird als Gradient eines Skalarpotentials $W$ 
+$$
+\mathbf{g} = -\grad W
+$$
+
+dargestellt.
+
+Bedeutung: Arbeit $A$, die verrichtet wird, um eine Einheitsmasse mit $\overline{m} =1$ vom feldfreien (unendlich weit entfernten) Punkt entgegen dem Schwerefeld zum Aufpunkt $P$ zu bewegen.
+
+$$
+W = \frac{A}{\overline{m}}, \qquad [W] = \mathrm{N \cdot m \cdot kg^{-1}} = \mathrm{m^2 \cdot s^{-2}}
+$$
+
+![](images/Potential_W_und_g.excalidraw.svg)
+
+Raumpunkte it gleichem Potentialwert liegen auf Äquipotentialflächen (Niveauflächen ($W_{1},W_{2},W_{3}$). 
+
+Der Schwerevektor $\mathbf{g}$ steht senkrecht auf den Äquipotentialflächen.
+
+Der Potentialgradient $\grad W$ zeigt in Richtung des stärksten Potentialanstiegs, $\mathbf{g}$ zeigt in Richtung des stärksten Potentialgefälles.
+
+Die Schwerebeschleunigung kann auf einer Äquipotentialfläche unterschiedliche Werte besitzen ($\mathbf{g}_{1} > \mathbf{g}_{2}$).
+
+Die Äquipotentialfläche, die mit der ruhenden (mittleren, gezeitenfreien) Meeresoberfläche zusammenfällt, heißt __Geoid__.
+
+Das Geoid
+
+- ist eine ausgewählte Äquipotentialfläche des Schwerepotentials mit $W_{0}=\mathrm{const}$ 
+- fällt mit ruhender (mittlerer gezeitenfreier) Meeresoberfläche zusammen
+- setzt sich im Bereich unter den Kontinenten durch gedachte Kanäle fort
+- Geoid ist gleichermaßen Ort und physikalische Größe mit $W_{0} \approx 62.2 \times 10^{6} \, \frac{\mathrm{m}^{2}}{\mathrm{s}^{2}}$, festgelegt durch International Association of Geodesy (IAG), 2015.
+
+Darstellung als lokale Abweichung vom Erdellipsoid in Einheit von Metern (_Geoidhöhen_ oder _Geoidundulationen_).
+
+![](images/Geoidundulation.excalidraw.svg)
+
+### Mathematische Beschreibug
+
+Entwicklung nach Kugelflächenfunktionen
+$$
+\begin{align}
+N(r, \theta, \lambda) & = \frac{f m_{E}}{r \, \pmb\gamma_{0}(r, \theta)} \\
+ & = \sum_{n=0}^{\infty} \left( \frac{a}{r} \right)^{n} \sum_{m=0}^{n} P_{nm}(\cos \theta)\left( C_{nm} \cos m\lambda + S_{nm} \sin m \lambda\right) 
+\end{align}
+$$
+mit 
+
+- $C_{nm}, S_{nm}$ - Stokessche Koeffizienten
+- $P_{nm}(\cos \theta)$ - zugeordnete Legendrepolynome
+- $n$ - Grad
+- $m$ - Ordnung der harmonischen Koeffizienten.
+
+Koeffizienten mit endlichem Grad $n$ werden aus Schweremessungen, geodätischen Messungen und Bahnstörungen von Satelliten bestimmt. 
+
+
+
+### Herleitung Schwerepotential im rotierenden System
+
+![](images/R0_R1_RP.excalidraw.svg)
+
+In einem raumfesten Koordinatensystem mit dem Nullpunkt $0$ gilt für den Ortsvektor zu $P$
+$$
+\mathbf{R}_{P} = \mathbf{R}_{0} + \mathbf{R}_{1}
+$$
+Als Schwerevektor bezeichnet man die Differenz 
+$$
+\mathbf{g} = -\grad V(P) - \ddot{\mathbf{R}}_{P}
+$$
+Es gilt
+$$
+\begin{align}
+\dot{\mathbf{R}}_{P} & = \dot{\mathbf{R}}_{0} + \dot{\mathbf{R}}_{1} = \dot{\mathbf{R}}_{0} + \pmb\omega_{E}\times {\mathbf{R}}_{1} \\
+\ddot{\mathbf{R}}_{P} & = \ddot{\mathbf{R}}_{0} + \pmb\omega_{E}\times\pmb\omega_{E}\times {\mathbf{R}}_{1}
+\end{align}
+$$
+wobei $\dot{\pmb\omega}_{E}$ vernachlässigt wurde. Der Schwerevektor beträgt nun
+$$
+\mathbf{g} = \mathbf{a}_{E} - \ddot{\mathbf{R}}_{0} + (\pmb\omega_{E}\times {\mathbf{R}}_{1}) \times \pmb\omega_{E}
+$$
+Der erste Term ist die reine Gravitationsbeschleunigung der Erde, der letzte die Zentrifugalbeschleunigung infolge der Erdrotation. Der mittlere Term stellt den zeitlich veränderlichen Gezeitenanteil des Schwerefeldes dar.
+
+Für die Zentrifugalbeschleunigung $\mathbf{a}_{Z}$ gilt
+$$
+\mathbf{a}_{Z} = (\pmb\omega_{E}\times {\mathbf{R}}_{1}) \times \pmb\omega_{E} = \omega_{E}^{2} \mathbf{R}_{1}
+-(\pmb\omega_{E} \cdot \mathbf{R}_{1})\pmb\omega_{E} = \omega_{E}^{2}\mathbf{R}_{\perp}
+$$
+$\mathbf{R}_{\perp}$ ist die zur Rotationsachse rechtwinklige Komponente des Vektors $\mathbf{R}_{1}$.
+Wegen 
+$$
+\mathbf{R}_{\perp} = \frac{1}{2} \grad R_{\perp}^{2}
+$$
+ist auch $\mathbf{a}_{Z}$ ein Gradientfeld mit
+$$
+\begin{align}
+\mathbf{a}_{Z} & = \grad Z \\
+Z & = \frac{1}{2} \omega_{E}^{2}R_{\perp}^{2} = \frac{1}{2}\omega_{E}^{2}\left( x^{2} + y^{2} \right) 
+\end{align}
+$$
+Zusammengefasst ist
+$$
+W = V + Z
+$$
+das Schwerepotential für einen auf der Erde mitrotierenden Punkt, und es gilt
+$$
+\mathbf{g} = -\grad W
+$$
+Das Schwerepotential erfüllt die Differentialgleichung
+$$
+-\Delta W = 4 \pi f \rho - 2\omega_{E}^{2}.
+$$
+Die Flächen $W = \mathrm{const}$ nennt man _Äquipotentialflächen_. Sie sind geschlossen und berühren sich nicht.
+Eine Taylorreihenentwicklung des Potentials $W$ in der Umgebung des Punktes $P(\mathbf{R})$ bis zum ersten Glied ergibt
+$$
+W(\mathbf{R} + \mathrm{d}\mathbf{R}) = W(\mathbf{R}) + \grad W \cdot \mathrm{d}\mathbf{R}
+$$
+Der Potentialunterschied $\mathrm{d}W = \grad W \cdot \mathrm{d}\mathbf{R}$ zweier Punkte im Abstand $\mathrm{d}\mathbf{R}$ verschwindet, wenn $\grad W$ und $\mathrm{d}\mathbf{R}$ einen rechten Winkel bilden. Er ist am größten, wenn sie parallel sind.
+Der Schwerevektor $\mathbf{g} = -\grad W$ steht also senkrecht auf den Flächen $W = \mathrm{const}$. man spricht von Niveauflächen.
+
+## Newtonsches Volumenpotential
+
+Betrachten Erde als Punktmasse $m_{E}$ im Koordinatenursprung. Potential in Punkt $\mathbf{r}$ beträgt für $|\mathbf{r}| > 0$
+$$
+V(\mathbf{r}) = -f \frac{m_{E}}{|\mathbf{r}|}
+$$
+Für ausgedehnte kontinuierliche Massenverteilung: Volumenelement $\mathrm{d}\tau$ in Punkt $\mathbf{r}'$ besitzt Masse $\mathrm{d}m(\mathbf{r}') = \rho(\mathbf{r}')\,\mathrm{d}\tau$ .
+Integration liefert
+$$
+V(\mathbf{r}) = -f \int \frac{\rho(\mathbf{r}')}{| \mathbf{r} - \mathbf{r}'|} \, \dd \tau 
+$$
+### Beispiel Kugel
+Betrachten Kugel im Koordinatenursprung von Radius $a$ mit homogener Dichtebelegung.
+$$
+V(\mathbf{r}) = -f \rho \int \frac{\dd \tau}{|\mathbf{r} - \mathbf{r}' |} 
+$$
+In Kugelkoordinaten ist $\mathrm{d}\tau = r^{2}\,\mathrm{d}r \sin \theta \,\mathrm{d}\theta \,\mathrm{d}\varphi$.
+Liefert für homogene Kugel im Außenraum
+$$
+V(R) = -f \frac{m}{R}
+$$
+wobei $R$ der Abstand zum Kugelmittelpunkt sowie
+$$
+m = 4 \pi \rho \int \limits_{0}^{a}  r^{2} \, \dd r = 4 \pi\rho \frac{a^{3}}{3} 
+$$
+die Masse der Kugel ist.
+Mehr Details liefert die _Potentialtheorie_. Dort behandeln wir das Newtonsche Kugelschalentheorem, woraus woraus wir das Potential innerhalb und außerhalb einer Kugelschale berechnen werden. Dichtemodelle der Form $\rho = \rho(r)$ liefert bei Beachtung des Trägheitsmoments der Erde Einblicke in den Verlauf der Schwere im Erdkörper.
+
+Außerhalb der Erde gilt $|V| \sim \frac{1}{r}$ und $|\mathbf{g}| \sim \frac{1}{r^{2}}$.
+
+## Ableitungen des Potentials
+
+In der Geophysik ist $\mathbf{g}$ die interessante Größe. Wir benötigen also den Gradienten von $V$, d.h. die partiellen Ableitungen von $V$ in Richtung der Koordinatenachsen.
+
+Wir betrachten wieder eine Kugel als einfachsten Störkörper.
+
+![](images/Kugel_Tiefe_t.excalidraw.svg)
+
+Im Punkt $P(x,y,z)$ lautet das Potential
+$$
+V(P) = -\frac{f m}{\sqrt{ x^{2} + y^{2} + (z - t)^{2}}}
+$$
+
+| Größe    | Definition                                                       |
+| -------- | ---------------------------------------------------------------- |
+| $V_{z}$  | $-\grad V \cdot \mathbf{e}_{z} = \mathbf{g}\cdot \mathbf{e}_{z}$ |
+| $V_{zz}$ | $\dfrac{\partial}{\partial {z}}(\mathbf{g}\cdot \mathbf{e}_{z)}$ |
+| $V_{zx}$ | $\dfrac{\partial}{\partial {x}}(\mathbf{g}\cdot \mathbf{e}_{z)}$ |
+
+An der Erdoberfläche ($z=0$) besitzen die Ableitungen folgende Werte:
+$$
+\begin{align}
+V_{z}(x,y,0) & = f m \frac{t}{\left( x^{2} + y^{2} + t^{2}\right)^{3/2} } \\
+V_{zz}(x, y, 0) & = f m \frac{2 t^{2} - x^{2} - y^{2} }{\left( x^{2} + y^{2} + t^{2} \right)^{5/2} } \\
+V_{zx}(x,y,0)  & = -3 f m \frac{t x}{\left( x^{2} + y^{2} + t^{2} \right)^{5/2}}\\
+\end{align}
+$$
+
+__Beispiel:__ Kugelförmiger, luftgefüllter Hohlraum im Festgestein
+
+Messung entlang eines Profils auf der $x$-Achse.
+
+Parameter:
+
+- Kugelmittelpunkt im Punkt $(0, 0, t)$, $t=6$ m
+- Kugelradius $R=2$ m
+- Dichtedifferenz zur Umgebung $\Delta \rho = -2700$ kg/m$^3$
+
+Wir fragen nach $V_{z}$, $V_{zz}$ und $V_{zx}$.
+
+```{python}
+import matplotlib.pyplot as plt
+
+R = 2.0
+t = 6.0
+drho = -2700.0
+f = 6.674e-11
+m = drho * 4/3*np.pi * R**3
+
+Vz = lambda x: 1e5 * f * m * t / (x**2 + t**2)**(3/2)
+Vzx = lambda x: -3e9 * f * m * t * x /  (x**2 + t**2)**(5/2)
+Vzz = lambda x: 1e9 * f * m * (2 * t**2 - x**2) /  (x**2 + t**2)**(5/2)
+
+x = np.arange(start=-20, stop=20.1, step=1.0)
+
+dg = [Vz(v) for v in x]
+dgx = [Vzx(v) for v in x]
+dgz = [Vzz(v) for v in x]
+
+print(f"max(|Vz|) = {np.max(np.abs(dg)):.3f} mGal")
+
+fig, ax = plt.subplots(figsize=(5,2))
+ax.plot(x, dg, c='r', marker='.')
+ax.axhspan(-0.017, -0.01, color='0.95')
+# ax.axvspan(-2, 2, color='g', alpha=0.2)
+ax.axvline(x=-2, lw=1)
+ax.axvline(x=+2, lw=1)
+ax.annotate('Messgenauigkeit 0.01 mGal', size=8, xy=(-14, -0.01), xytext=(-20, -0.016), arrowprops=dict(facecolor='black', shrink=0.05, width=1))
+ax.set_ylabel(r"$V_{z}$ in mGal", color='r')
+ax.set_xlabel("x in m")
+ax.tick_params(axis='y', labelcolor='r')
+ax.grid(alpha=0.3)
+ax2 = ax.twinx()
+ax2.plot(x, dgz, c='b', marker='.')
+ax2.set_ylabel(r"$V_{zz}$ in E", color='b')
+ax2.tick_params(axis='y', labelcolor='b')
+```
+
+```{python}
+fig, ax = plt.subplots(figsize=(5,2))
+ax.plot(x, np.abs(dgx), c='r', marker='.')
+ax.axvline(x=-2, lw=1)
+ax.axvline(x=+2, lw=1)
+ax.set_xlabel("x in m")
+ax.set_ylabel(r"|$V_{zx}$| in E")
+ax.grid(alpha=0.3)
+```
+
+## Der Gravitationstensor $V_{ik}$
+
+Die 2. Ableitungen des Volumenpotentials in die kartesischen Richtungen werden in der Einheit __E__ (Eötvös) angegeben.
+
+$$
+[V_{ik}] = \mathrm{E} = 10^{-9}\ \mathrm{s^{-2}} = 0.1\ \mathrm{\frac{mGal}{km}}
+$$
+
+
+$$
+V_{ik} = 
+\begin{pmatrix}
+    V_{xx} & V_{xy} & V_{xz} \\
+    V_{yx} & V_{yy} & V_{yz} \\
+    V_{zx} & V_{zy} & V_{zz}
+\end{pmatrix}
+$$
+
+$V_{ik}$ ist symmetrisch, die Spur ist
+$$
+\mathrm{tr}(V_{ik}) = V_{x x} + V_{yy} + V_{zz} = \Delta V = 0
+$$
 
