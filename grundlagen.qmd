@@ -281,7 +281,7 @@ $$
 
 ![](images/Potential_W_und_g.excalidraw.svg)
 
-Raumpunkte it gleichem Potentialwert liegen auf Äquipotentialflächen (Niveauflächen ($W_{1},W_{2},W_{3}$). 
+Raumpunkte mit gleichem Potentialwert liegen auf Äquipotentialflächen (Niveauflächen ($W_{1},W_{2},W_{3}$). 
 
 Der Schwerevektor $\mathbf{g}$ steht senkrecht auf den Äquipotentialflächen.
 
