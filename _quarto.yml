@@ -25,6 +25,7 @@ book:
   chapters:
     - index.qmd
     - grundlagen.qmd
+    - gravimeter.qmd
 #    - slidedecks.qmd
 
 format: 
