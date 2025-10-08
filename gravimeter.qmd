@@ -76,7 +76,7 @@ $$
 
 #### Schwingungszeitmessungen
 
-Messung der Schwingzeit $T$ eines Halbsekundenpendels von maximaler Auslenkung in die Ruhelage
+Messung der Schwingzeit $T$ eines Halbsekundenpendels von maximaler Auslenkung in die Ruhelage (daher fehlt Faktor $2$):
 
 $$
 \begin{align}

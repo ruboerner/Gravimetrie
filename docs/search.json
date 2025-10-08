@@ -150,6 +150,66 @@
     ]
   },
   {
+    "objectID": "gravimeter.html",
+    "href": "gravimeter.html",
+    "title": "3  Messgrößen und Messgeräte",
+    "section": "",
+    "text": "3.1 Messgrößen",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
+    ]
+  },
+  {
+    "objectID": "gravimeter.html#messgrößen",
+    "href": "gravimeter.html#messgrößen",
+    "title": "3  Messgrößen und Messgeräte",
+    "section": "",
+    "text": "Absolute Schwerebeschleunigung \\(\\mathbf{g}\\)\nRelative Unterschiede \\(\\Delta g\\): vorherrschende Messgröße\nVertikalgradient\nHorizontalgradient: selten gemessen\n\n\n3.1.1 Absolute Schwerebeschleunigung \\(g_{abs}\\)\n\nFundamentale Bezugsgröße\nliefert Punkte für Internationales Schwerestandardnetz WGS sowie Landesnetze\nLange Messzeiten erforderlich\n\n\n\n\n\n\n\nHinweisBeispiel\n\n\n\nBestimmung von \\({g}_{abs}\\) in Freiberg\nStandort: Betonblock Gravimetrielabor\n\\[\n\\begin{align}\ng_{abs} & = 981043.767\\ \\text{mGal} \\\\\nh & = 395.183\\ \\text{m} \\\\\n\\varphi & = 50 \\textdegree \\,55' \\,30.3''\\ \\text{N} \\\\\n\\theta & = 13 \\textdegree \\,19' \\,48.1''\\ \\text{E}\n\\end{align}\n\\]\nVergleich Potsdam: \\(g_{abs} = 981260\\ \\text{mGal}\\), Differenz von \\(116\\ \\text{mGal}\\) durch andere Lage und Höhe verursacht\n\n\n\n3.1.1.1 Fallzeitmessungen\nMessung der Fallzeit \\(t\\) mittels Fall- und Wurfgeräten (Galiei, 1590)\n\\[\n\\begin{align}\nt & = \\sqrt{\\frac{2 h}{g}} \\\\\ng & = \\frac{2 h}{t^2}\n\\end{align}\n\\]\nZur Bestimmung von \\(g\\) ist die simultane Erfassung von zwei Messgrößen (\\(h, t\\)) mit hoher Genauigkeit erforderlich.\nFehlerfortpflanzung:\n\\[\n\\Delta t = \\Bigg| \\frac{ \\partial g }{ \\partial t } \\Bigg|^{-1} \\Delta g =\n\\frac{t}{2 g} \\Delta g\n\\]\n\\[\n\\Delta h = \\Bigg| \\frac{ \\partial g }{ \\partial h } \\Bigg|^{-1} \\Delta g =\n\\frac{t^2}{2} \\Delta g\n\\]\nMit \\(g=981\\) Gal, \\(h=10\\) m und \\(t=1.43\\) s schätzen wir bei einer Genauigkeitsforderung von 1 mGal ab:\n\\[\n\\begin{align}\n\\Delta t & = \\frac{1.43\\ \\text{s}}{2 \\cdot 981 \\cdot 10^{3}\\ \\text{mGal}} \\, 1\\ \\text{mGal} & = 0.73\\ \\mu\\text{s} \\\\\n\\Delta h & = \\frac{1.43^2\\ \\text{s}^2}{2}\\, 10^{-5} \\frac{\\text{m}}{\\text{s}^2} & = 10\\ \\mu \\text{m}\n\\end{align}\n\\]\n\n\n3.1.1.2 Schwingungszeitmessungen\nMessung der Schwingzeit \\(T\\) eines Halbsekundenpendels von maximaler Auslenkung in die Ruhelage (daher fehlt Faktor \\(2\\)):\n\\[\n\\begin{align}\nT & =  \\pi \\sqrt{\\frac{\\ell}{g}} \\\\\ng & = \\frac{ \\pi^2 \\ell}{T^2}\n\\end{align}\n\\]\nGenauigkeitsforderung 1 mGal, \\(T=0.5\\) s, \\(\\ell=1\\) m.\nFehlerfortpflanzung:\n\\[\n\\begin{align}\n\\Delta T & = \\Bigg| \\frac{ \\partial g }{ \\partial T } \\Bigg|^{-1} \\Delta g =\n\\frac{T}{2 g} \\Delta g \\\\\n\\Delta \\ell & = \\Bigg| \\frac{ \\partial g }{ \\partial \\ell } \\Bigg|^{-1} \\Delta g =\n\\frac{T^2}{\\pi^2} \\Delta g\n\\end{align}\n\\]\n\\[\n\\begin{align}\n\\Delta T & = \\frac{0.5\\ \\text{s}}{2 \\cdot 981 \\cdot 10^{3}\\ \\text{mGal}} \\, 1\\ \\text{mGal} & = 0.25\\ \\mu\\text{s} \\\\\n\\Delta \\ell & = \\frac{0.5^2\\ \\text{s}^2}{\\pi^2}\\, 10^{-5} \\frac{\\text{m}}{\\text{s}^2} & = 0.25\\ \\mu \\text{m}\n\\end{align}\n\\]\n\n\n\n3.1.2 Relative Schwerebeschleunigung \\(\\Delta g\\)\nMessung von Schweredifferenzen \\(\\Delta g\\) gegen einen Bezugspunkt mit bekanntem \\(g\\)\noder\nwillkürliche Zuordnung eines Wertes für einen ausgewählten Basispunkt im Messgebiert mit \\(g=0\\).\nEs tritt nur eine Messgröße auf: Längenänderung \\(\\Delta \\ell\\) einer Feder\nVorteile:\n\nKurze Messzeiten\nLeichte Bedienbarkeit, gerige Abmessungen\nHohe Genauigkeit\nUniverseller Einsatz",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
+    ]
+  },
+  {
+    "objectID": "gravimeter.html#messgeräte-zur-bestimmung-von-delta-g",
+    "href": "gravimeter.html#messgeräte-zur-bestimmung-von-delta-g",
+    "title": "3  Messgrößen und Messgeräte",
+    "section": "3.2 Messgeräte zur Bestimmung von \\(\\Delta g\\)",
+    "text": "3.2 Messgeräte zur Bestimmung von \\(\\Delta g\\)\nGravimeter unterscheiden wir nach dem physikalischen Messprinzip in\n\nStatische Gravimeter: Feder-Masse-System\nDynamische Gravimeter: Saitengravimeter\nSupraleitfähigkeitsgravimeter",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
+    ]
+  },
+  {
+    "objectID": "gravimeter.html#statische-gravimeter",
+    "href": "gravimeter.html#statische-gravimeter",
+    "title": "3  Messgrößen und Messgeräte",
+    "section": "3.3 Statische Gravimeter",
+    "text": "3.3 Statische Gravimeter\n\nLineare Systeme: Autograv CG-5 (Scintrex, Kanada)\nNichtlineare astasierte Systeme: Sodin, Worden, Sharpre, LaCoste-Romberg\n\nBauarten:\n\nVertikal-Schraubenfederwaage: Autograv CG-5\nHorizontal-Torsionsfederwaage: Sodin\n\n\n3.3.1 Vertikal-Schraubenfederwaage\n\n\nGleichgewichtsbedingung:\n\\[\n\\begin{align}\nF_{SF} & = F_{g} \\\\\nm g & = k \\ell\n\\end{align}\n\\]\nLinearität: Kleine Änderung von \\(g\\) führt zu kleiner Änderung von \\(\\ell\\):\n\\[\n\\Delta g = \\frac{k}{m} \\Delta \\ell\n\\]\n\n\n\n\nGenauigkeitsforderung: Federlänge \\(\\ell=0.1\\) m, Messgenauigkeit \\(\\Delta g = 0.01\\) mGal.\n\\[\n\\Delta \\ell = \\Bigg| \\frac{ \\partial g }{ \\partial \\ell } \\Bigg|^{-1} \\Delta g = \\frac{\\ell}{g} \\Delta g\n\\]\n\\[\n\\Delta \\ell = \\frac{0.1\\ \\text{m}}{981 \\cdot 10^3\\ \\text{mGal}} \\, 10^{-2}\\ \\text{mGal} \\approx 10^{-9}\\ \\text{m}\n\\]\n\n\n3.3.2 Horizontal-Torsionsfederwaage\n\n\n1–Torsionsfeder mit Torsionskonstante \\(\\tau\\), 2–Waagebalken, 3–Messfeder mit Federkonstante \\(k\\), 4–Messspindel, 5–Messskala, DP–Drehpunkt\nm–Probemasse, \\(l\\)–Länge der Messfeder, \\(b\\)–Abstand DP-Messfeder, \\(\\varphi\\)–Auslenkung Waagebalken, \\(\\epsilon\\)–Vorspannwinkel der Torsionsfeder\n\n\n\n\nSchwereänderung \\(\\Delta g\\):\n\nHauptfeder wird auf Torsion beansprucht\nWinkeländerung \\(\\Delta \\varphi\\) wird durch Messfeder kompensiert\nWaagebalken wird über Messspindel in die ursprüngliche Lage \\(\\varphi=0\\) zurückgeführt\n\nGleichgwichtsbedingung (Drehmomentengleichung) für \\(\\varphi=0\\):\n\\[\nm g a = \\tau \\epsilon + b k \\ell\n\\]\nBenötigt werdem zwei Messpunkte: \\(g_{1}(x_{1})\\) und \\(g_{2}(x_{2})\\)\n\\[\nm g_{1} a = \\tau \\epsilon + b k \\ell_{1} \\qquad\nm g_{2} a = \\tau \\epsilon + b k \\ell_{2}\n\\]\nDifferenz:\n\\[\ng_{2} - g_{1} = \\Delta g = \\frac{k b}{m a}(\\ell_{2} - \\ell_{1})\n\\]\nFederhub \\((\\ell_{2}-\\ell_{1})\\) wird an der Messspindel in Zählereinheiten \\(\\Delta \\text{ZE}\\) abgelesen.\nDer Skalenwert \\[\nS = \\frac{k b}{m a}\n\\]\nenthält geräteinterne Konstanten und wird über eine Kalibrierung des Gravimeters bestimmt.\nDie relative Schwerebeschleunigung \\(\\Delta g\\) wird über die allgemeine Gravimetergleichung \\[\n\\Delta g = \\text{S} \\Delta \\text{ZE}\n\\]\nbestimmt.\nFür das Autograv CG-5 gilt \\(S=1\\), also erfolgt die Anzeige an der Apparatur direkt in mGal.\n\n\n3.3.3 Astasierte nichtlineare Systeme\n\n\nGleichgewichtsbedingung für \\(\\varphi \\ne 0\\): \\[\nm g a \\sin\\varphi = \\tau (\\epsilon+\\varphi) + b k \\ell\n\\]\n\\[\n\\frac{ \\partial g }{ \\partial \\varphi } = \\frac{\\tau}{m a} \\frac{\\sin\\varphi - (\\epsilon + \\varphi)\\cos\\varphi}{\\sin^2\\varphi}\n\\]\nkeine Linearität zwischen \\(\\partial g\\) und \\(\\partial \\varphi\\).\n\n\n\n\nHöhere Empfindlichkeit bei verringerter Stabilität des Messystems, labile Gleichgewichtslage, lange Schwingzeit.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
+    ]
+  },
+  {
+    "objectID": "gravimeter.html#das-gravimeter-autograv-cg-5",
+    "href": "gravimeter.html#das-gravimeter-autograv-cg-5",
+    "title": "3  Messgrößen und Messgeräte",
+    "section": "3.4 Das Gravimeter Autograv CG-5",
+    "text": "3.4 Das Gravimeter Autograv CG-5\n\n\n\nselbstregistrierend\nMessbereich 8000 mGal\nEmpfindlichkeit 0.001 mGal\nMesswertanzeige 4615.312 mGal\nelektronische Neigungsmessung (Genauigkeit in Bogensekunden)\ngeringe Drift\n\n\n\n\n\n(Scintrex Ltd.)\n\n\n\n\nMessprinzip: Lineares System, keine Astasierung\n\nEine elektrostatische Rückstellkraft hält die Testmasse in ihrer Ruhelage\nEine Kapazitätssonde misst die Position der Testmasse\nEin Feedback-System regelt die Spannung so, dass die Masse in Position bleibt\nDie zur Stabilisierung benötigte Spannung ist direkt proportional zur Änderung von \\(g\\)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
+    ]
+  },
+  {
+    "objectID": "gravimeter.html#fehlereinflüsse",
+    "href": "gravimeter.html#fehlereinflüsse",
+    "title": "3  Messgrößen und Messgeräte",
+    "section": "3.5 Fehlereinflüsse",
+    "text": "3.5 Fehlereinflüsse\nZeitabhängige Fehler bewirken Gang des Gravimeters und erfordern Korrekturen\n\nElastisches Verhalten der Quarzfeder (Hysterese, Langzeitdrift)\nMechanische Störungen (Transport)\nTemperatur- und Luftdruckeffekte\nGezeiten\n\nZeitunabhängige Effekte erfordern Kalibrierung oder Filterung\n\nSkalenwertfehler: Neukalibrierung\nMikroseimische Unruhe: Filter\n\n\n3.5.1 Driftkorrektur\nStatische Gravimeter zeigen lineare Langzeitdrift durch unvermeidbare irreversible Veränderungen des elastischen Verhaltens des Quarzsensor-Systems.\nDaraus resultieren eine begrenzte Lebensdauer des Gravimeters und ggf. kostspielige Serviceleistungen des Geräteherstellers.\nDiese Änderungen erfasst man durch Aufzeichnung von Zeitreihen im Labor.\nDaraus ermittelt man die Driftkorrektur:\n\\[\n\\Delta g_{Dr}(t) = (t - t_{s}) DR\n\\]\nDR–Driftkonstante in mGal/d, \\(t_{s}\\)–Messbeginn, \\(t\\)–Zeitpunkt der Ablesung\nBestimmung von DR aus kontinuierlicher Messung über einen Zeitraum von \\(&gt;24\\) h.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
+    ]
+  },
+  {
     "objectID": "grundlagen_slides.html#gravitationsfeld-der-erde",
     "href": "grundlagen_slides.html#gravitationsfeld-der-erde",
     "title": "Geophysikalische Grundlagen",
@@ -220,73 +280,10 @@
     "text": "Der Gravitationstensor \\(V_{ik}\\)\nDie 2. Ableitungen des Volumenpotentials in die kartesischen Richtungen werden in der Einheit E (Eötvös) angegeben.\n\\[\n[V_{ik}] = \\mathrm{E} = 10^{-9}\\ \\mathrm{s^{-2}} = 0.1\\ \\mathrm{\\frac{mGal}{km}}\n\\]\n\\[\nV_{ik} =\n\\begin{pmatrix}\n    V_{xx} & V_{xy} & V_{xz} \\\\\n    V_{yx} & V_{yy} & V_{yz} \\\\\n    V_{zx} & V_{zy} & V_{zz}\n\\end{pmatrix}\n\\]\n\\(V_{ik}\\) ist symmetrisch, die Spur ist \\[\n\\mathrm{tr}(V_{ik}) = V_{x x} + V_{yy} + V_{zz} = \\Delta V = 0\n\\]"
   },
   {
-    "objectID": "gravimeter.html",
-    "href": "gravimeter.html",
-    "title": "3  Messgrößen und Messgeräte",
-    "section": "",
-    "text": "3.1 Messgrößen",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
-    ]
-  },
-  {
-    "objectID": "gravimeter.html#messgrößen",
-    "href": "gravimeter.html#messgrößen",
-    "title": "3  Messgrößen und Messgeräte",
-    "section": "",
-    "text": "Absolute Schwerebeschleunigung \\(\\mathbf{g}\\)\nRelative Unterschiede \\(\\Delta g\\): vorherrschende Messgröße\nVertikalgradient\nHorizontalgradient: selten gemessen\n\n\n3.1.1 Absolute Schwerebeschleunigung \\(g_{abs}\\)\n\nFundamentale Bezugsgröße\nliefert Punkte für Internationales Schwerestandardnetz WGS sowie Landesnetze\nLange Messzeiten erforderlich\n\n\n\n\n\n\n\nHinweisBeispiel\n\n\n\nBestimmung von \\({g}_{abs}\\) in Freiberg\nStandort: Betonblock Gravimetrielabor\n\\[\n\\begin{align}\ng_{abs} & = 981043.767\\ \\text{mGal} \\\\\nh & = 395.183\\ \\text{m} \\\\\n\\varphi & = 50 \\textdegree \\,55' \\,30.3''\\ \\text{N} \\\\\n\\theta & = 13 \\textdegree \\,19' \\,48.1''\\ \\text{E}\n\\end{align}\n\\]\nVergleich Potsdam: \\(g_{abs} = 981260\\ \\text{mGal}\\), Differenz von \\(116\\ \\text{mGal}\\) durch andere Lage und Höhe verursacht\n\n\n\n3.1.1.1 Fallzeitmessungen\nMessung der Fallzeit \\(t\\) mittels Fall- und Wurfgeräten (Galiei, 1590)\n\\[\n\\begin{align}\nt & = \\sqrt{\\frac{2 h}{g}} \\\\\ng & = \\frac{2 h}{t^2}\n\\end{align}\n\\]\nZur Bestimmung von \\(g\\) ist die simultane Erfassung von zwei Messgrößen (\\(h, t\\)) mit hoher Genauigkeit erforderlich.\nFehlerfortpflanzung:\n\\[\n\\Delta t = \\Bigg| \\frac{ \\partial g }{ \\partial t } \\Bigg|^{-1} \\Delta g =\n\\frac{t}{2 g} \\Delta g\n\\]\n\\[\n\\Delta h = \\Bigg| \\frac{ \\partial g }{ \\partial h } \\Bigg|^{-1} \\Delta g =\n\\frac{t^2}{2} \\Delta g\n\\]\nMit \\(g=981\\) Gal, \\(h=10\\) m und \\(t=1.43\\) s schätzen wir bei einer Genauigkeitsforderung von 1 mGal ab:\n\\[\n\\begin{align}\n\\Delta t & = \\frac{1.43\\ \\text{s}}{2 \\cdot 981 \\cdot 10^{3}\\ \\text{mGal}} \\, 1\\ \\text{mGal} & = 0.73\\ \\mu\\text{s} \\\\\n\\Delta h & = \\frac{1.43^2\\ \\text{s}^2}{2}\\, 10^{-5} \\frac{\\text{m}}{\\text{s}^2} & = 10\\ \\mu \\text{m}\n\\end{align}\n\\]\n\n\n3.1.1.2 Schwingungszeitmessungen\nMessung der Schwingzeit \\(T\\) eines Halbsekundenpendels von maximaler Auslenkung in die Ruhelage\n\\[\n\\begin{align}\nT & =  \\pi \\sqrt{\\frac{\\ell}{g}} \\\\\ng & = \\frac{ \\pi^2 \\ell}{T^2}\n\\end{align}\n\\]\nGenauigkeitsforderung 1 mGal, \\(T=0.5\\) s, \\(\\ell=1\\) m.\nFehlerfortpflanzung:\n\\[\n\\begin{align}\n\\Delta T & = \\Bigg| \\frac{ \\partial g }{ \\partial T } \\Bigg|^{-1} \\Delta g =\n\\frac{T}{2 g} \\Delta g \\\\\n\\Delta \\ell & = \\Bigg| \\frac{ \\partial g }{ \\partial \\ell } \\Bigg|^{-1} \\Delta g =\n\\frac{T^2}{\\pi^2} \\Delta g\n\\end{align}\n\\]\n\\[\n\\begin{align}\n\\Delta T & = \\frac{0.5\\ \\text{s}}{2 \\cdot 981 \\cdot 10^{3}\\ \\text{mGal}} \\, 1\\ \\text{mGal} & = 0.25\\ \\mu\\text{s} \\\\\n\\Delta \\ell & = \\frac{0.5^2\\ \\text{s}^2}{\\pi^2}\\, 10^{-5} \\frac{\\text{m}}{\\text{s}^2} & = 0.25\\ \\mu \\text{m}\n\\end{align}\n\\]\n\n\n\n3.1.2 Relative Schwerebeschleunigung \\(\\Delta g\\)\nMessung von Schweredifferenzen \\(\\Delta g\\) gegen einen Bezugspunkt mit bekanntem \\(g\\)\noder\nwillkürliche Zuordnung eines Wertes für einen ausgewählten Basispunkt im Messgebiert mit \\(g=0\\).\nEs tritt nur eine Messgröße auf: Längenänderung \\(\\Delta \\ell\\) einer Feder\nVorteile:\n\nKurze Messzeiten\nLeichte Bedienbarkeit, gerige Abmessungen\nHohe Genauigkeit\nUniverseller Einsatz",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
-    ]
-  },
-  {
-    "objectID": "gravimeter.html#messgeräte",
-    "href": "gravimeter.html#messgeräte",
-    "title": "3  Messgrößen und Messgeräte",
-    "section": "3.2 Messgeräte",
-    "text": "3.2 Messgeräte",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
-    ]
-  },
-  {
-    "objectID": "gravimeter.html#messgeräte-zur-bestimmung-von-delta-g",
-    "href": "gravimeter.html#messgeräte-zur-bestimmung-von-delta-g",
-    "title": "3  Messgrößen und Messgeräte",
-    "section": "3.2 Messgeräte zur Bestimmung von \\(\\Delta g\\)",
-    "text": "3.2 Messgeräte zur Bestimmung von \\(\\Delta g\\)\nGravimeter unterscheiden wir nach dem physikalischen Messprinzip in\n\nStatische Gravimeter: Feder-Masse-System\nDynamische Gravimeter: Saitengravimeter\nSupraleitfähigkeitsgravimeter",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
-    ]
-  },
-  {
-    "objectID": "gravimeter.html#statische-gravimeter",
-    "href": "gravimeter.html#statische-gravimeter",
-    "title": "3  Messgrößen und Messgeräte",
-    "section": "3.3 Statische Gravimeter",
-    "text": "3.3 Statische Gravimeter\n\nLineare Systeme: Autograv CG-5 (Scintrex, Kanada)\nNichtlineare astasierte Systeme: Sodin, Worden, Sharpre, LaCoste-Romberg\n\nBauarten:\n\nVertikal-Schraubenfederwaage: Autograv CG-5\nHorizontal-Torsionsfederwaage: Sodin\n\n\n3.3.1 Vertikal-Schraubenfederwaage\n\n\nGleichgewichtsbedingung:\n\\[\n\\begin{align}\nF_{SF} & = F_{g} \\\\\nm g & = k \\ell\n\\end{align}\n\\]\nLinearität: Kleine Änderung von \\(g\\) führt zu kleiner Änderung von \\(\\ell\\):\n\\[\n\\Delta g = \\frac{k}{m} \\Delta \\ell\n\\]\n\n\n\n\nGenauigkeitsforderung: Federlänge \\(\\ell=0.1\\) m, Messgenauigkeit \\(\\Delta g = 0.01\\) mGal.\n\\[\n\\Delta \\ell = \\Bigg| \\frac{ \\partial g }{ \\partial \\ell } \\Bigg|^{-1} \\Delta g = \\frac{\\ell}{g} \\Delta g\n\\]\n\\[\n\\Delta \\ell = \\frac{0.1\\ \\text{m}}{981 \\cdot 10^3\\ \\text{mGal}} \\, 10^{-2}\\ \\text{mGal} \\approx 10^{-9}\\ \\text{m}\n\\]\n\n\n3.3.2 Horizontal-Torsionsfederwaage\n\n\n1–Torsionsfeder mit Torsionskonstante \\(\\tau\\), 2–Waagebalken, 3–Messfeder mit Federkonstante \\(k\\), 4–Messspindel, 5–Messskala, DP–Drehpunkt\nm–Probemasse, \\(l\\)–Länge der Messfeder, \\(b\\)–Abstand DP-Messfeder, \\(\\varphi\\)–Auslenkung Waagebalken, \\(\\epsilon\\)–Vorspannwinkel der Torsionsfeder\n\n\n\n\nSchwereänderung \\(\\Delta g\\):\n\nHauptfeder wird auf Torsion beansprucht\nWinkeländerung \\(\\Delta \\varphi\\) wird durch Messfeder kompensiert\nWaagebalken wird über Messspindel in die ursprüngliche Lage \\(\\varphi=0\\) zurückgeführt\n\nGleichgwichtsbedingung (Drehmomentengleichung) für \\(\\varphi=0\\):\n\\[\nm g a = \\tau \\epsilon + b k \\ell\n\\]\nBenötigt werdem zwei Messpunkte: \\(g_{1}(x_{1})\\) und \\(g_{2}(x_{2})\\)\n\\[\nm g_{1} a = \\tau \\epsilon + b k \\ell_{1} \\qquad\nm g_{2} a = \\tau \\epsilon + b k \\ell_{2}\n\\]\nDifferenz:\n\\[\ng_{2} - g_{1} = \\Delta g = \\frac{k b}{m a}(\\ell_{2} - \\ell_{1})\n\\]\nFederhub \\((\\ell_{2}-\\ell_{1})\\) wird an der Messspindel in Zählereinheiten \\(\\Delta \\text{ZE}\\) abgelesen.\nDer Skalenwert \\[\nS = \\frac{k b}{m a}\n\\]\nenthält geräteinterne Konstanten und wird über eine Kalibrierung des Gravimeters bestimmt.\nDie relative Schwerebeschleunigung \\(\\Delta g\\) wird über die allgemeine Gravimetergleichung \\[\n\\Delta g = \\text{S} \\Delta \\text{ZE}\n\\]\nbestimmt.\nFür das Autograv CG-5 gilt \\(S=1\\), also erfolgt die Anzeige an der Apparatur direkt in mGal.\n\n\n3.3.3 Astasierte nichtlineare Systeme\n\n\nGleichgewichtsbedingung für \\(\\varphi \\ne 0\\): \\[\nm g a \\sin\\varphi = \\tau (\\epsilon+\\varphi) + b k \\ell\n\\]\n\\[\n\\frac{ \\partial g }{ \\partial \\varphi } = \\frac{\\tau}{m a} \\frac{\\sin\\varphi - (\\epsilon + \\varphi)\\cos\\varphi}{\\sin^2\\varphi}\n\\]\nkeine Linearität zwischen \\(\\partial g\\) und \\(\\partial \\varphi\\).\n\n\n\n\nHöhere Empfindlichkeit bei verringerter Stabilität des Messystems, labile Gleichgewichtslage, lange Schwingzeit.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
-    ]
-  },
-  {
-    "objectID": "gravimeter.html#das-gravimeter-autograv-cg-5",
-    "href": "gravimeter.html#das-gravimeter-autograv-cg-5",
-    "title": "3  Messgrößen und Messgeräte",
-    "section": "3.4 Das Gravimeter Autograv CG-5",
-    "text": "3.4 Das Gravimeter Autograv CG-5\n\n\n\nselbstregistrierend\nMessbereich 8000 mGal\nEmpfindlichkeit 0.001 mGal\nMesswertanzeige 4615.312 mGal\nelektronische Neigungsmessung (Genauigkeit in Bogensekunden)\ngeringe Drift\n\n\n\n\n\n(Scintrex Ltd.)\n\n\n\n\nMessprinzip: Lineares System, keine Astasierung\n\nEine elektrostatische Rückstellkraft hält die Testmasse in ihrer Ruhelage\nEine Kapazitätssonde misst die Position der Testmasse\nEin Feedback-System regelt die Spannung so, dass die Masse in Position bleibt\nDie zur Stabilisierung benötigte Spannung ist direkt proportional zur Änderung von \\(g\\)",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
-    ]
-  },
-  {
-    "objectID": "gravimeter.html#fehlereinflüsse",
-    "href": "gravimeter.html#fehlereinflüsse",
-    "title": "3  Messgrößen und Messgeräte",
-    "section": "3.5 Fehlereinflüsse",
-    "text": "3.5 Fehlereinflüsse\nZeitabhängige Fehler bewirken Gang des Gravimeters und erfordern Korrekturen\n\nElastisches Verhalten der Quarzfeder (Hysterese, Langzeitdrift)\nMechanische Störungen (Transport)\nTemperatur- und Luftdruckeffekte\nGezeiten\n\nZeitunabhängige Effekte erfordern Kalibrierung oder Filterung\n\nSkalenwertfehler: Neukalibrierung\nMikroseimische Unruhe: Filter\n\n\n3.5.1 Driftkorrektur\nStatische Gravimeter zeigen lineare Langzeitdrift durch unvermeidbare irreversible Veränderungen des elastischen Verhaltens des Quarzsensor-Systems.\nDaraus resultieren eine begrenzte Lebensdauer des Gravimeters und ggf. kostspielige Serviceleistungen des Geräteherstellers.\nDiese Änderungen erfasst man durch Aufzeichnung von Zeitreihen im Labor.\nDaraus ermittelt man die Driftkorrektur:\n\\[\n\\Delta g_{Dr}(t) = (t - t_{s}) DR\n\\]\nDR–Driftkonstante in mGal/d, \\(t_{s}\\)–Messbeginn, \\(t\\)–Zeitpunkt der Ablesung\nBestimmung von DR aus kontinuierlicher Messung über einen Zeitraum von \\(&gt;24\\) h.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Messgrößen und Messgeräte</span>"
-    ]
+    "objectID": "methods_slides.html#section-title-visible-everywhere",
+    "href": "methods_slides.html#section-title-visible-everywhere",
+    "title": "Methods",
+    "section": "Section title visible everywhere",
+    "text": "Section title visible everywhere\n\\[\nc = \\sqrt{a^{2} + b^{2} - 2 a b \\cos\\varphi}\n\\]"
   }
 ]
