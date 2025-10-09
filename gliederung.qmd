@@ -1,0 +1,29 @@
+---
+title: "Lehrziele der Vorlesung"
+format:
+  revealjs:
+    output-file: gliederung_slides.html
+jupyter:
+  kernel: python3
+editor: source
+---
+
+In dieser Lehrveranstaltung entwickeln Sie sich von der Stufe des Wissens über das Verstehen, Anwenden und Analysieren hin zum Evaluieren und schließlich zum Produzieren eigener wissenschaftlicher Erkenntnisse in der Gravimetrie.
+
+![](images/Gravimetrie_Kompetenzleiter.excalidraw.svg)
+
+Zum Erreichen dieser Ziele wird der Aufbau der Vorlesung entsprechend den Stufen der Kompetenzentwicklung gestaltet.
+
+Wir setzen dabei folgende Schwerpunkte:
+
+- Mathematisch-physikalische Grundlagen
+- Gravitationsfeld der Erde
+- Messgrößen und Messgeräte
+- Vorbereitung und Durchführung von gravimetrischen Messungen
+- Reduktionen und Schwereanomalien
+- Petrophysikalische Grundlagen
+- Bearbeitung und Interpretation
+- Darstellung der Resultate, Berichtserstellung
+
+
+Im Rahmen der Lehrveranstaltung werden Sie den Umgang mit dem Gravimeter _Autograv CG-5_ (Scintrex Ltd., Kanada) erlernen und eigenständig Messungen durchführen. Der gesamte Prozess von der Messplanung über die Datenerfassung und -verarbeitung bis zur geologischen Interpretation der Ergebnisse wird in einem Praktikumsbericht dokumentiert.

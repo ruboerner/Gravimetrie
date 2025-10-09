@@ -1,5 +1,5 @@
 ---
-title: "Geophysikalische Grundlagen"
+#title: "Geophysikalische Grundlagen"
 format:
   revealjs:
     output-file: grundlagen_slides.html
@@ -7,6 +7,8 @@ jupyter:
   kernel: python3
 editor: source
 ---
+
+# Geophysikalische Grundlagen
 
 ## Gravitationsfeld der Erde
 
@@ -107,11 +109,7 @@ $$
 \curl \mathbf{g} = \mathbf{0}.
 $$
 
-## Gravitationspotential
-
-$$
-\mathbf{g} = -\grad V
-$$
+## Das Gravitationspotential
 
 Darstellung der Gravitationskraft und der Schwerebeschleunigung für eine kugelförmige, homogene Erde durch Feldlinien:
 
@@ -122,7 +120,31 @@ Darstellung der Gravitationskraft und der Schwerebeschleunigung für eine kugelf
 
 ![](images/V_und_g.excalidraw.svg){width="60%"}
 
-## Gravitationsbeschleunigung der Erde
+
+Das Vektorfeld $\mathbf{g}$ wird als Gradient eines Skalarpotentials $W$ 
+$$
+\mathbf{g} = -\grad W
+$$
+
+dargestellt.
+
+Bedeutung: Arbeit $A$, die verrichtet wird, um eine Einheitsmasse mit $\overline{m} =1$ vom feldfreien (unendlich weit entfernten) Punkt entgegen dem Schwerefeld zum Aufpunkt $P$ zu bewegen.
+
+$$
+W = \frac{A}{\overline{m}}, \qquad [W] = \mathrm{N \cdot m \cdot kg^{-1}} = \mathrm{m^2 \cdot s^{-2}}
+$$
+
+![](images/Potential_W_und_g.excalidraw.svg)
+
+Raumpunkte mit gleichem Potentialwert liegen auf Äquipotentialflächen (Niveauflächen ($W_{1},W_{2},W_{3}$). 
+
+Der Schwerevektor $\mathbf{g}$ steht senkrecht auf den Äquipotentialflächen.
+
+Der Potentialgradient $\grad W$ zeigt in Richtung des stärksten Potentialanstiegs, $\mathbf{g}$ zeigt in Richtung des stärksten Potentialgefälles.
+
+Die Schwerebeschleunigung kann auf einer Äquipotentialfläche unterschiedliche Werte besitzen ($\mathbf{g}_{1} > \mathbf{g}_{2}$).
+
+## Die Gravitationsbeschleunigung der Erde
 
 Begriffe: _Erdschwerebeschleunigung_, _Schwere_
 
@@ -139,6 +161,7 @@ Zentrifugalterm: Zentrifugalbeschleunigung $\mathbf{a}_{Z}$
 Gezeitenterm: Gezeitenbeschleunigung $\mathbf{a}_{G}$
 
 ![Die Erde als rotierendes System](images/Modell_Rotationsellipsoid_g.excalidraw.svg){width="60%"}
+
 
 ### Anziehungsterm
 
@@ -172,7 +195,54 @@ $$
 |\mathbf{a}_{Z}(\varphi)| = \omega_{E}^2 r(\varphi) = \omega_{E}^2 R_{E} \cos\varphi
 $$
 
-### Beispielrechnungen
+
+### Gezeitenterm
+
+$$
+\mathbf{a}_{G} = f(\theta, \varphi, t) \le 3\ \mu \mathrm{m}\cdot \mathrm{s}^{-2} 
+$$
+
+Beschleunigung erfolgt durch kosmische Massen (Mond, Sonne).
+
+Die Gezeitenwirkung wird durch 
+
+- die Gangbestimmung am Basispunkt 
+- Vorausberechnung im Gravimeter ($\theta, \varphi$ bekannt)
+
+erfasst.
+
+Gezeitenkonzept: 
+
+- Revolution ohne Rotation
+- auf jedem Punkt in der Rotationsebene um den baryzentrischen Mittelpunkt wirkt konstante Zentrifugalbeschleunigung
+- entfernungsabhängige Beschleuigung durch kosmische Masse überlagert sich der Zentrifugalbeschleunigung vektoriell
+- es entstehen zwei Flutberge
+
+::: {.columns}
+::: {.column}
+![](images/revolution_earth_barycenter.gif)
+:::
+::: {.column}
+![](images/tiden.gif)
+:::
+:::
+
+# Erdgestalt
+
+Zur mathematischen Darstellung der physikalischen Figur des Erdkörpers werden Modelle benutzt:
+
+- Erdellipsoid
+- Geoid
+
+## Erdellipsoid
+
+Eingeführt 1924 als _Hayfordsches Erdellipsoid_.
+
+- Schwach abgeplattetes Rotationsellipsoid als einfache Näherung an das Geoid
+- Das zugehörige Schwerefeld ist die Normalschwerebeschleunigung $\gamma_{0}$
+
+
+### Somigliana-Gleichung
 
 Berechnung der Normalschwere $\gamma$ eines Ellipsoids aus
 $$
@@ -233,61 +303,22 @@ print(f"gamma(0)/az   = {gamma(np.deg2rad(0.0))/aE:.4f}")
 
 Die Gravitationsbeschleunigung übertrifft die Zentrifugalbeschleunigung am Äquator um das 288-fache.
 
-## Gezeitenterm
+Wir berechnen die Normalschwere nach der _Somigliana-Gleichung_ und stellen den Verlauf grafisch dar:
 
-$$
-\mathbf{a}_{G} = f(\theta, \varphi, t) \le 3\ \mu \mathrm{m}\cdot \mathrm{s}^{-2} 
-$$
+```{python}
+import matplotlib.pyplot as plt
+phi_d = np.arange(start=0.0, stop=90.1, step=1.0)
+gamma_phi = [gamma(np.deg2rad(v)) for v in phi_d]
+fig, ax = plt.subplots(figsize=(6,4))
+ax.plot(phi_d, gamma_phi)
+ax.set_xlabel('Nördliche Breite in Grad')
+ax.set_ylabel(r"$\gamma_{0}$ in m/s$^2$")
+ax.set_title("Breitenabhängigkeit der Normalschwere")
+ax.grid(alpha=0.5)
+```
 
-Beschleunigung erfolgt durch kosmische Massen (Mond, Sonne).
 
-Die Gezeitenwirkung wird durch 
-
-- die Gangbestimmung am Basispunkt 
-- Vorausberechnung im Gravimeter ($\theta, \varphi$ bekannt)
-
-erfasst.
-
-Gezeitenkonzept: 
-
-- Revolution ohne Rotation
-- auf jedem Punkt in der Rotationsebene um den baryzentrischen Mittelpunkt wirkt konstante Zentrifugalbeschleunigung
-- entfernungsabhängige Beschleuigung durch kosmische Masse überlagert sich der Zentrifugalbeschleunigung vektoriell
-- es entstehen zwei Flutberge
-
-::: {.columns}
-::: {.column}
-![](images/revolution_earth_barycenter.gif)
-:::
-::: {.column}
-![](images/tiden.gif)
-:::
-:::
-
-## Das Schwerepotential und seine Ableitungen
-
-Das Vektorfeld $\mathbf{g}$ wird als Gradient eines Skalarpotentials $W$ 
-$$
-\mathbf{g} = -\grad W
-$$
-
-dargestellt.
-
-Bedeutung: Arbeit $A$, die verrichtet wird, um eine Einheitsmasse mit $\overline{m} =1$ vom feldfreien (unendlich weit entfernten) Punkt entgegen dem Schwerefeld zum Aufpunkt $P$ zu bewegen.
-
-$$
-W = \frac{A}{\overline{m}}, \qquad [W] = \mathrm{N \cdot m \cdot kg^{-1}} = \mathrm{m^2 \cdot s^{-2}}
-$$
-
-![](images/Potential_W_und_g.excalidraw.svg)
-
-Raumpunkte mit gleichem Potentialwert liegen auf Äquipotentialflächen (Niveauflächen ($W_{1},W_{2},W_{3}$). 
-
-Der Schwerevektor $\mathbf{g}$ steht senkrecht auf den Äquipotentialflächen.
-
-Der Potentialgradient $\grad W$ zeigt in Richtung des stärksten Potentialanstiegs, $\mathbf{g}$ zeigt in Richtung des stärksten Potentialgefälles.
-
-Die Schwerebeschleunigung kann auf einer Äquipotentialfläche unterschiedliche Werte besitzen ($\mathbf{g}_{1} > \mathbf{g}_{2}$).
+## Das Geoid
 
 Die Äquipotentialfläche, die mit der ruhenden (mittleren, gezeitenfreien) Meeresoberfläche zusammenfällt, heißt __Geoid__.
 
@@ -302,7 +333,26 @@ Darstellung als lokale Abweichung vom Erdellipsoid in Einheit von Metern (_Geoid
 
 ![](images/Geoidundulation.excalidraw.svg)
 
-### Mathematische Beschreibug
+Wir unterscheiden
+
+- _Kontinentale_ Geoidundulationen: Masseninhomgenitäten im Mantel und der tieferen Erdkruste
+- _Regionale_ Geoidundulationen: Regionale geologische Strukturen, Undulationen der Grenzfläche Kruste/Mantel
+- _Lokale_ Geoidundulationen: Lokale Masseninhomogenitäten in den oberen km der Erdkruste
+
+::: {.columns}
+::: {.column width="65%"}
+Das Geoidmodell EGM96 (Earth Gravitational Model 1996) entstand aus einer Kooperation zwischen NIMA, dem NASA Goddard Space Flight Center und der Ohio State University. Es basiert auf weltweit erfassten Schwerefelddaten – einschließlich neuer Airborne-Schweremessungen über Grönland, der Arktis und Antarktis – und kombiniert terrestrische sowie satellitenaltimetrische Messungen. 
+Das Modell liegt mit einer Rasterauflösung von 15′ × 15′ vor.
+:::
+::: {.column width="35%"}
+![](images/Geoid_wiki.png)
+:::
+:::
+
+Aktuell: EGM2008, EGM2020 in Vorbereitung (Stand Oktober 2025)
+
+
+### Mathematische Beschreibung der Geoidgestalt
 
 Entwicklung nach Kugelflächenfunktionen
 $$
@@ -320,9 +370,15 @@ mit
 
 Koeffizienten mit endlichem Grad $n$ werden aus Schweremessungen, geodätischen Messungen und Bahnstörungen von Satelliten bestimmt. 
 
+## Gezeiten der festen Erde
 
+Die Gezeitenkräfte von Mond und Sonne bewirken auf einer elastisch verformbaren Erde messbare Effekte, die sich in der Hebung des Bodens sowie in der damit verbundenen Änderung der Erdschwerebeschleunigung äußern.
 
-### Herleitung Schwerepotential im rotierenden System
+## Das Schwerepotential im rotierenden System
+
+Im rotierenden System muss auch die Zentrifugalbeschleunigung berücksichtigt werden.
+
+Wir betrachten einen Punkt $P$ auf der Oberfläche einer mit der konstanten Winkelgeschwindigkeit $\pmb\omega_{E}$ um ihre Drehachse rotierenden Kugel.
 
 ![](images/R0_R1_RP.excalidraw.svg)
 
@@ -347,10 +403,10 @@ $$
 $$
 Der erste Term ist die reine Gravitationsbeschleunigung der Erde, der letzte die Zentrifugalbeschleunigung infolge der Erdrotation. Der mittlere Term stellt den zeitlich veränderlichen Gezeitenanteil des Schwerefeldes dar.
 
-Für die Zentrifugalbeschleunigung $\mathbf{a}_{Z}$ gilt
+Für die Zentrifugalbeschleunigung $\mathbf{a}_{Z}$ gilt mit der Graßmann-Identität $(\mathbf{a} \times \mathbf{b}) \times \mathbf{c} = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{b} \cdot \mathbf{c}) \mathbf{a}$
 $$
 \mathbf{a}_{Z} = (\pmb\omega_{E}\times {\mathbf{R}}_{1}) \times \pmb\omega_{E} = \omega_{E}^{2} \mathbf{R}_{1}
--(\pmb\omega_{E} \cdot \mathbf{R}_{1})\pmb\omega_{E} = \omega_{E}^{2}\mathbf{R}_{\perp}
+-( \mathbf{R}_{1} \cdot  \pmb\omega_{E})\pmb\omega_{E} = \omega_{E}^{2}\mathbf{R}_{\perp}
 $$
 $\mathbf{R}_{\perp}$ ist die zur Rotationsachse rechtwinklige Komponente des Vektors $\mathbf{R}_{1}$.
 Wegen 

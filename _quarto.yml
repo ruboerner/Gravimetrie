@@ -20,12 +20,20 @@ language:
 book:
   title: "Gravimetrie"
   subtitle: "Modul Gravimetrie und Magnetik"
-  author: "Ralph-Uwe Börner"
+  author: "Dr. Ralph-Uwe Börner"
   date: today
   chapters:
     - index.qmd
-    - grundlagen.qmd
-    - gravimeter.qmd
+    - gliederung.qmd
+    - part: "Grundlagen"
+      chapters:
+      - grundlagen.qmd
+    - part: "Praxis"
+      chapters:
+      - gravimeter.qmd
+    - part: "Interpretaton"
+      chapters:
+      - gis.qmd
 #    - slidedecks.qmd
 
 format: 
@@ -34,6 +42,8 @@ format:
     number-sections: true
     lib-dir: site_libs
     code-fold: true
+    code-summary: "Code anzeigen"
+    html-math-method: mathjax
     include-in-header:
       - text: |
           <script>

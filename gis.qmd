@@ -1,0 +1,36 @@
+---
+title: "Arbeit mit QGIS"
+format:
+  revealjs:
+    output-file: gis_slides.html
+jupyter:
+  kernel: python3
+editor: source
+---
+
+::: {.callout-tip title="Lernziel"}
+Wir erstellen in QGIS eine Isolinienkarte der Bouguer-Anomalie Sachsens auf der Grundlage vom SLfULG bereitgestellten _ArcGIS_ Shapefiles.
+:::
+
+::: {.callout-note title="Voraussetzungen"}
+- [QGIS](www.qgis.org)
+- Python-Pakete
+    - `geopandas`, `rasterio` installieren mit `pip install geopandas rasterio`
+:::
+
+Im Rahmen der Vorlesung werden wir ein Projekt in QGIS erstellen.
+
+Wir verschaffen uns zunächst einen Überblick über den Datenbestand in Sachsen.
+
+Das Sächsische Landesamt für Umwelt, Landwirtschaft und Geologie (SLfULG) betreibt ein Landwirtschafts- und Umweltinformationssystem für Geodaten.
+
+Der folgende Link verweist auf [Geophysikalische Karten](https://www.luis.sachsen.de/geologie/geophysikalische-karten.html).
+Dort erhalten wir ein ZIP-Archiv mit der __Gravimetrischen Übersichtskarte 1 : 400.000 (GravÜK 400).__
+
+Weitere Schritte:
+
+- ZIP-Archiv entpacken
+- `.shp`-File in Python bearbeiten und Rasterdaten extrahieren
+- Rasterdaten als `geotiff` speichern
+- In QGIS als Rasterlayer importieren
+- Openstreetmap unterlegen

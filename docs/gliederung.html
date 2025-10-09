@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Messgrößen und Messgeräte – Gravimetrie</title>
+<title>2&nbsp; Lehrziele der Vorlesung – Gravimetrie</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./gis.html" rel="next">
-<link href="./grundlagen.html" rel="prev">
+<link href="./grundlagen.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -81,35 +81,6 @@ window.MathJax = {
 };
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -122,7 +93,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gravimeter.html">Praxis</a></li><li class="breadcrumb-item"><a href="./gravimeter.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gliederung.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lehrziele der Vorlesung</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -157,7 +128,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gliederung.html" class="sidebar-item-text sidebar-link">
+  <a href="./gliederung.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lehrziele der Vorlesung</span></span></a>
   </div>
 </li>
@@ -189,7 +160,7 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./gravimeter.html" class="sidebar-item-text sidebar-link active">
+  <a href="./gravimeter.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></span></a>
   </div>
 </li>
@@ -217,37 +188,15 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Inhaltsverzeichnis</h2>
-   
-  <ul>
-  <li><a href="#messgrößen" id="toc-messgrößen" class="nav-link active" data-scroll-target="#messgrößen"><span class="header-section-number">4.1</span> Messgrößen</a>
-  <ul class="collapse">
-  <li><a href="#absolute-schwerebeschleunigung-g_abs" id="toc-absolute-schwerebeschleunigung-g_abs" class="nav-link" data-scroll-target="#absolute-schwerebeschleunigung-g_abs"><span class="header-section-number">4.1.1</span> Absolute Schwerebeschleunigung <span class="math inline">\(g_{abs}\)</span></a></li>
-  <li><a href="#relative-schwerebeschleunigung-delta-g" id="toc-relative-schwerebeschleunigung-delta-g" class="nav-link" data-scroll-target="#relative-schwerebeschleunigung-delta-g"><span class="header-section-number">4.1.2</span> Relative Schwerebeschleunigung <span class="math inline">\(\Delta g\)</span></a></li>
-  </ul></li>
-  <li><a href="#messgeräte-zur-bestimmung-von-delta-g" id="toc-messgeräte-zur-bestimmung-von-delta-g" class="nav-link" data-scroll-target="#messgeräte-zur-bestimmung-von-delta-g"><span class="header-section-number">4.2</span> Messgeräte zur Bestimmung von <span class="math inline">\(\Delta g\)</span></a></li>
-  <li><a href="#statische-gravimeter" id="toc-statische-gravimeter" class="nav-link" data-scroll-target="#statische-gravimeter"><span class="header-section-number">4.3</span> Statische Gravimeter</a>
-  <ul class="collapse">
-  <li><a href="#vertikal-schraubenfederwaage" id="toc-vertikal-schraubenfederwaage" class="nav-link" data-scroll-target="#vertikal-schraubenfederwaage"><span class="header-section-number">4.3.1</span> Vertikal-Schraubenfederwaage</a></li>
-  <li><a href="#horizontal-torsionsfederwaage" id="toc-horizontal-torsionsfederwaage" class="nav-link" data-scroll-target="#horizontal-torsionsfederwaage"><span class="header-section-number">4.3.2</span> Horizontal-Torsionsfederwaage</a></li>
-  <li><a href="#astasierte-nichtlineare-systeme" id="toc-astasierte-nichtlineare-systeme" class="nav-link" data-scroll-target="#astasierte-nichtlineare-systeme"><span class="header-section-number">4.3.3</span> Astasierte nichtlineare Systeme</a></li>
-  </ul></li>
-  <li><a href="#das-gravimeter-autograv-cg-5" id="toc-das-gravimeter-autograv-cg-5" class="nav-link" data-scroll-target="#das-gravimeter-autograv-cg-5"><span class="header-section-number">4.4</span> Das Gravimeter Autograv CG-5</a></li>
-  <li><a href="#fehlereinflüsse" id="toc-fehlereinflüsse" class="nav-link" data-scroll-target="#fehlereinflüsse"><span class="header-section-number">4.5</span> Fehlereinflüsse</a>
-  <ul class="collapse">
-  <li><a href="#driftkorrektur" id="toc-driftkorrektur" class="nav-link" data-scroll-target="#driftkorrektur"><span class="header-section-number">4.5.1</span> Driftkorrektur</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gravimeter.html">Praxis</a></li><li class="breadcrumb-item"><a href="./gravimeter.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lehrziele der Vorlesung</span></h1>
 </div>
 
 
@@ -264,278 +213,23 @@ window.Quarto = {
 </header>
 
 
-<section id="messgrößen" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="messgrößen"><span class="header-section-number">4.1</span> Messgrößen</h2>
+<p>In dieser Lehrveranstaltung entwickeln Sie sich von der Stufe des Wissens über das Verstehen, Anwenden und Analysieren hin zum Evaluieren und schließlich zum Produzieren eigener wissenschaftlicher Erkenntnisse in der Gravimetrie.</p>
+<p><img src="images/Gravimetrie_Kompetenzleiter.excalidraw.svg" class="img-fluid"></p>
+<p>Zum Erreichen dieser Ziele wird der Aufbau der Vorlesung entsprechend den Stufen der Kompetenzentwicklung gestaltet.</p>
+<p>Wir setzen dabei folgende Schwerpunkte:</p>
 <ul>
-<li>Absolute Schwerebeschleunigung <span class="math inline">\(\mathbf{g}\)</span></li>
-<li>Relative Unterschiede <span class="math inline">\(\Delta g\)</span>: vorherrschende Messgröße</li>
-<li>Vertikalgradient</li>
-<li>Horizontalgradient: selten gemessen</li>
+<li>Mathematisch-physikalische Grundlagen</li>
+<li>Gravitationsfeld der Erde</li>
+<li>Messgrößen und Messgeräte</li>
+<li>Vorbereitung und Durchführung von gravimetrischen Messungen</li>
+<li>Reduktionen und Schwereanomalien</li>
+<li>Petrophysikalische Grundlagen</li>
+<li>Bearbeitung und Interpretation</li>
+<li>Darstellung der Resultate, Berichtserstellung</li>
 </ul>
-<section id="absolute-schwerebeschleunigung-g_abs" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="absolute-schwerebeschleunigung-g_abs"><span class="header-section-number">4.1.1</span> Absolute Schwerebeschleunigung <span class="math inline">\(g_{abs}\)</span></h3>
-<ul>
-<li>Fundamentale Bezugsgröße</li>
-<li>liefert Punkte für Internationales Schwerestandardnetz WGS sowie Landesnetze</li>
-<li>Lange Messzeiten erforderlich</li>
-</ul>
-<div class="callout callout-style-default callout-note callout-titled" title="Beispiel">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Hinweis</span>Beispiel
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Bestimmung von <span class="math inline">\({g}_{abs}\)</span> in Freiberg</p>
-<p>Standort: Betonblock Gravimetrielabor</p>
-<p><span class="math display">\[
-\begin{align}
-g_{abs} &amp; = 981043.767\ \text{mGal} \\
-h &amp; = 395.183\ \text{m} \\
-\varphi &amp; = 50 \textdegree \,55' \,30.3''\ \text{N} \\
-\theta &amp; = 13 \textdegree \,19' \,48.1''\ \text{E}
-\end{align}
-\]</span></p>
-<p>Vergleich Potsdam: <span class="math inline">\(g_{abs} = 981260\ \text{mGal}\)</span>, Differenz von <span class="math inline">\(116\ \text{mGal}\)</span> durch andere Lage und Höhe verursacht</p>
-</div>
-</div>
-<section id="fallzeitmessungen" class="level4" data-number="4.1.1.1">
-<h4 data-number="4.1.1.1" class="anchored" data-anchor-id="fallzeitmessungen"><span class="header-section-number">4.1.1.1</span> Fallzeitmessungen</h4>
-<p>Messung der Fallzeit <span class="math inline">\(t\)</span> mittels Fall- und Wurfgeräten (Galiei, 1590)</p>
-<p><span class="math display">\[
-\begin{align}
-t &amp; = \sqrt{\frac{2 h}{g}} \\
-g &amp; = \frac{2 h}{t^2}
-\end{align}
-\]</span></p>
-<p>Zur Bestimmung von <span class="math inline">\(g\)</span> ist die simultane Erfassung von zwei Messgrößen (<span class="math inline">\(h, t\)</span>) mit hoher Genauigkeit erforderlich.</p>
-<p>Fehlerfortpflanzung:</p>
-<p><span class="math display">\[
-\Delta t = \Bigg| \frac{ \partial g }{ \partial t } \Bigg|^{-1} \Delta g =
-\frac{t}{2 g} \Delta g
-\]</span></p>
-<p><span class="math display">\[
-\Delta h = \Bigg| \frac{ \partial g }{ \partial h } \Bigg|^{-1} \Delta g =
-\frac{t^2}{2} \Delta g
-\]</span></p>
-<p>Mit <span class="math inline">\(g=981\)</span> Gal, <span class="math inline">\(h=10\)</span> m und <span class="math inline">\(t=1.43\)</span> s schätzen wir bei einer <strong>Genauigkeitsforderung von 1 mGal</strong> ab:</p>
-<p><span class="math display">\[
-\begin{align}
-\Delta t &amp; = \frac{1.43\ \text{s}}{2 \cdot 981 \cdot 10^{3}\ \text{mGal}} \, 1\ \text{mGal} &amp; = 0.73\ \mu\text{s} \\
-\Delta h &amp; = \frac{1.43^2\ \text{s}^2}{2}\, 10^{-5} \frac{\text{m}}{\text{s}^2} &amp; = 10\ \mu \text{m}
-\end{align}
-\]</span></p>
-</section>
-<section id="schwingungszeitmessungen" class="level4" data-number="4.1.1.2">
-<h4 data-number="4.1.1.2" class="anchored" data-anchor-id="schwingungszeitmessungen"><span class="header-section-number">4.1.1.2</span> Schwingungszeitmessungen</h4>
-<p>Messung der Schwingzeit <span class="math inline">\(T\)</span> eines Halbsekundenpendels von maximaler Auslenkung in die Ruhelage (daher fehlt Faktor <span class="math inline">\(2\)</span>):</p>
-<p><span class="math display">\[
-\begin{align}
-T &amp; =  \pi \sqrt{\frac{\ell}{g}} \\
-g &amp; = \frac{ \pi^2 \ell}{T^2}
-\end{align}
-\]</span></p>
-<p>Genauigkeitsforderung 1 mGal, <span class="math inline">\(T=0.5\)</span> s, <span class="math inline">\(\ell=1\)</span> m.</p>
-<p>Fehlerfortpflanzung:</p>
-<p><span class="math display">\[
-\begin{align}
-\Delta T &amp; = \Bigg| \frac{ \partial g }{ \partial T } \Bigg|^{-1} \Delta g =
-\frac{T}{2 g} \Delta g \\
-\Delta \ell &amp; = \Bigg| \frac{ \partial g }{ \partial \ell } \Bigg|^{-1} \Delta g =
-\frac{T^2}{\pi^2} \Delta g
-\end{align}
-\]</span></p>
-<p><span class="math display">\[
-\begin{align}
-\Delta T &amp; = \frac{0.5\ \text{s}}{2 \cdot 981 \cdot 10^{3}\ \text{mGal}} \, 1\ \text{mGal} &amp; = 0.25\ \mu\text{s} \\
-\Delta \ell &amp; = \frac{0.5^2\ \text{s}^2}{\pi^2}\, 10^{-5} \frac{\text{m}}{\text{s}^2} &amp; = 0.25\ \mu \text{m}
-\end{align}
-\]</span></p>
-</section>
-</section>
-<section id="relative-schwerebeschleunigung-delta-g" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="relative-schwerebeschleunigung-delta-g"><span class="header-section-number">4.1.2</span> Relative Schwerebeschleunigung <span class="math inline">\(\Delta g\)</span></h3>
-<p>Messung von Schweredifferenzen <span class="math inline">\(\Delta g\)</span> gegen einen Bezugspunkt mit bekanntem <span class="math inline">\(g\)</span></p>
-<p>oder</p>
-<p>willkürliche Zuordnung eines Wertes für einen ausgewählten Basispunkt im Messgebiert mit <span class="math inline">\(g=0\)</span>.</p>
-<p>Es tritt nur <strong>eine Messgröße</strong> auf: Längenänderung <span class="math inline">\(\Delta \ell\)</span> einer Feder</p>
-<p><strong>Vorteile</strong>:</p>
-<ul>
-<li>Kurze Messzeiten</li>
-<li>Leichte Bedienbarkeit, gerige Abmessungen</li>
-<li>Hohe Genauigkeit</li>
-<li>Universeller Einsatz</li>
-</ul>
-</section>
-</section>
-<section id="messgeräte-zur-bestimmung-von-delta-g" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="messgeräte-zur-bestimmung-von-delta-g"><span class="header-section-number">4.2</span> Messgeräte zur Bestimmung von <span class="math inline">\(\Delta g\)</span></h2>
-<p><strong>Gravimeter</strong> unterscheiden wir nach dem physikalischen Messprinzip in</p>
-<ul>
-<li>Statische Gravimeter: Feder-Masse-System</li>
-<li>Dynamische Gravimeter: Saitengravimeter</li>
-<li>Supraleitfähigkeitsgravimeter</li>
-</ul>
-</section>
-<section id="statische-gravimeter" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="statische-gravimeter"><span class="header-section-number">4.3</span> Statische Gravimeter</h2>
-<ul>
-<li>Lineare Systeme: Autograv CG-5 (Scintrex, Kanada)</li>
-<li>Nichtlineare astasierte Systeme: Sodin, Worden, Sharpre, LaCoste-Romberg</li>
-</ul>
-<p>Bauarten:</p>
-<ul>
-<li>Vertikal-Schraubenfederwaage: Autograv CG-5</li>
-<li>Horizontal-Torsionsfederwaage: Sodin</li>
-</ul>
-<section id="vertikal-schraubenfederwaage" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="vertikal-schraubenfederwaage"><span class="header-section-number">4.3.1</span> Vertikal-Schraubenfederwaage</h3>
-<div class="columns">
-<div class="column" style="width:65%;">
-<p>Gleichgewichtsbedingung:</p>
-<p><span class="math display">\[
-\begin{align}
-F_{SF} &amp; = F_{g} \\
-m g &amp; = k \ell
-\end{align}
-\]</span></p>
-<p>Linearität: Kleine Änderung von <span class="math inline">\(g\)</span> führt zu kleiner Änderung von <span class="math inline">\(\ell\)</span>:</p>
-<p><span class="math display">\[
-\Delta g = \frac{k}{m} \Delta \ell
-\]</span></p>
-</div><div class="column" style="width:30%;">
-<p><img src="images/Feder_Masse_statisch.excalidraw.svg" class="img-fluid"></p>
-</div>
-</div>
-<p>Genauigkeitsforderung: Federlänge <span class="math inline">\(\ell=0.1\)</span> m, Messgenauigkeit <span class="math inline">\(\Delta g = 0.01\)</span> mGal.</p>
-<p><span class="math display">\[
-\Delta \ell = \Bigg| \frac{ \partial g }{ \partial \ell } \Bigg|^{-1} \Delta g = \frac{\ell}{g} \Delta g
-\]</span></p>
-<p><span class="math display">\[
-\Delta \ell = \frac{0.1\ \text{m}}{981 \cdot 10^3\ \text{mGal}} \, 10^{-2}\ \text{mGal} \approx 10^{-9}\ \text{m}
-\]</span></p>
-</section>
-<section id="horizontal-torsionsfederwaage" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="horizontal-torsionsfederwaage"><span class="header-section-number">4.3.2</span> Horizontal-Torsionsfederwaage</h3>
-<div class="columns">
-<div class="column" style="width:63%;">
-<p>1–Torsionsfeder mit Torsionskonstante <span class="math inline">\(\tau\)</span>, 2–Waagebalken, 3–Messfeder mit Federkonstante <span class="math inline">\(k\)</span>, 4–Messspindel, 5–Messskala, DP–Drehpunkt</p>
-<p>m–Probemasse, <span class="math inline">\(l\)</span>–Länge der Messfeder, <span class="math inline">\(b\)</span>–Abstand DP-Messfeder, <span class="math inline">\(\varphi\)</span>–Auslenkung Waagebalken, <span class="math inline">\(\epsilon\)</span>–Vorspannwinkel der Torsionsfeder</p>
-</div><div class="column" style="width:35%;">
-<p><img src="images/Torsionsfederwaage.png" class="img-fluid"></p>
-</div>
-</div>
-<p>Schwereänderung <span class="math inline">\(\Delta g\)</span>:</p>
-<ul>
-<li>Hauptfeder wird auf Torsion beansprucht</li>
-<li>Winkeländerung <span class="math inline">\(\Delta \varphi\)</span> wird durch Messfeder kompensiert</li>
-<li>Waagebalken wird über Messspindel in die ursprüngliche Lage <span class="math inline">\(\varphi=0\)</span> zurückgeführt</li>
-</ul>
-<p>Gleichgwichtsbedingung (Drehmomentengleichung) für <span class="math inline">\(\varphi=0\)</span>:</p>
-<p><span class="math display">\[
-m g a = \tau \epsilon + b k \ell
-\]</span></p>
-<p>Benötigt werdem zwei Messpunkte: <span class="math inline">\(g_{1}(x_{1})\)</span> und <span class="math inline">\(g_{2}(x_{2})\)</span></p>
-<p><span class="math display">\[
-m g_{1} a = \tau \epsilon + b k \ell_{1} \qquad
-m g_{2} a = \tau \epsilon + b k \ell_{2}
-\]</span></p>
-<p>Differenz:</p>
-<p><span class="math display">\[
-g_{2} - g_{1} = \Delta g = \frac{k b}{m a}(\ell_{2} - \ell_{1})
-\]</span></p>
-<p>Federhub <span class="math inline">\((\ell_{2}-\ell_{1})\)</span> wird an der Messspindel in Zählereinheiten <span class="math inline">\(\Delta \text{ZE}\)</span> abgelesen.</p>
-<p>Der Skalenwert <span class="math display">\[
-S = \frac{k b}{m a}
-\]</span></p>
-<p>enthält geräteinterne Konstanten und wird über eine Kalibrierung des Gravimeters bestimmt.</p>
-<p>Die relative Schwerebeschleunigung <span class="math inline">\(\Delta g\)</span> wird über die allgemeine Gravimetergleichung <span class="math display">\[
-\Delta g = \text{S} \Delta \text{ZE}
-\]</span></p>
-<p>bestimmt.</p>
-<p>Für das Autograv CG-5 gilt <span class="math inline">\(S=1\)</span>, also erfolgt die Anzeige an der Apparatur direkt in mGal.</p>
-</section>
-<section id="astasierte-nichtlineare-systeme" class="level3" data-number="4.3.3">
-<h3 data-number="4.3.3" class="anchored" data-anchor-id="astasierte-nichtlineare-systeme"><span class="header-section-number">4.3.3</span> Astasierte nichtlineare Systeme</h3>
-<div class="columns">
-<div class="column" style="width:65%;">
-<p>Gleichgewichtsbedingung für <span class="math inline">\(\varphi \ne 0\)</span>: <span class="math display">\[
-m g a \sin\varphi = \tau (\epsilon+\varphi) + b k \ell
-\]</span></p>
-<p><span class="math display">\[
-\frac{ \partial g }{ \partial \varphi } = \frac{\tau}{m a} \frac{\sin\varphi - (\epsilon + \varphi)\cos\varphi}{\sin^2\varphi}
-\]</span></p>
-<p>keine Linearität zwischen <span class="math inline">\(\partial g\)</span> und <span class="math inline">\(\partial \varphi\)</span>.</p>
-</div><div class="column" style="width:30%;">
-<p><img src="images/Astasierung.png" class="img-fluid"></p>
-</div>
-</div>
-<p>Höhere Empfindlichkeit bei verringerter Stabilität des Messystems, labile Gleichgewichtslage, lange Schwingzeit.</p>
-</section>
-</section>
-<section id="das-gravimeter-autograv-cg-5" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="das-gravimeter-autograv-cg-5"><span class="header-section-number">4.4</span> Das Gravimeter Autograv CG-5</h2>
-<div class="columns">
-<div class="column" style="width:65%;">
-<ul>
-<li>selbstregistrierend</li>
-<li>Messbereich 8000 mGal</li>
-<li>Empfindlichkeit 0.001 mGal</li>
-<li>Messwertanzeige <strong>4615.312</strong> mGal</li>
-<li>elektronische Neigungsmessung (Genauigkeit in Bogensekunden)</li>
-<li>geringe Drift</li>
-</ul>
-</div><div class="column" style="width:30%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/CG5.png" class="img-fluid figure-img"></p>
-<figcaption>(Scintrex Ltd.)</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Messprinzip: Lineares System, keine Astasierung</p>
-<ul>
-<li>Eine elektrostatische Rückstellkraft hält die Testmasse in ihrer Ruhelage</li>
-<li>Eine Kapazitätssonde misst die Position der Testmasse</li>
-<li>Ein Feedback-System regelt die Spannung so, dass die Masse in Position bleibt</li>
-<li>Die zur Stabilisierung benötigte Spannung ist direkt proportional zur Änderung von <span class="math inline">\(g\)</span></li>
-</ul>
-<p><img src="images/CG5_Prinzip.png" class="img-fluid"></p>
-</section>
-<section id="fehlereinflüsse" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="fehlereinflüsse"><span class="header-section-number">4.5</span> Fehlereinflüsse</h2>
-<p>Zeitabhängige Fehler bewirken <strong>Gang</strong> des Gravimeters und erfordern Korrekturen</p>
-<ul>
-<li>Elastisches Verhalten der Quarzfeder (Hysterese, Langzeitdrift)</li>
-<li>Mechanische Störungen (Transport)</li>
-<li>Temperatur- und Luftdruckeffekte</li>
-<li>Gezeiten</li>
-</ul>
-<p>Zeitunabhängige Effekte erfordern Kalibrierung oder Filterung</p>
-<ul>
-<li>Skalenwertfehler: Neukalibrierung</li>
-<li>Mikroseimische Unruhe: Filter</li>
-</ul>
-<section id="driftkorrektur" class="level3" data-number="4.5.1">
-<h3 data-number="4.5.1" class="anchored" data-anchor-id="driftkorrektur"><span class="header-section-number">4.5.1</span> Driftkorrektur</h3>
-<p>Statische Gravimeter zeigen lineare Langzeitdrift durch unvermeidbare irreversible Veränderungen des elastischen Verhaltens des Quarzsensor-Systems.</p>
-<p>Daraus resultieren eine begrenzte Lebensdauer des Gravimeters und ggf. kostspielige Serviceleistungen des Geräteherstellers.</p>
-<p>Diese Änderungen erfasst man durch Aufzeichnung von Zeitreihen im Labor.</p>
-<p>Daraus ermittelt man die <strong>Driftkorrektur</strong>:</p>
-<p><span class="math display">\[
-\Delta g_{Dr}(t) = (t - t_{s}) DR
-\]</span></p>
-<p>DR–Driftkonstante in mGal/d, <span class="math inline">\(t_{s}\)</span>–Messbeginn, <span class="math inline">\(t\)</span>–Zeitpunkt der Ablesung</p>
-<p>Bestimmung von DR aus kontinuierlicher Messung über einen Zeitraum von <span class="math inline">\(&gt;24\)</span> h.</p>
-<p><img src="images/Driftkorrektur.png" class="img-fluid"></p>
+<p>Im Rahmen der Lehrveranstaltung werden Sie den Umgang mit dem Gravimeter <em>Autograv CG-5</em> (Scintrex Ltd., Kanada) erlernen und eigenständig Messungen durchführen. Der gesamte Prozess von der Messplanung über die Datenerfassung und -verarbeitung bis zur geologischen Interpretation der Ergebnisse wird in einem Praktikumsbericht dokumentiert.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -940,13 +634,13 @@ m g a \sin\varphi = \tau (\epsilon+\varphi) + b k \ell
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./grundlagen.html" class="pagination-link" aria-label="Geophysikalische Grundlagen">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Vorwort">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./gis.html" class="pagination-link" aria-label="Arbeit mit QGIS">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arbeit mit QGIS</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./grundlagen.html" class="pagination-link" aria-label="Geophysikalische Grundlagen">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

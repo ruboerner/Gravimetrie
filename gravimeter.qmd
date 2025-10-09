@@ -1,5 +1,4 @@
 ---
-title: "Messgrößen und Messgeräte"
 format:
   revealjs:
     output-file: gravimeter_slides.html
@@ -7,6 +6,7 @@ jupyter:
   kernel: python3
 editor: source
 ---
+# Messgrößen und Messgeräte
 
 ## Messgrößen
 
