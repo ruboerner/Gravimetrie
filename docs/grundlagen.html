@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Geophysikalische Grundlagen – Gravimetrie</title>
+<title>2&nbsp; Geophysikalische Grundlagen – Gravimetrie</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./gravimeter.html" rel="next">
+<link href="./erdgestalt.html" rel="next">
 <link href="./gliederung.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -157,7 +157,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./grundlagen.html">Grundlagen</a></li><li class="breadcrumb-item"><a href="./grundlagen.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./grundlagen.html">Grundlagen</a></li><li class="breadcrumb-item"><a href="./grundlagen.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -187,13 +187,13 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort</span></span></a>
+ <span class="menu-text">Vorwort</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gliederung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lehrziele der Vorlesung</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lernziele der Vorlesung</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -208,7 +208,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grundlagen.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./erdgestalt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Erdgestalt</span></span></a>
   </div>
 </li>
       </ul>
@@ -228,6 +234,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reduktionen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reduktionen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -241,8 +253,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./modellierung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modellierung gravimetrischer Anomalien</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./gis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arbeit mit QGIS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Arbeit mit QGIS</span></span></a>
   </div>
 </li>
       </ul>
@@ -257,43 +275,31 @@ window.Quarto = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#gravitationsfeld-der-erde" id="toc-gravitationsfeld-der-erde" class="nav-link active" data-scroll-target="#gravitationsfeld-der-erde"><span class="header-section-number">3.1</span> Gravitationsfeld der Erde</a></li>
-  <li><a href="#physikalische-grundlagen" id="toc-physikalische-grundlagen" class="nav-link" data-scroll-target="#physikalische-grundlagen"><span class="header-section-number">3.2</span> Physikalische Grundlagen</a>
+  <li><a href="#gravitationsfeld-der-erde" id="toc-gravitationsfeld-der-erde" class="nav-link active" data-scroll-target="#gravitationsfeld-der-erde"><span class="header-section-number">2.1</span> Gravitationsfeld der Erde</a></li>
+  <li><a href="#physikalische-grundlagen" id="toc-physikalische-grundlagen" class="nav-link" data-scroll-target="#physikalische-grundlagen"><span class="header-section-number">2.2</span> Physikalische Grundlagen</a>
   <ul class="collapse">
-  <li><a href="#newtonsches-gravitationsgesetz" id="toc-newtonsches-gravitationsgesetz" class="nav-link" data-scroll-target="#newtonsches-gravitationsgesetz"><span class="header-section-number">3.2.1</span> Newtonsches Gravitationsgesetz</a></li>
+  <li><a href="#newtonsches-gravitationsgesetz" id="toc-newtonsches-gravitationsgesetz" class="nav-link" data-scroll-target="#newtonsches-gravitationsgesetz"><span class="header-section-number">2.2.1</span> Newtonsches Gravitationsgesetz</a></li>
   </ul></li>
-  <li><a href="#das-gravitationspotential" id="toc-das-gravitationspotential" class="nav-link" data-scroll-target="#das-gravitationspotential"><span class="header-section-number">3.3</span> Das Gravitationspotential</a></li>
-  <li><a href="#die-gravitationsbeschleunigung-der-erde" id="toc-die-gravitationsbeschleunigung-der-erde" class="nav-link" data-scroll-target="#die-gravitationsbeschleunigung-der-erde"><span class="header-section-number">3.4</span> Die Gravitationsbeschleunigung der Erde</a>
+  <li><a href="#das-gravitationspotential" id="toc-das-gravitationspotential" class="nav-link" data-scroll-target="#das-gravitationspotential"><span class="header-section-number">2.3</span> Das Gravitationspotential</a></li>
+  <li><a href="#die-gravitationsbeschleunigung-der-erde" id="toc-die-gravitationsbeschleunigung-der-erde" class="nav-link" data-scroll-target="#die-gravitationsbeschleunigung-der-erde"><span class="header-section-number">2.4</span> Die Gravitationsbeschleunigung der Erde</a>
   <ul class="collapse">
-  <li><a href="#anziehungsterm" id="toc-anziehungsterm" class="nav-link" data-scroll-target="#anziehungsterm"><span class="header-section-number">3.4.1</span> Anziehungsterm</a></li>
-  <li><a href="#zentrifugalterm" id="toc-zentrifugalterm" class="nav-link" data-scroll-target="#zentrifugalterm"><span class="header-section-number">3.4.2</span> Zentrifugalterm</a></li>
-  <li><a href="#gezeitenterm" id="toc-gezeitenterm" class="nav-link" data-scroll-target="#gezeitenterm"><span class="header-section-number">3.4.3</span> Gezeitenterm</a></li>
+  <li><a href="#anziehungsterm" id="toc-anziehungsterm" class="nav-link" data-scroll-target="#anziehungsterm"><span class="header-section-number">2.4.1</span> Anziehungsterm</a></li>
+  <li><a href="#zentrifugalterm" id="toc-zentrifugalterm" class="nav-link" data-scroll-target="#zentrifugalterm"><span class="header-section-number">2.4.2</span> Zentrifugalterm</a></li>
+  <li><a href="#gezeitenterm" id="toc-gezeitenterm" class="nav-link" data-scroll-target="#gezeitenterm"><span class="header-section-number">2.4.3</span> Gezeitenterm</a></li>
   </ul></li>
-  <li><a href="#erdgestalt" id="toc-erdgestalt" class="nav-link" data-scroll-target="#erdgestalt"><span class="header-section-number">4</span> Erdgestalt</a>
-  <ul class="collapse">
-  <li><a href="#erdellipsoid" id="toc-erdellipsoid" class="nav-link" data-scroll-target="#erdellipsoid"><span class="header-section-number">4.1</span> Erdellipsoid</a>
-  <ul class="collapse">
-  <li><a href="#somigliana-gleichung" id="toc-somigliana-gleichung" class="nav-link" data-scroll-target="#somigliana-gleichung"><span class="header-section-number">4.1.1</span> Somigliana-Gleichung</a></li>
-  </ul></li>
-  <li><a href="#das-geoid" id="toc-das-geoid" class="nav-link" data-scroll-target="#das-geoid"><span class="header-section-number">4.2</span> Das Geoid</a>
-  <ul class="collapse">
-  <li><a href="#mathematische-beschreibung-der-geoidgestalt" id="toc-mathematische-beschreibung-der-geoidgestalt" class="nav-link" data-scroll-target="#mathematische-beschreibung-der-geoidgestalt"><span class="header-section-number">4.2.1</span> Mathematische Beschreibung der Geoidgestalt</a></li>
-  </ul></li>
-  <li><a href="#gezeiten-der-festen-erde" id="toc-gezeiten-der-festen-erde" class="nav-link" data-scroll-target="#gezeiten-der-festen-erde"><span class="header-section-number">4.3</span> Gezeiten der festen Erde</a></li>
-  <li><a href="#das-schwerepotential-im-rotierenden-system" id="toc-das-schwerepotential-im-rotierenden-system" class="nav-link" data-scroll-target="#das-schwerepotential-im-rotierenden-system"><span class="header-section-number">4.4</span> Das Schwerepotential im rotierenden System</a></li>
-  <li><a href="#newtonsches-volumenpotential" id="toc-newtonsches-volumenpotential" class="nav-link" data-scroll-target="#newtonsches-volumenpotential"><span class="header-section-number">4.5</span> Newtonsches Volumenpotential</a></li>
-  <li><a href="#ableitungen-des-potentials" id="toc-ableitungen-des-potentials" class="nav-link" data-scroll-target="#ableitungen-des-potentials"><span class="header-section-number">4.6</span> Ableitungen des Potentials</a></li>
-  <li><a href="#der-gravitationstensor-v_ik" id="toc-der-gravitationstensor-v_ik" class="nav-link" data-scroll-target="#der-gravitationstensor-v_ik"><span class="header-section-number">4.7</span> Der Gravitationstensor <span class="math inline">\(V_{ik}\)</span></a></li>
-  </ul></li>
+  <li><a href="#das-schwerepotential-im-rotierenden-system" id="toc-das-schwerepotential-im-rotierenden-system" class="nav-link" data-scroll-target="#das-schwerepotential-im-rotierenden-system"><span class="header-section-number">2.5</span> Das Schwerepotential im rotierenden System</a></li>
+  <li><a href="#newtonsches-volumenpotential" id="toc-newtonsches-volumenpotential" class="nav-link" data-scroll-target="#newtonsches-volumenpotential"><span class="header-section-number">2.6</span> Newtonsches Volumenpotential</a></li>
+  <li><a href="#ableitungen-des-potentials" id="toc-ableitungen-des-potentials" class="nav-link" data-scroll-target="#ableitungen-des-potentials"><span class="header-section-number">2.7</span> Ableitungen des Potentials</a></li>
+  <li><a href="#der-gravitationstensor-v_ik" id="toc-der-gravitationstensor-v_ik" class="nav-link" data-scroll-target="#der-gravitationstensor-v_ik"><span class="header-section-number">2.8</span> Der Gravitationstensor <span class="math inline">\(V_{ik}\)</span></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./grundlagen.html">Grundlagen</a></li><li class="breadcrumb-item"><a href="./grundlagen.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./grundlagen.html">Grundlagen</a></li><li class="breadcrumb-item"><a href="./grundlagen.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></h1>
 </div>
 
 
@@ -310,8 +316,26 @@ window.Quarto = {
 </header>
 
 
-<section id="gravitationsfeld-der-erde" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="gravitationsfeld-der-erde"><span class="header-section-number">3.1</span> Gravitationsfeld der Erde</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Lernziele">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tipp</span>Lernziele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Feld- und Potentialbegriff</li>
+<li>Gravitationsbeschleunigung der Erde</li>
+<li>Beschreibung der Gestalt des Erdkörpers</li>
+<li>Newtonsches Volumenpotential</li>
+</ul>
+</div>
+</div>
+<section id="gravitationsfeld-der-erde" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="gravitationsfeld-der-erde"><span class="header-section-number">2.1</span> Gravitationsfeld der Erde</h2>
 <ul>
 <li>Natürlich vorhandenes geophysikalisches Feld</li>
 <li>Passives geophysikalisches Messverfahren</li>
@@ -319,12 +343,12 @@ window.Quarto = {
 <p>Ausgenutzt wird der Dichteunterschied zwischen Erkundungsobjekt und Nebengestein.</p>
 <p><strong>Dichte</strong> ist der physikalische Parameter.</p>
 </section>
-<section id="physikalische-grundlagen" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="physikalische-grundlagen"><span class="header-section-number">3.2</span> Physikalische Grundlagen</h2>
+<section id="physikalische-grundlagen" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="physikalische-grundlagen"><span class="header-section-number">2.2</span> Physikalische Grundlagen</h2>
 <p><strong>Gravitation</strong> ist eine fundamentale physikalische Eigenschaft von Masse</p>
 <p><img src="images/Newton_gravitation.excalidraw.svg" class="img-fluid"></p>
-<section id="newtonsches-gravitationsgesetz" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="newtonsches-gravitationsgesetz"><span class="header-section-number">3.2.1</span> Newtonsches Gravitationsgesetz</h3>
+<section id="newtonsches-gravitationsgesetz" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="newtonsches-gravitationsgesetz"><span class="header-section-number">2.2.1</span> Newtonsches Gravitationsgesetz</h3>
 <p>Beschreibung der physikalischen Wechselwirkung zwischen Massen</p>
 <div class="columns">
 <div class="column">
@@ -372,8 +396,8 @@ U_{12} = - \int_{P_{1}}^{P_{2}} \mathbf{F}\cdot \, \dd {\mathbf{r}}  = - m \int_
 \]</span></p>
 </section>
 </section>
-<section id="das-gravitationspotential" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="das-gravitationspotential"><span class="header-section-number">3.3</span> Das Gravitationspotential</h2>
+<section id="das-gravitationspotential" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="das-gravitationspotential"><span class="header-section-number">2.3</span> Das Gravitationspotential</h2>
 <p>Darstellung der Gravitationskraft und der Schwerebeschleunigung für eine kugelförmige, homogene Erde durch Feldlinien:</p>
 <ul>
 <li>Feldlinien verlaufen <strong>radial zum Massenzentrum</strong></li>
@@ -396,8 +420,8 @@ W = \frac{A}{\overline{m}}, \qquad [W] = \mathrm{N \cdot m \cdot kg^{-1}} = \mat
 <p>Der Potentialgradient <span class="math inline">\(\grad W\)</span> zeigt in Richtung des stärksten Potentialanstiegs, <span class="math inline">\(\mathbf{g}\)</span> zeigt in Richtung des stärksten Potentialgefälles.</p>
 <p>Die Schwerebeschleunigung kann auf einer Äquipotentialfläche unterschiedliche Werte besitzen (<span class="math inline">\(\mathbf{g}_{1} &gt; \mathbf{g}_{2}\)</span>).</p>
 </section>
-<section id="die-gravitationsbeschleunigung-der-erde" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="die-gravitationsbeschleunigung-der-erde"><span class="header-section-number">3.4</span> Die Gravitationsbeschleunigung der Erde</h2>
+<section id="die-gravitationsbeschleunigung-der-erde" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="die-gravitationsbeschleunigung-der-erde"><span class="header-section-number">2.4</span> Die Gravitationsbeschleunigung der Erde</h2>
 <p>Begriffe: <em>Erdschwerebeschleunigung</em>, <em>Schwere</em></p>
 <p><strong>Modellvorstellung</strong>: Homogenes Rotationsellipsoid der Gesamtmasse <span class="math inline">\(m_{E}\)</span> steht unter dem Einfluss der Anziehung durch weitere kosmische Massen (Sonne, Mond).</p>
 <p>Die Gravitationsbeschleunigung <span class="math inline">\(\mathbf{g}\)</span> setzt sich zusammen aus drei Beiträgen:</p>
@@ -411,8 +435,8 @@ W = \frac{A}{\overline{m}}, \qquad [W] = \mathrm{N \cdot m \cdot kg^{-1}} = \mat
 <figcaption>Die Erde als rotierendes System</figcaption>
 </figure>
 </div>
-<section id="anziehungsterm" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="anziehungsterm"><span class="header-section-number">3.4.1</span> Anziehungsterm</h3>
+<section id="anziehungsterm" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="anziehungsterm"><span class="header-section-number">2.4.1</span> Anziehungsterm</h3>
 <p>Betrag: <span class="math display">\[
 a_{E}(\varphi) = f \frac{m_{E}}{R_{E}^2(\varphi)}
 \]</span></p>
@@ -467,15 +491,15 @@ a_{E}(\varphi) = f \frac{m_{E}}{R_{E}^2(\varphi)}
 </tbody>
 </table>
 </section>
-<section id="zentrifugalterm" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="zentrifugalterm"><span class="header-section-number">3.4.2</span> Zentrifugalterm</h3>
+<section id="zentrifugalterm" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="zentrifugalterm"><span class="header-section-number">2.4.2</span> Zentrifugalterm</h3>
 <p>Erdrotation:</p>
 <p><span class="math display">\[
 |\mathbf{a}_{Z}(\varphi)| = \omega_{E}^2 r(\varphi) = \omega_{E}^2 R_{E} \cos\varphi
 \]</span></p>
 </section>
-<section id="gezeitenterm" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="gezeitenterm"><span class="header-section-number">3.4.3</span> Gezeitenterm</h3>
+<section id="gezeitenterm" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="gezeitenterm"><span class="header-section-number">2.4.3</span> Gezeitenterm</h3>
 <p><span class="math display">\[
 \mathbf{a}_{G} = f(\theta, \varphi, t) \le 3\ \mu \mathrm{m}\cdot \mathrm{s}^{-2}
 \]</span></p>
@@ -502,153 +526,8 @@ a_{E}(\varphi) = f \frac{m_{E}}{R_{E}^2(\varphi)}
 </div>
 </section>
 </section>
-<section id="erdgestalt" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Erdgestalt</h1>
-<p>Zur mathematischen Darstellung der physikalischen Figur des Erdkörpers werden Modelle benutzt:</p>
-<ul>
-<li>Erdellipsoid</li>
-<li>Geoid</li>
-</ul>
-<section id="erdellipsoid" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="erdellipsoid"><span class="header-section-number">4.1</span> Erdellipsoid</h2>
-<p>Eingeführt 1924 als <em>Hayfordsches Erdellipsoid</em>.</p>
-<ul>
-<li>Schwach abgeplattetes Rotationsellipsoid als einfache Näherung an das Geoid</li>
-<li>Das zugehörige Schwerefeld ist die Normalschwerebeschleunigung <span class="math inline">\(\gamma_{0}\)</span></li>
-</ul>
-<section id="somigliana-gleichung" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="somigliana-gleichung"><span class="header-section-number">4.1.1</span> Somigliana-Gleichung</h3>
-<p>Berechnung der Normalschwere <span class="math inline">\(\gamma\)</span> eines Ellipsoids aus <span class="math display">\[
-\begin{align}
-\mathbf{g} &amp; = -\grad W = -\grad ( V + \Phi_{Z} ) \\
-\gamma(\varphi) &amp; = \mathbf{g}(\varphi) \cdot \hat{\mathbf{r}}
-\end{align}
-\]</span></p>
-<p>mittels der <em>Somigliana-Gleichung</em> für die geographische Breite <span class="math inline">\(\varphi\)</span> <span class="math display">\[
-\gamma(\varphi) = \gamma_{E}\,\frac{1 + k^2 \sin^2\varphi}{\sqrt{1 - e^2 \sin^2\varphi}}
-\]</span></p>
-<p><span class="math display">\[
-\begin{align}
-e^2 &amp; = 2f - f^2 \\
-k &amp; = \frac{b\,\gamma_p - a\,\gamma_e}{a\,\gamma_e} \\
-b &amp; = a(1-f)
-\end{align}
-\]</span></p>
-<p>Mit den Daten aus WGS-84:</p>
-<p><span class="math display">\[
-\begin{align}
-a &amp;= 6\,378\,137\ \text{m} \\
-f &amp;= \frac{1}{298.257223563} \\
-\gamma_e &amp;= 9.780\,325\,3359\ \text{m s}^{-2} \\
-\gamma_p &amp;= 9.832\,184\,9378\ \text{m s}^{-2}.
-\end{align}
-\]</span></p>
-<div id="056514f8" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">6378.137e3</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> <span class="fl">298.257223563</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>gamma_E <span class="op">=</span> <span class="fl">9.7803253359</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>gamma_P <span class="op">=</span> <span class="fl">9.8321849378</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="fl">72.92115e-6</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>e2 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> f <span class="op">-</span> f <span class="op">*</span> f</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> f)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> (b <span class="op">*</span> gamma_P <span class="op">-</span> a <span class="op">*</span> gamma_E) <span class="op">/</span> a <span class="op">/</span> gamma_E</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="kw">lambda</span> phi: gamma_E <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> k <span class="op">*</span> np.sin(phi)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> np.sqrt(<span class="dv">1</span> <span class="op">-</span> e2 <span class="op">*</span> np.sin(phi)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>aE <span class="op">=</span> omega<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> a</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"gamma(0)      = </span><span class="sc">{</span>gamma(np.deg2rad(<span class="fl">0.0</span>))<span class="sc">:.4f}</span><span class="ss"> m/s**2"</span>)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"gamma(45)     = </span><span class="sc">{</span>gamma(np.deg2rad(<span class="fl">45.0</span>))<span class="sc">:.4f}</span><span class="ss"> m/s**2"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"gamma(0) + az = </span><span class="sc">{</span>aE <span class="op">+</span> gamma(np.deg2rad(<span class="fl">0.0</span>))<span class="sc">:.4f}</span><span class="ss"> m/s**2"</span>)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"az            = </span><span class="sc">{</span>aE<span class="sc">:.4f}</span><span class="ss"> m/s**2"</span>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"gamma(0)/az   = </span><span class="sc">{</span>gamma(np.deg2rad(<span class="fl">0.0</span>))<span class="op">/</span>aE<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>gamma(0)      = 9.7803 m/s**2
-gamma(45)     = 9.8062 m/s**2
-gamma(0) + az = 9.8142 m/s**2
-az            = 0.0339 m/s**2
-gamma(0)/az   = 288.3716</code></pre>
-</div>
-</div>
-<p>Die Gravitationsbeschleunigung übertrifft die Zentrifugalbeschleunigung am Äquator um das 288-fache.</p>
-<p>Wir berechnen die Normalschwere nach der <em>Somigliana-Gleichung</em> und stellen den Verlauf grafisch dar:</p>
-<div id="6a198a45" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>phi_d <span class="op">=</span> np.arange(start<span class="op">=</span><span class="fl">0.0</span>, stop<span class="op">=</span><span class="fl">90.1</span>, step<span class="op">=</span><span class="fl">1.0</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>gamma_phi <span class="op">=</span> [gamma(np.deg2rad(v)) <span class="cf">for</span> v <span class="kw">in</span> phi_d]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ax.plot(phi_d, gamma_phi)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Nördliche Breite in Grad'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="er">\</span><span class="vs">gamma_</span><span class="op">{0}</span><span class="dv">$</span><span class="vs"> in m/s</span><span class="dv">$^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Breitenabhängigkeit der Normalschwere"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="grundlagen_files/figure-html/cell-3-output-1.png" width="527" height="376" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="das-geoid" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="das-geoid"><span class="header-section-number">4.2</span> Das Geoid</h2>
-<p>Die Äquipotentialfläche, die mit der ruhenden (mittleren, gezeitenfreien) Meeresoberfläche zusammenfällt, heißt <strong>Geoid</strong>.</p>
-<p>Das Geoid</p>
-<ul>
-<li>ist eine ausgewählte Äquipotentialfläche des Schwerepotentials mit <span class="math inline">\(W_{0}=\mathrm{const}\)</span></li>
-<li>fällt mit ruhender (mittlerer gezeitenfreier) Meeresoberfläche zusammen</li>
-<li>setzt sich im Bereich unter den Kontinenten durch gedachte Kanäle fort</li>
-<li>Geoid ist gleichermaßen Ort und physikalische Größe mit <span class="math inline">\(W_{0} \approx 62.2 \times 10^{6} \, \frac{\mathrm{m}^{2}}{\mathrm{s}^{2}}\)</span>, festgelegt durch International Association of Geodesy (IAG), 2015.</li>
-</ul>
-<p>Darstellung als lokale Abweichung vom Erdellipsoid in Einheit von Metern (<em>Geoidhöhen</em> oder <em>Geoidundulationen</em>).</p>
-<p><img src="images/Geoidundulation.excalidraw.svg" class="img-fluid"></p>
-<p>Wir unterscheiden</p>
-<ul>
-<li><em>Kontinentale</em> Geoidundulationen: Masseninhomgenitäten im Mantel und der tieferen Erdkruste</li>
-<li><em>Regionale</em> Geoidundulationen: Regionale geologische Strukturen, Undulationen der Grenzfläche Kruste/Mantel</li>
-<li><em>Lokale</em> Geoidundulationen: Lokale Masseninhomogenitäten in den oberen km der Erdkruste</li>
-</ul>
-<div class="columns">
-<div class="column" style="width:65%;">
-<p>Das Geoidmodell EGM96 (Earth Gravitational Model 1996) entstand aus einer Kooperation zwischen NIMA, dem NASA Goddard Space Flight Center und der Ohio State University. Es basiert auf weltweit erfassten Schwerefelddaten – einschließlich neuer Airborne-Schweremessungen über Grönland, der Arktis und Antarktis – und kombiniert terrestrische sowie satellitenaltimetrische Messungen. Das Modell liegt mit einer Rasterauflösung von 15′ × 15′ vor.</p>
-</div><div class="column" style="width:35%;">
-<p><img src="images/Geoid_wiki.png" class="img-fluid"></p>
-</div>
-</div>
-<p>Aktuell: EGM2008, EGM2020 in Vorbereitung (Stand Oktober 2025)</p>
-<section id="mathematische-beschreibung-der-geoidgestalt" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="mathematische-beschreibung-der-geoidgestalt"><span class="header-section-number">4.2.1</span> Mathematische Beschreibung der Geoidgestalt</h3>
-<p>Entwicklung nach Kugelflächenfunktionen <span class="math display">\[
-\begin{align}
-N(r, \theta, \lambda) &amp; = \frac{f m_{E}}{r \, \pmb\gamma_{0}(r, \theta)} \\
-&amp; = \sum_{n=0}^{\infty} \left( \frac{a}{r} \right)^{n} \sum_{m=0}^{n} P_{nm}(\cos \theta)\left( C_{nm} \cos m\lambda + S_{nm} \sin m \lambda\right)
-\end{align}
-\]</span> mit</p>
-<ul>
-<li><span class="math inline">\(C_{nm}, S_{nm}\)</span> - Stokessche Koeffizienten</li>
-<li><span class="math inline">\(P_{nm}(\cos \theta)\)</span> - zugeordnete Legendrepolynome</li>
-<li><span class="math inline">\(n\)</span> - Grad</li>
-<li><span class="math inline">\(m\)</span> - Ordnung der harmonischen Koeffizienten.</li>
-</ul>
-<p>Koeffizienten mit endlichem Grad <span class="math inline">\(n\)</span> werden aus Schweremessungen, geodätischen Messungen und Bahnstörungen von Satelliten bestimmt.</p>
-</section>
-</section>
-<section id="gezeiten-der-festen-erde" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="gezeiten-der-festen-erde"><span class="header-section-number">4.3</span> Gezeiten der festen Erde</h2>
-<p>Die Gezeitenkräfte von Mond und Sonne bewirken auf einer elastisch verformbaren Erde messbare Effekte, die sich in der Hebung des Bodens sowie in der damit verbundenen Änderung der Erdschwerebeschleunigung äußern.</p>
-</section>
-<section id="das-schwerepotential-im-rotierenden-system" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="das-schwerepotential-im-rotierenden-system"><span class="header-section-number">4.4</span> Das Schwerepotential im rotierenden System</h2>
+<section id="das-schwerepotential-im-rotierenden-system" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="das-schwerepotential-im-rotierenden-system"><span class="header-section-number">2.5</span> Das Schwerepotential im rotierenden System</h2>
 <p>Im rotierenden System muss auch die Zentrifugalbeschleunigung berücksichtigt werden.</p>
 <p>Wir betrachten einen Punkt <span class="math inline">\(P\)</span> auf der Oberfläche einer mit der konstanten Winkelgeschwindigkeit <span class="math inline">\(\pmb\omega_{E}\)</span> um ihre Drehachse rotierenden Kugel.</p>
 <p><img src="images/R0_R1_RP.excalidraw.svg" class="img-fluid"></p>
@@ -684,8 +563,8 @@ W = V + Z
 W(\mathbf{R} + \mathrm{d}\mathbf{R}) = W(\mathbf{R}) + \grad W \cdot \mathrm{d}\mathbf{R}
 \]</span> Der Potentialunterschied <span class="math inline">\(\mathrm{d}W = \grad W \cdot \mathrm{d}\mathbf{R}\)</span> zweier Punkte im Abstand <span class="math inline">\(\mathrm{d}\mathbf{R}\)</span> verschwindet, wenn <span class="math inline">\(\grad W\)</span> und <span class="math inline">\(\mathrm{d}\mathbf{R}\)</span> einen rechten Winkel bilden. Er ist am größten, wenn sie parallel sind. Der Schwerevektor <span class="math inline">\(\mathbf{g} = -\grad W\)</span> steht also senkrecht auf den Flächen <span class="math inline">\(W = \mathrm{const}\)</span>. man spricht von Niveauflächen.</p>
 </section>
-<section id="newtonsches-volumenpotential" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="newtonsches-volumenpotential"><span class="header-section-number">4.5</span> Newtonsches Volumenpotential</h2>
+<section id="newtonsches-volumenpotential" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="newtonsches-volumenpotential"><span class="header-section-number">2.6</span> Newtonsches Volumenpotential</h2>
 <p>Betrachten Erde als Punktmasse <span class="math inline">\(m_{E}\)</span> im Koordinatenursprung. Potential in Punkt <span class="math inline">\(\mathbf{r}\)</span> beträgt für <span class="math inline">\(|\mathbf{r}| &gt; 0\)</span> <span class="math display">\[
 V(\mathbf{r}) = -f \frac{m_{E}}{|\mathbf{r}|}
 \]</span> Für ausgedehnte kontinuierliche Massenverteilung: Volumenelement <span class="math inline">\(\mathrm{d}\tau\)</span> in Punkt <span class="math inline">\(\mathbf{r}'\)</span> besitzt Masse <span class="math inline">\(\mathrm{d}m(\mathbf{r}') = \rho(\mathbf{r}')\,\mathrm{d}\tau\)</span> . Integration liefert <span class="math display">\[
@@ -699,8 +578,8 @@ m = 4 \pi \rho \int \limits_{0}^{a}  r^{2} \, \dd r = 4 \pi\rho \frac{a^{3}}{3}
 \]</span> die Masse der Kugel ist. Mehr Details liefert die <em>Potentialtheorie</em>. Dort behandeln wir das Newtonsche Kugelschalentheorem, woraus woraus wir das Potential innerhalb und außerhalb einer Kugelschale berechnen werden. Dichtemodelle der Form <span class="math inline">\(\rho = \rho(r)\)</span> liefert bei Beachtung des Trägheitsmoments der Erde Einblicke in den Verlauf der Schwere im Erdkörper.</p>
 <p>Außerhalb der Erde gilt <span class="math inline">\(|V| \sim \frac{1}{r}\)</span> und <span class="math inline">\(|\mathbf{g}| \sim \frac{1}{r^{2}}\)</span>.</p>
 </section>
-<section id="ableitungen-des-potentials" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="ableitungen-des-potentials"><span class="header-section-number">4.6</span> Ableitungen des Potentials</h2>
+<section id="ableitungen-des-potentials" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="ableitungen-des-potentials"><span class="header-section-number">2.7</span> Ableitungen des Potentials</h2>
 <p>In der Geophysik ist <span class="math inline">\(\mathbf{g}\)</span> die interessante Größe. Wir benötigen also den Gradienten von <span class="math inline">\(V\)</span>, d.h. die partiellen Ableitungen von <span class="math inline">\(V\)</span> in Richtung der Koordinatenachsen.</p>
 <p>Wir betrachten wieder eine Kugel als einfachsten Störkörper.</p>
 <p><img src="images/Kugel_Tiefe_t.excalidraw.svg" class="img-fluid"></p>
@@ -749,44 +628,45 @@ V_{zx}(x,y,0)  &amp; = -3 f m \frac{t x}{\left( x^{2} + y^{2} + t^{2} \right)^{5
 <li>Dichtedifferenz zur Umgebung <span class="math inline">\(\Delta \rho = -2700\)</span> kg/m<span class="math inline">\(^3\)</span></li>
 </ul>
 <p>Wir fragen nach <span class="math inline">\(V_{z}\)</span>, <span class="math inline">\(V_{zz}\)</span> und <span class="math inline">\(V_{zx}\)</span>.</p>
-<div id="a7f9e976" class="cell" data-execution_count="3">
+<div id="17ad32b3" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="fl">2.0</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="fl">6.0</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>drho <span class="op">=</span> <span class="op">-</span><span class="fl">2700.0</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fl">6.674e-11</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> drho <span class="op">*</span> <span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>np.pi <span class="op">*</span> R<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>Vz <span class="op">=</span> <span class="kw">lambda</span> x: <span class="fl">1e5</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> t <span class="op">/</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">3</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>Vzx <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span><span class="fl">3e9</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> t <span class="op">*</span> x <span class="op">/</span>  (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Vzz <span class="op">=</span> <span class="kw">lambda</span> x: <span class="fl">1e9</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span>  (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(start<span class="op">=-</span><span class="dv">20</span>, stop<span class="op">=</span><span class="fl">20.1</span>, step<span class="op">=</span><span class="fl">1.0</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>dg <span class="op">=</span> [Vz(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>dgx <span class="op">=</span> [Vzx(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>dgz <span class="op">=</span> [Vzz(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"max(|Vz|) = </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(np.<span class="bu">abs</span>(dg))<span class="sc">:.3f}</span><span class="ss"> mGal"</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>ax.plot(x, dg, c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>ax.axhspan(<span class="op">-</span><span class="fl">0.017</span>, <span class="op">-</span><span class="fl">0.01</span>, color<span class="op">=</span><span class="st">'0.95'</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.axvspan(-2, 2, color='g', alpha=0.2)</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=-</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=+</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Messgenauigkeit 0.01 mGal'</span>, size<span class="op">=</span><span class="dv">8</span>, xy<span class="op">=</span>(<span class="op">-</span><span class="dv">14</span>, <span class="op">-</span><span class="fl">0.01</span>), xytext<span class="op">=</span>(<span class="op">-</span><span class="dv">20</span>, <span class="op">-</span><span class="fl">0.016</span>), arrowprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'black'</span>, shrink<span class="op">=</span><span class="fl">0.05</span>, width<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">V_{z}</span><span class="dv">$</span><span class="vs"> in mGal"</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x in m"</span>)</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax.twinx()</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>ax2.plot(x, dgz, c<span class="op">=</span><span class="st">'b'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">V_{zz}</span><span class="dv">$</span><span class="vs"> in E"</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>ax2.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'b'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="fl">6.0</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>drho <span class="op">=</span> <span class="op">-</span><span class="fl">2700.0</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fl">6.674e-11</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> drho <span class="op">*</span> <span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>np.pi <span class="op">*</span> R<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Vz <span class="op">=</span> <span class="kw">lambda</span> x: <span class="fl">1e5</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> t <span class="op">/</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">3</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Vzx <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span><span class="fl">3e9</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> t <span class="op">*</span> x <span class="op">/</span>  (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Vzz <span class="op">=</span> <span class="kw">lambda</span> x: <span class="fl">1e9</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span>  (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(start<span class="op">=-</span><span class="dv">20</span>, stop<span class="op">=</span><span class="fl">20.1</span>, step<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>dg <span class="op">=</span> [Vz(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>dgx <span class="op">=</span> [Vzx(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>dgz <span class="op">=</span> [Vzz(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"max(|Vz|) = </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(np.<span class="bu">abs</span>(dg))<span class="sc">:.3f}</span><span class="ss"> mGal"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>ax.plot(x, dg, c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>ax.axhspan(<span class="op">-</span><span class="fl">0.017</span>, <span class="op">-</span><span class="fl">0.01</span>, color<span class="op">=</span><span class="st">'0.95'</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.axvspan(-2, 2, color='g', alpha=0.2)</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=-</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=+</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Messgenauigkeit 0.01 mGal'</span>, size<span class="op">=</span><span class="dv">8</span>, xy<span class="op">=</span>(<span class="op">-</span><span class="dv">14</span>, <span class="op">-</span><span class="fl">0.01</span>), xytext<span class="op">=</span>(<span class="op">-</span><span class="dv">20</span>, <span class="op">-</span><span class="fl">0.016</span>), arrowprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'black'</span>, shrink<span class="op">=</span><span class="fl">0.05</span>, width<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">V_{z}</span><span class="dv">$</span><span class="vs"> in mGal"</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x in m"</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax.twinx()</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>ax2.plot(x, dgz, c<span class="op">=</span><span class="st">'b'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">V_{zz}</span><span class="dv">$</span><span class="vs"> in E"</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>ax2.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'b'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>max(|Vz|) = 0.017 mGal</code></pre>
@@ -794,33 +674,33 @@ V_{zx}(x,y,0)  &amp; = -3 f m \frac{t x}{\left( x^{2} + y^{2} + t^{2} \right)^{5
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="grundlagen_files/figure-html/cell-4-output-2.png" width="527" height="209" class="figure-img"></p>
+<p><img src="grundlagen_files/figure-html/cell-2-output-2.png" width="527" height="209" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="dff38260" class="cell" data-execution_count="4">
+<div id="ccc2ff6f" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, np.<span class="bu">abs</span>(dgx), c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=-</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=+</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x in m"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r"</span><span class="cf">|</span><span class="dv">$</span><span class="vs">V_{zx}</span><span class="dv">$</span><span class="cf">|</span><span class="vs"> in E"</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, np.<span class="bu">abs</span>(dgx), c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=-</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=+</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x in m"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r"</span><span class="cf">|</span><span class="dv">$</span><span class="vs">V_{zx}</span><span class="dv">$</span><span class="cf">|</span><span class="vs"> in E"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="grundlagen_files/figure-html/cell-5-output-1.png" width="438" height="208" class="figure-img"></p>
+<p><img src="grundlagen_files/figure-html/cell-3-output-1.png" width="438" height="208" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="der-gravitationstensor-v_ik" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="der-gravitationstensor-v_ik"><span class="header-section-number">4.7</span> Der Gravitationstensor <span class="math inline">\(V_{ik}\)</span></h2>
+<section id="der-gravitationstensor-v_ik" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="der-gravitationstensor-v_ik"><span class="header-section-number">2.8</span> Der Gravitationstensor <span class="math inline">\(V_{ik}\)</span></h2>
 <p>Die 2. Ableitungen des Volumenpotentials in die kartesischen Richtungen werden in der Einheit <strong>E</strong> (Eötvös) angegeben.</p>
 <p><span class="math display">\[
 [V_{ik}] = \mathrm{E} = 10^{-9}\ \mathrm{s^{-2}} = 0.1\ \mathrm{\frac{mGal}{km}}
@@ -838,7 +718,6 @@ V_{ik} =
 \]</span></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1244,13 +1123,13 @@ V_{ik} =
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./gliederung.html" class="pagination-link" aria-label="Lehrziele der Vorlesung">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lehrziele der Vorlesung</span></span>
+      <a href="./gliederung.html" class="pagination-link" aria-label="Lernziele der Vorlesung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lernziele der Vorlesung</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./gravimeter.html" class="pagination-link" aria-label="Messgrößen und Messgeräte">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./erdgestalt.html" class="pagination-link" aria-label="Erdgestalt">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Erdgestalt</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

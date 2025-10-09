@@ -1,0 +1,27 @@
+---
+format:
+  revealjs:
+    output-file: modellierung_slides.html
+jupyter:
+  kernel: python3
+editor: source
+---
+
+# Modellierung gravimetrischer Anomalien
+
+::: {.callout-tip title="Lernziele"}
+- Anwendung einfacher Störkörperformeln
+- 2-D Modelle
+- 3-D Modelle
+- Berechnung der Geländereduktion mit Hilfe digitaler Geländemodelle (DGM)
+- Feldtransformationen
+- Inversion
+:::
+
+::: {.callout-note title="Voraussetzungen"}
+- [GMT - Generic Mapping Tools](www.generic-mapping-tools.org)
+- Python-Pakete
+    - `pygimli`
+    - `pyGravMag3D`
+    - `scipy`
+:::

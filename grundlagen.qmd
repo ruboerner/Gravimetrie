@@ -1,5 +1,4 @@
 ---
-#title: "Geophysikalische Grundlagen"
 format:
   revealjs:
     output-file: grundlagen_slides.html
@@ -9,6 +8,13 @@ editor: source
 ---
 
 # Geophysikalische Grundlagen
+
+::: {.callout-tip title="Lernziele"}
+- Feld- und Potentialbegriff
+- Gravitationsbeschleunigung der Erde
+- Beschreibung der Gestalt des Erdkörpers
+- Newtonsches Volumenpotential
+:::
 
 ## Gravitationsfeld der Erde
 
@@ -227,153 +233,6 @@ Gezeitenkonzept:
 :::
 :::
 
-# Erdgestalt
-
-Zur mathematischen Darstellung der physikalischen Figur des Erdkörpers werden Modelle benutzt:
-
-- Erdellipsoid
-- Geoid
-
-## Erdellipsoid
-
-Eingeführt 1924 als _Hayfordsches Erdellipsoid_.
-
-- Schwach abgeplattetes Rotationsellipsoid als einfache Näherung an das Geoid
-- Das zugehörige Schwerefeld ist die Normalschwerebeschleunigung $\gamma_{0}$
-
-
-### Somigliana-Gleichung
-
-Berechnung der Normalschwere $\gamma$ eines Ellipsoids aus
-$$
-\begin{align}
-\mathbf{g} & = -\grad W = -\grad ( V + \Phi_{Z} ) \\
-\gamma(\varphi) & = \mathbf{g}(\varphi) \cdot \hat{\mathbf{r}}
-\end{align}
-$$
-
-mittels der _Somigliana-Gleichung_ für die geographische Breite $\varphi$
-$$
-\gamma(\varphi) = \gamma_{E}\,\frac{1 + k^2 \sin^2\varphi}{\sqrt{1 - e^2 \sin^2\varphi}}
-$$
-
-$$
-\begin{align}
-e^2 & = 2f - f^2 \\
-k & = \frac{b\,\gamma_p - a\,\gamma_e}{a\,\gamma_e} \\
-b & = a(1-f)
-\end{align}
-$$
-
-Mit den Daten aus WGS-84:
-
-$$
-\begin{align}
-a &= 6\,378\,137\ \text{m} \\
-f &= \frac{1}{298.257223563} \\
-\gamma_e &= 9.780\,325\,3359\ \text{m s}^{-2} \\
-\gamma_p &= 9.832\,184\,9378\ \text{m s}^{-2}.
-\end{align}
-$$
-
-
-```{python}
-import numpy as np
-a = 6378.137e3
-f = 1 / 298.257223563
-gamma_E = 9.7803253359
-gamma_P = 9.8321849378
-omega = 72.92115e-6
-e2 = 2 * f - f * f
-b = a * (1 - f)
-k = (b * gamma_P - a * gamma_E) / a / gamma_E
-
-gamma = lambda phi: gamma_E * (1 + k * np.sin(phi)**2) / np.sqrt(1 - e2 * np.sin(phi)**2)
-
-aE = omega**2 * a
-
-print(f"gamma(0)      = {gamma(np.deg2rad(0.0)):.4f} m/s**2")
-print(f"gamma(45)     = {gamma(np.deg2rad(45.0)):.4f} m/s**2")
-print(f"gamma(0) + az = {aE + gamma(np.deg2rad(0.0)):.4f} m/s**2")
-print(f"az            = {aE:.4f} m/s**2")
-
-print(f"gamma(0)/az   = {gamma(np.deg2rad(0.0))/aE:.4f}")
-```
-
-
-Die Gravitationsbeschleunigung übertrifft die Zentrifugalbeschleunigung am Äquator um das 288-fache.
-
-Wir berechnen die Normalschwere nach der _Somigliana-Gleichung_ und stellen den Verlauf grafisch dar:
-
-```{python}
-import matplotlib.pyplot as plt
-phi_d = np.arange(start=0.0, stop=90.1, step=1.0)
-gamma_phi = [gamma(np.deg2rad(v)) for v in phi_d]
-fig, ax = plt.subplots(figsize=(6,4))
-ax.plot(phi_d, gamma_phi)
-ax.set_xlabel('Nördliche Breite in Grad')
-ax.set_ylabel(r"$\gamma_{0}$ in m/s$^2$")
-ax.set_title("Breitenabhängigkeit der Normalschwere")
-ax.grid(alpha=0.5)
-```
-
-
-## Das Geoid
-
-Die Äquipotentialfläche, die mit der ruhenden (mittleren, gezeitenfreien) Meeresoberfläche zusammenfällt, heißt __Geoid__.
-
-Das Geoid
-
-- ist eine ausgewählte Äquipotentialfläche des Schwerepotentials mit $W_{0}=\mathrm{const}$ 
-- fällt mit ruhender (mittlerer gezeitenfreier) Meeresoberfläche zusammen
-- setzt sich im Bereich unter den Kontinenten durch gedachte Kanäle fort
-- Geoid ist gleichermaßen Ort und physikalische Größe mit $W_{0} \approx 62.2 \times 10^{6} \, \frac{\mathrm{m}^{2}}{\mathrm{s}^{2}}$, festgelegt durch International Association of Geodesy (IAG), 2015.
-
-Darstellung als lokale Abweichung vom Erdellipsoid in Einheit von Metern (_Geoidhöhen_ oder _Geoidundulationen_).
-
-![](images/Geoidundulation.excalidraw.svg)
-
-Wir unterscheiden
-
-- _Kontinentale_ Geoidundulationen: Masseninhomgenitäten im Mantel und der tieferen Erdkruste
-- _Regionale_ Geoidundulationen: Regionale geologische Strukturen, Undulationen der Grenzfläche Kruste/Mantel
-- _Lokale_ Geoidundulationen: Lokale Masseninhomogenitäten in den oberen km der Erdkruste
-
-::: {.columns}
-::: {.column width="65%"}
-Das Geoidmodell EGM96 (Earth Gravitational Model 1996) entstand aus einer Kooperation zwischen NIMA, dem NASA Goddard Space Flight Center und der Ohio State University. Es basiert auf weltweit erfassten Schwerefelddaten – einschließlich neuer Airborne-Schweremessungen über Grönland, der Arktis und Antarktis – und kombiniert terrestrische sowie satellitenaltimetrische Messungen. 
-Das Modell liegt mit einer Rasterauflösung von 15′ × 15′ vor.
-:::
-::: {.column width="35%"}
-![](images/Geoid_wiki.png)
-:::
-:::
-
-Aktuell: EGM2008, EGM2020 in Vorbereitung (Stand Oktober 2025)
-
-
-### Mathematische Beschreibung der Geoidgestalt
-
-Entwicklung nach Kugelflächenfunktionen
-$$
-\begin{align}
-N(r, \theta, \lambda) & = \frac{f m_{E}}{r \, \pmb\gamma_{0}(r, \theta)} \\
- & = \sum_{n=0}^{\infty} \left( \frac{a}{r} \right)^{n} \sum_{m=0}^{n} P_{nm}(\cos \theta)\left( C_{nm} \cos m\lambda + S_{nm} \sin m \lambda\right) 
-\end{align}
-$$
-mit 
-
-- $C_{nm}, S_{nm}$ - Stokessche Koeffizienten
-- $P_{nm}(\cos \theta)$ - zugeordnete Legendrepolynome
-- $n$ - Grad
-- $m$ - Ordnung der harmonischen Koeffizienten.
-
-Koeffizienten mit endlichem Grad $n$ werden aus Schweremessungen, geodätischen Messungen und Bahnstörungen von Satelliten bestimmt. 
-
-## Gezeiten der festen Erde
-
-Die Gezeitenkräfte von Mond und Sonne bewirken auf einer elastisch verformbaren Erde messbare Effekte, die sich in der Hebung des Bodens sowie in der damit verbundenen Änderung der Erdschwerebeschleunigung äußern.
-
 ## Das Schwerepotential im rotierenden System
 
 Im rotierenden System muss auch die Zentrifugalbeschleunigung berücksichtigt werden.
@@ -511,6 +370,7 @@ Parameter:
 Wir fragen nach $V_{z}$, $V_{zz}$ und $V_{zx}$.
 
 ```{python}
+import numpy as np
 import matplotlib.pyplot as plt
 
 R = 2.0

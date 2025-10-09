@@ -28,11 +28,14 @@ book:
     - part: "Grundlagen"
       chapters:
       - grundlagen.qmd
+      - erdgestalt.qmd
     - part: "Praxis"
       chapters:
       - gravimeter.qmd
+      - reduktionen.qmd
     - part: "Interpretaton"
       chapters:
+      - modellierung.qmd
       - gis.qmd
 #    - slidedecks.qmd
 

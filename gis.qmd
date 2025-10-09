@@ -1,5 +1,4 @@
 ---
-title: "Arbeit mit QGIS"
 format:
   revealjs:
     output-file: gis_slides.html
@@ -7,6 +6,8 @@ jupyter:
   kernel: python3
 editor: source
 ---
+
+# Arbeit mit QGIS
 
 ::: {.callout-tip title="Lernziel"}
 Wir erstellen in QGIS eine Isolinienkarte der Bouguer-Anomalie Sachsens auf der Grundlage vom SLfULG bereitgestellten _ArcGIS_ Shapefiles.

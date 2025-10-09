@@ -1,0 +1,17 @@
+---
+format:
+  revealjs:
+    output-file: reduktionen_slides.html
+jupyter:
+  kernel: python3
+editor: source
+---
+
+::: {.callout-tip title="Lernziele"}
+- Normalschwerereduktion
+- Freiluftreduktion
+- Bouguerreduktion
+- Geländereduktion
+:::
+
+# Reduktionen

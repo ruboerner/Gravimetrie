@@ -93,7 +93,7 @@ window.MathJax = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Vorwort</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -123,13 +123,13 @@ window.MathJax = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort</span></span></a>
+ <span class="menu-text">Vorwort</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gliederung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lehrziele der Vorlesung</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lernziele der Vorlesung</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -144,7 +144,13 @@ window.MathJax = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grundlagen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./erdgestalt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Erdgestalt</span></span></a>
   </div>
 </li>
       </ul>
@@ -164,6 +170,12 @@ window.MathJax = {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reduktionen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reduktionen</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -177,8 +189,14 @@ window.MathJax = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./modellierung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modellierung gravimetrischer Anomalien</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./gis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Arbeit mit QGIS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Arbeit mit QGIS</span></span></a>
   </div>
 </li>
       </ul>
@@ -193,11 +211,14 @@ window.MathJax = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#bemerkungen" id="toc-bemerkungen" class="nav-link active" data-scroll-target="#bemerkungen">Bemerkungen</a></li>
+  <li><a href="#vorwort" id="toc-vorwort" class="nav-link active" data-scroll-target="#vorwort">Vorwort</a>
+  <ul class="collapse">
+  <li><a href="#bemerkungen" id="toc-bemerkungen" class="nav-link" data-scroll-target="#bemerkungen">Bemerkungen</a></li>
   <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
   <li><a href="#selbststudium" id="toc-selbststudium" class="nav-link" data-scroll-target="#selbststudium">Selbststudium</a></li>
   <li><a href="#referenzen" id="toc-referenzen" class="nav-link" data-scroll-target="#referenzen">Referenzen</a></li>
   <li><a href="#lizenz" id="toc-lizenz" class="nav-link" data-scroll-target="#lizenz">Lizenz</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -236,12 +257,14 @@ window.MathJax = {
 </header>
 
 
-<section id="bemerkungen" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="bemerkungen">Bemerkungen</h2>
+<section id="vorwort" class="level1 unnumbered">
+<h1 class="unnumbered">Vorwort</h1>
+<section id="bemerkungen" class="level2">
+<h2 class="anchored" data-anchor-id="bemerkungen">Bemerkungen</h2>
 <p>Dieses GitHub-Repository enthält das Vorlesungsskript zur Vorlesung “Gravimetrie” im Rahmen des Moduls “Gravimetrie und Magnetik” im Wintersemester 2025/26. Das Modul ist für Studierende des Bachelorstudienganges “Geophysik und Geoinformatik” an der TU Bergakademie Freiberg entworfen.</p>
 </section>
-<section id="code" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="code">Code</h2>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code</h2>
 <p>Das Kursmaterial auf der Website enthält Abschnitte mit eingebettetem Python-Code.</p>
 <p>Sie können den Code kopieren und in einer kompatiblen Python- oder Julia-Umgebung ausführen.</p>
 <p>Für optimales Arbeiten und Lernen wird empfohlen, Python über <a href="https://conda-forge.org/download/">miniforge</a> zu installieren.</p>
@@ -254,8 +277,8 @@ window.MathJax = {
 </ul>
 <p>Die Arbeit mit Jupyter-Notebooks in Visual Studio Code ist <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">besonders unkompliziert</a>.</p>
 </section>
-<section id="selbststudium" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="selbststudium">Selbststudium</h2>
+<section id="selbststudium" class="level2">
+<h2 class="anchored" data-anchor-id="selbststudium">Selbststudium</h2>
 <p>Es gibt kleine Übungsaufgaben, die über die Vorlesung verteilt sind.</p>
 <div class="callout callout-style-simple callout-none no-icon callout-titled" title="Self study">
 <div class="callout-header d-flex align-content-center">
@@ -271,15 +294,16 @@ window.MathJax = {
 </div>
 </div>
 </section>
-<section id="referenzen" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="referenzen">Referenzen</h2>
+<section id="referenzen" class="level2">
+<h2 class="anchored" data-anchor-id="referenzen">Referenzen</h2>
 <p>Dieses Skript basiert zum großen Teil auf Lehrmaterialien, welche mir freundlicherweise von meinen ehemaligen Kollegen Rolf Käppler und Jana Börner zur Verfügung gestellt wurden.</p>
 </section>
-<section id="lizenz" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="lizenz">Lizenz</h2>
+<section id="lizenz" class="level2">
+<h2 class="anchored" data-anchor-id="lizenz">Lizenz</h2>
 <p>Das Material steht unter der Creative Commons Lizenz.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -687,8 +711,8 @@ window.MathJax = {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./gliederung.html" class="pagination-link" aria-label="Lehrziele der Vorlesung">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Lehrziele der Vorlesung</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./gliederung.html" class="pagination-link" aria-label="Lernziele der Vorlesung">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lernziele der Vorlesung</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
