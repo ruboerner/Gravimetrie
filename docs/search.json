@@ -184,7 +184,7 @@
     "href": "erdgestalt.html#erdellipsoid",
     "title": "3  Erdgestalt",
     "section": "",
-    "text": "Schwach abgeplattetes Rotationsellipsoid als einfache Näherung an das Geoid\nDas zugehörige Schwerefeld ist die Normalschwerebeschleunigung \\(\\gamma_{0}\\)\n\n\n3.1.1 Somigliana-Gleichung\nBerechnung der Normalschwere \\(\\gamma\\) eines Ellipsoids aus \\[\n\\begin{align}\n\\mathbf{g} & = -\\grad W = -\\grad ( V + \\Phi_{Z} ) \\\\\n\\gamma(\\varphi) & = \\mathbf{g}(\\varphi) \\cdot \\hat{\\mathbf{r}}\n\\end{align}\n\\]\nmittels der Somigliana-Gleichung für die geographische Breite \\(\\varphi\\) \\[\n\\gamma(\\varphi) = \\gamma_{E}\\,\\frac{1 + k^2 \\sin^2\\varphi}{\\sqrt{1 - e^2 \\sin^2\\varphi}}\n\\]\n\\[\n\\begin{align}\ne^2 & = 2f - f^2 \\\\\nk & = \\frac{b\\,\\gamma_p - a\\,\\gamma_e}{a\\,\\gamma_e} \\\\\nb & = a(1-f)\n\\end{align}\n\\]\nMit den Daten aus WGS-84:\n\\[\n\\begin{align}\na &= 6\\,378\\,137\\ \\text{m} \\\\\nf &= \\frac{1}{298.257223563} \\\\\n\\gamma_e &= 9.780\\,325\\,3359\\ \\text{m s}^{-2} \\\\\n\\gamma_p &= 9.832\\,184\\,9378\\ \\text{m s}^{-2}.\n\\end{align}\n\\]\n\n\nCode anzeigen\nimport numpy as np\nimport matplotlib.pyplot as plt\na = 6378.137e3\nf = 1 / 298.257223563\ngamma_E = 9.7803253359\ngamma_P = 9.8321849378\nomega = 72.92115e-6\ne2 = 2 * f - f * f\nb = a * (1 - f)\nk = (b * gamma_P - a * gamma_E) / a / gamma_E\n\ngamma = lambda phi: gamma_E * (1 + k * np.sin(phi)**2) / np.sqrt(1 - e2 * np.sin(phi)**2)\n\naE = omega**2 * a\n\nprint(f\"gamma(0)      = {gamma(np.deg2rad(0.0)):.4f} m/s**2\")\nprint(f\"gamma(45)     = {gamma(np.deg2rad(45.0)):.4f} m/s**2\")\nprint(f\"gamma(0) + az = {aE + gamma(np.deg2rad(0.0)):.4f} m/s**2\")\nprint(f\"az            = {aE:.4f} m/s**2\")\n\nprint(f\"gamma(0)/az   = {gamma(np.deg2rad(0.0))/aE:.4f}\")\n\n\ngamma(0)      = 9.7803 m/s**2\ngamma(45)     = 9.8062 m/s**2\ngamma(0) + az = 9.8142 m/s**2\naz            = 0.0339 m/s**2\ngamma(0)/az   = 288.3716\n\n\nDie Gravitationsbeschleunigung übertrifft die Zentrifugalbeschleunigung am Äquator um das 288-fache.\nWir berechnen die Normalschwere nach der Somigliana-Gleichung und stellen den Verlauf grafisch dar:\n\n\nCode anzeigen\nimport matplotlib.pyplot as plt\nphi_d = np.arange(start=0.0, stop=90.1, step=1.0)\ngamma_phi = [gamma(np.deg2rad(v)) for v in phi_d]\nfig, ax = plt.subplots(figsize=(6,4))\nax.plot(phi_d, gamma_phi)\nax.set_xlabel('Nördliche Breite in Grad')\nax.set_ylabel(r\"$\\gamma_{0}$ in m/s$^2$\")\nax.set_title(\"Breitenabhängigkeit der Normalschwere\")\nax.grid(alpha=0.5)",
+    "text": "Schwach abgeplattetes Rotationsellipsoid als einfache Näherung an das Geoid\nDas zugehörige Schwerefeld ist die Normalschwerebeschleunigung \\(\\gamma_{0}\\)\n\n\n3.1.1 Somigliana-Gleichung\nBerechnung der Normalschwere \\(\\gamma\\) eines Ellipsoids aus \\[\n\\begin{align}\n\\mathbf{g} & = -\\grad W = -\\grad ( V + \\Phi_{Z} ) \\\\\n\\gamma(\\varphi) & = \\mathbf{g}(\\varphi) \\cdot \\hat{\\mathbf{r}}\n\\end{align}\n\\]\nmittels der Somigliana-Gleichung für die geographische Breite \\(\\varphi\\) \\[\n\\gamma(\\varphi) = \\gamma_{E}\\,\\frac{1 + k^2 \\sin^2\\varphi}{\\sqrt{1 - e^2 \\sin^2\\varphi}}\n\\tag{3.1}\\]\n\\[\n\\begin{align}\ne^2 & = 2f - f^2 \\\\\nk & = \\frac{b\\,\\gamma_p - a\\,\\gamma_e}{a\\,\\gamma_e} \\\\\nb & = a(1-f)\n\\end{align}\n\\]\nMit den Daten aus WGS-84:\n\\[\n\\begin{align}\na &= 6\\,378\\,137\\ \\text{m} \\\\\nf &= \\frac{1}{298.257223563} \\\\\n\\gamma_e &= 9.780\\,325\\,3359\\ \\text{m s}^{-2} \\\\\n\\gamma_p &= 9.832\\,184\\,9378\\ \\text{m s}^{-2}.\n\\end{align}\n\\]\n\n\nCode anzeigen\nimport numpy as np\nimport matplotlib.pyplot as plt\na = 6378.137e3\nf = 1 / 298.257223563\ngamma_E = 9.7803253359\ngamma_P = 9.8321849378\nomega = 72.92115e-6\ne2 = 2 * f - f * f\nb = a * (1 - f)\nk = (b * gamma_P - a * gamma_E) / a / gamma_E\n\ngamma = lambda phi: gamma_E * (1 + k * np.sin(phi)**2) / np.sqrt(1 - e2 * np.sin(phi)**2)\n\naE = omega**2 * a\n\nprint(f\"gamma(0)      = {gamma(np.deg2rad(0.0)):.4f} m/s**2\")\nprint(f\"gamma(45)     = {gamma(np.deg2rad(45.0)):.4f} m/s**2\")\nprint(f\"gamma(0) + az = {aE + gamma(np.deg2rad(0.0)):.4f} m/s**2\")\nprint(f\"az            = {aE:.4f} m/s**2\")\n\nprint(f\"gamma(0)/az   = {gamma(np.deg2rad(0.0))/aE:.4f}\")\n\n\ngamma(0)      = 9.7803 m/s**2\ngamma(45)     = 9.8062 m/s**2\ngamma(0) + az = 9.8142 m/s**2\naz            = 0.0339 m/s**2\ngamma(0)/az   = 288.3716\n\n\nDie Gravitationsbeschleunigung übertrifft die Zentrifugalbeschleunigung am Äquator um das 288-fache.\nWir berechnen die Normalschwere nach der Somigliana-Gleichung und stellen den Verlauf grafisch dar:\n\n\nCode anzeigen\nimport matplotlib.pyplot as plt\nphi_d = np.arange(start=0.0, stop=90.1, step=1.0)\ngamma_phi = [gamma(np.deg2rad(v)) for v in phi_d]\nfig, ax = plt.subplots(figsize=(6,4))\nax.plot(phi_d, gamma_phi)\nax.set_xlabel('Nördliche Breite in Grad')\nax.set_ylabel(r\"$\\gamma_{0}$ in m/s$^2$\")\nax.set_title(\"Breitenabhängigkeit der Normalschwere\")\nax.grid(alpha=0.5)",
     "crumbs": [
       "Grundlagen",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Erdgestalt</span>"
@@ -283,7 +283,40 @@
     "href": "reduktionen.html",
     "title": "5  Reduktionen",
     "section": "",
-    "text": "TippLernziele\n\n\n\n\nNormalschwerereduktion\nFreiluftreduktion\nBouguerreduktion\nGeländereduktion",
+    "text": "5.1 Bearbeitung primärer Messergebnisse\nEin an der Erdoberfläche beobachteter Schwerewert ist abhängig\nSchwereanomalien \\(\\Delta g\\) sind Abweichungen der gemessenen, korrigierten und reduzierten Schwerewerte von der Normalschwerebeschleunigung \\(\\gamma_{0}\\):\n\\[\n\\Delta g = g_{\\text{korr,red}} - \\gamma_{0}\n\\]\nSchwereanomalien werden durch variable Dichteverteilung im Untergrund verursacht.\nWir unterscheiden\nBeispiele für regionale Schwereanomalien:\nBeseitigung aller orts- und zeitabhängigen Einflüsse durch Reduktionen bzw. Korrekturen\ngraph TD\n  A(\"Rohdaten $$\\ g(x,y,z,t)$$\") -- \"Korrekturen $$\\ \\Delta g(t)$$\" --&gt; B(\"Gangkorrigierte relative Schwere $$\\ \\Delta g(x,y,z)$$\")\n  B -- \"Reduktionen $$\\ \\delta g(x,y,z)$$ \" --&gt; C(\"Anomalie $$\\ \\Delta g(x,y,z)$$\")",
+    "crumbs": [
+      "Praxis",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reduktionen</span>"
+    ]
+  },
+  {
+    "objectID": "reduktionen.html#normalschwerereduktion",
+    "href": "reduktionen.html#normalschwerereduktion",
+    "title": "5  Reduktionen",
+    "section": "5.2 Normalschwerereduktion",
+    "text": "5.2 Normalschwerereduktion\nBeseitigung der gravimetrischen Wirkung der regularisierten Erde (Erdellipsoid) auf den Messpunkt (globales Normalschwerefeld):\n\\[\n\\gamma_{0} = f(\\varphi)\n\\]\nNeben der Formel von Somigliana 3.1 existieren weitere, über Reihenentwicklung abgeleitete Gleichungen der Bauart\n\\[\n\\gamma(\\varphi) = \\gamma_{e}(\n  1 + \\alpha \\sin^{2}(\\varphi) + \\beta \\sin^{2}(2 \\varphi)\n)\n\\]\nmit \\(\\gamma_{e}\\): Normalschwere am Äquator, \\(\\alpha,\\beta\\): vom verwendeten Erdellipoid abhängige Parameter.\nFür das Geodetic Reference System GRS80 sind \\[\n\\begin{align}\n\\gamma_{e} & = 9.780327\\ \\mathrm{\\frac{m}{s^{2}}} \\\\\n\\alpha & = 5.3024\\times 10^{-3} \\\\\n\\beta & = 5.8\\times 10^{-6}\n\\end{align}\n\\]",
+    "crumbs": [
+      "Praxis",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reduktionen</span>"
+    ]
+  },
+  {
+    "objectID": "reduktionen.html#freiluftreduktion",
+    "href": "reduktionen.html#freiluftreduktion",
+    "title": "5  Reduktionen",
+    "section": "5.3 Freiluftreduktion",
+    "text": "5.3 Freiluftreduktion",
+    "crumbs": [
+      "Praxis",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reduktionen</span>"
+    ]
+  },
+  {
+    "objectID": "reduktionen.html#bouguerreduktion",
+    "href": "reduktionen.html#bouguerreduktion",
+    "title": "5  Reduktionen",
+    "section": "5.4 Bouguerreduktion",
+    "text": "5.4 Bouguerreduktion",
     "crumbs": [
       "Praxis",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reduktionen</span>"
@@ -294,7 +327,7 @@
     "href": "modellierung.html",
     "title": "6  Modellierung gravimetrischer Anomalien",
     "section": "",
-    "text": "TippLernziele\n\n\n\n\nAnwendung einfacher Störkörperformeln\n2-D Modelle\n3-D Modelle\nBerechnung der Geländereduktion mit Hilfe digitaler Geländemodelle (DGM)\nFeldtransformationen\nInversion\n\n\n\n\n\n\n\n\n\nHinweisVoraussetzungen\n\n\n\n\nGMT - Generic Mapping Tools\nPython-Pakete\n\npygimli\npyGravMag3D\nscipy",
+    "text": "6.1 Digitale Geländemodelle\nWerden vom SLfULG vorgehalten.",
     "crumbs": [
       "Interpretaton",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Modellierung gravimetrischer Anomalien</span>"

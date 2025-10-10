@@ -346,9 +346,9 @@ window.Quarto = {
 \gamma(\varphi) &amp; = \mathbf{g}(\varphi) \cdot \hat{\mathbf{r}}
 \end{align}
 \]</span></p>
-<p>mittels der <em>Somigliana-Gleichung</em> für die geographische Breite <span class="math inline">\(\varphi\)</span> <span class="math display">\[
+<p>mittels der <em>Somigliana-Gleichung</em> für die geographische Breite <span class="math inline">\(\varphi\)</span> <span id="eq-somigliana"><span class="math display">\[
 \gamma(\varphi) = \gamma_{E}\,\frac{1 + k^2 \sin^2\varphi}{\sqrt{1 - e^2 \sin^2\varphi}}
-\]</span></p>
+\tag{3.1}\]</span></span></p>
 <p><span class="math display">\[
 \begin{align}
 e^2 &amp; = 2f - f^2 \\
@@ -365,7 +365,7 @@ f &amp;= \frac{1}{298.257223563} \\
 \gamma_p &amp;= 9.832\,184\,9378\ \text{m s}^{-2}.
 \end{align}
 \]</span></p>
-<div id="573ce799" class="cell" data-execution_count="1">
+<div id="e5afc114" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -400,7 +400,7 @@ gamma(0)/az   = 288.3716</code></pre>
 </div>
 <p>Die Gravitationsbeschleunigung übertrifft die Zentrifugalbeschleunigung am Äquator um das 288-fache.</p>
 <p>Wir berechnen die Normalschwere nach der <em>Somigliana-Gleichung</em> und stellen den Verlauf grafisch dar:</p>
-<div id="df97f567" class="cell" data-execution_count="2">
+<div id="63786307" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>

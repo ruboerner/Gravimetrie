@@ -41,7 +41,7 @@ $$
 mittels der _Somigliana-Gleichung_ für die geographische Breite $\varphi$
 $$
 \gamma(\varphi) = \gamma_{E}\,\frac{1 + k^2 \sin^2\varphi}{\sqrt{1 - e^2 \sin^2\varphi}}
-$$
+$$ {#eq-somigliana}
 
 $$
 \begin{align}

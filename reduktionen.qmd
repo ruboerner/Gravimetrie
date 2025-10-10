@@ -2,8 +2,8 @@
 format:
   revealjs:
     output-file: reduktionen_slides.html
-jupyter:
-  kernel: python3
+# jupyter:
+  # kernel: python3
 editor: source
 ---
 
@@ -14,4 +14,86 @@ editor: source
 - Geländereduktion
 :::
 
+
+
 # Reduktionen
+
+Ein an der Erdoberfläche beobachteter Schwerewert ist abhängig
+
+- vom Ort des Beobachtungspunktes (geopgraphische Breite $\varphi$ und Höhe $h$) __$\to$ Reduktionen__
+- von sichtbaren Masseinhomogenitäten (Morphologie) __$\to$ Reduktionen__
+- von zeitlichen Änderungen der Schwerebeschleunigung (Gezeiten, Gerätedrift) __$\to$ Korrekturen__
+
+__Schwereanomalien__ $\Delta g$ sind Abweichungen der gemessenen, korrigierten und reduzierten Schwerewerte von der Normalschwerebeschleunigung $\gamma_{0}$:
+
+$$
+\Delta g = g_{\text{korr,red}} - \gamma_{0}
+$$
+
+Schwereanomalien werden durch variable Dichteverteilung im Untergrund verursacht.
+
+Wir unterscheiden
+
+- __Kontinentale__ Schwereanomalien: Dichteinhomogenitäten im oberen Erdmantel
+- __Regionale__ Schwereanomalien: Tiefere Stockwerke bis zur Grenze Erdkruste–oberer Erdmantel 
+- __Lokale__ Schwereanomalien: Oberflächennahe geologische Einheiten und geotechnisch-bergauliche Situationen (Hohlräume) 
+
+Beispiele für regionale Schwereanomalien:
+
+- Alpenminimum: $-170$ mGal
+- Magdeburger Schwerehoch: $+60$ mGal
+- Lausitzer Schwerehoch: $+40$ mGal
+
+![](images/Gravimetrie_U%CC%88bersichtskarte.png)
+
+## Bearbeitung primärer Messergebnisse
+
+Beseitigung aller orts- und zeitabhängigen Einflüsse durch Reduktionen bzw. Korrekturen
+
+```{mermaid}
+graph TD
+  A("Rohdaten $$\ g(x,y,z,t)$$") -- "Korrekturen $$\ \Delta g(t)$$" --> B("Gangkorrigierte relative Schwere $$\ \Delta g(x,y,z)$$")
+  B -- "Reduktionen $$\ \delta g(x,y,z)$$ " --> C("Anomalie $$\ \Delta g(x,y,z)$$")
+```
+
+
+## Normalschwerereduktion
+Beseitigung der gravimetrischen Wirkung der regularisierten Erde (Erdellipsoid) auf den Messpunkt (globales Normalschwerefeld):
+
+$$
+\gamma_{0} = f(\varphi)
+$$
+
+Neben der Formel von Somigliana @eq-somigliana existieren weitere, über Reihenentwicklung abgeleitete Gleichungen der Bauart
+
+$$
+\gamma(\varphi) = \gamma_{e}(
+  1 + \alpha \sin^{2}(\varphi) + \beta \sin^{2}(2 \varphi)
+)
+$$
+
+mit $\gamma_{e}$: Normalschwere am Äquator, $\alpha,\beta$: vom verwendeten Erdellipoid abhängige Parameter.
+
+Für das __Geodetic Reference System GRS80__ sind
+$$
+\begin{align}
+\gamma_{e} & = 9.780327\ \mathrm{\frac{m}{s^{2}}} \\
+\alpha & = 5.3024\times 10^{-3} \\
+\beta & = 5.8\times 10^{-6}
+\end{align}
+$$
+
+
+
+
+
+
+
+
+
+
+
+## Freiluftreduktion
+
+
+## Bouguerreduktion

@@ -70,6 +70,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <script>
 window.MathJax = {
   loader: {
@@ -81,6 +84,35 @@ window.MathJax = {
 };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -206,8 +238,17 @@ window.MathJax = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#bearbeitung-primärer-messergebnisse" id="toc-bearbeitung-primärer-messergebnisse" class="nav-link active" data-scroll-target="#bearbeitung-primärer-messergebnisse"><span class="header-section-number">5.1</span> Bearbeitung primärer Messergebnisse</a></li>
+  <li><a href="#normalschwerereduktion" id="toc-normalschwerereduktion" class="nav-link" data-scroll-target="#normalschwerereduktion"><span class="header-section-number">5.2</span> Normalschwerereduktion</a></li>
+  <li><a href="#freiluftreduktion" id="toc-freiluftreduktion" class="nav-link" data-scroll-target="#freiluftreduktion"><span class="header-section-number">5.3</span> Freiluftreduktion</a></li>
+  <li><a href="#bouguerreduktion" id="toc-bouguerreduktion" class="nav-link" data-scroll-target="#bouguerreduktion"><span class="header-section-number">5.4</span> Bouguerreduktion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -249,8 +290,77 @@ window.MathJax = {
 </ul>
 </div>
 </div>
+<p>Ein an der Erdoberfläche beobachteter Schwerewert ist abhängig</p>
+<ul>
+<li>vom Ort des Beobachtungspunktes (geopgraphische Breite <span class="math inline">\(\varphi\)</span> und Höhe <span class="math inline">\(h\)</span>) <strong><span class="math inline">\(\to\)</span> Reduktionen</strong></li>
+<li>von sichtbaren Masseinhomogenitäten (Morphologie) <strong><span class="math inline">\(\to\)</span> Reduktionen</strong></li>
+<li>von zeitlichen Änderungen der Schwerebeschleunigung (Gezeiten, Gerätedrift) <strong><span class="math inline">\(\to\)</span> Korrekturen</strong></li>
+</ul>
+<p><strong>Schwereanomalien</strong> <span class="math inline">\(\Delta g\)</span> sind Abweichungen der gemessenen, korrigierten und reduzierten Schwerewerte von der Normalschwerebeschleunigung <span class="math inline">\(\gamma_{0}\)</span>:</p>
+<p><span class="math display">\[
+\Delta g = g_{\text{korr,red}} - \gamma_{0}
+\]</span></p>
+<p>Schwereanomalien werden durch variable Dichteverteilung im Untergrund verursacht.</p>
+<p>Wir unterscheiden</p>
+<ul>
+<li><strong>Kontinentale</strong> Schwereanomalien: Dichteinhomogenitäten im oberen Erdmantel</li>
+<li><strong>Regionale</strong> Schwereanomalien: Tiefere Stockwerke bis zur Grenze Erdkruste–oberer Erdmantel</li>
+<li><strong>Lokale</strong> Schwereanomalien: Oberflächennahe geologische Einheiten und geotechnisch-bergauliche Situationen (Hohlräume)</li>
+</ul>
+<p>Beispiele für regionale Schwereanomalien:</p>
+<ul>
+<li>Alpenminimum: <span class="math inline">\(-170\)</span> mGal</li>
+<li>Magdeburger Schwerehoch: <span class="math inline">\(+60\)</span> mGal</li>
+<li>Lausitzer Schwerehoch: <span class="math inline">\(+40\)</span> mGal</li>
+</ul>
+<p><img src="images/Gravimetrie_Übersichtskarte.png" class="img-fluid"></p>
+<section id="bearbeitung-primärer-messergebnisse" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="bearbeitung-primärer-messergebnisse"><span class="header-section-number">5.1</span> Bearbeitung primärer Messergebnisse</h2>
+<p>Beseitigung aller orts- und zeitabhängigen Einflüsse durch Reduktionen bzw. Korrekturen</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+  A("Rohdaten $$\ g(x,y,z,t)$$") -- "Korrekturen $$\ \Delta g(t)$$" --&gt; B("Gangkorrigierte relative Schwere $$\ \Delta g(x,y,z)$$")
+  B -- "Reduktionen $$\ \delta g(x,y,z)$$ " --&gt; C("Anomalie $$\ \Delta g(x,y,z)$$")
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="normalschwerereduktion" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="normalschwerereduktion"><span class="header-section-number">5.2</span> Normalschwerereduktion</h2>
+<p>Beseitigung der gravimetrischen Wirkung der regularisierten Erde (Erdellipsoid) auf den Messpunkt (globales Normalschwerefeld):</p>
+<p><span class="math display">\[
+\gamma_{0} = f(\varphi)
+\]</span></p>
+<p>Neben der Formel von Somigliana <a href="erdgestalt.html#eq-somigliana" class="quarto-xref"><span>3.1</span></a> existieren weitere, über Reihenentwicklung abgeleitete Gleichungen der Bauart</p>
+<p><span class="math display">\[
+\gamma(\varphi) = \gamma_{e}(
+  1 + \alpha \sin^{2}(\varphi) + \beta \sin^{2}(2 \varphi)
+)
+\]</span></p>
+<p>mit <span class="math inline">\(\gamma_{e}\)</span>: Normalschwere am Äquator, <span class="math inline">\(\alpha,\beta\)</span>: vom verwendeten Erdellipoid abhängige Parameter.</p>
+<p>Für das <strong>Geodetic Reference System GRS80</strong> sind <span class="math display">\[
+\begin{align}
+\gamma_{e} &amp; = 9.780327\ \mathrm{\frac{m}{s^{2}}} \\
+\alpha &amp; = 5.3024\times 10^{-3} \\
+\beta &amp; = 5.8\times 10^{-6}
+\end{align}
+\]</span></p>
+</section>
+<section id="freiluftreduktion" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="freiluftreduktion"><span class="header-section-number">5.3</span> Freiluftreduktion</h2>
+</section>
+<section id="bouguerreduktion" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="bouguerreduktion"><span class="header-section-number">5.4</span> Bouguerreduktion</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

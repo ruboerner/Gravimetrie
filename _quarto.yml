@@ -43,6 +43,9 @@ format:
   html:
     theme: cosmo
     number-sections: true
+    crossref:
+      chapters: true
+      eq-prefix: ""
     lib-dir: site_libs
     code-fold: true
     code-summary: "Code anzeigen"

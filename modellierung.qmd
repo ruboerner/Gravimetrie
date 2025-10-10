@@ -25,3 +25,7 @@ editor: source
     - `pyGravMag3D`
     - `scipy`
 :::
+
+## Digitale Geländemodelle
+
+Werden vom SLfULG vorgehalten.
