@@ -438,6 +438,7 @@ $$
 
 $V_{ik}$ ist symmetrisch, die Spur ist
 $$
-\mathrm{tr}(V_{ik}) = V_{x x} + V_{yy} + V_{zz} = \Delta V = 0
+\mathrm{tr}(V_{ik}) = V_{xx} + V_{yy} + V_{zz} = \Delta V = 0
 $$
 
+Dies ist eine der drei _Invarianten_ des Tensors.
