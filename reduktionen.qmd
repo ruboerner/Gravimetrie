@@ -44,7 +44,7 @@ Beispiele für regionale Schwereanomalien:
 - Magdeburger Schwerehoch: $+60$ mGal
 - Lausitzer Schwerehoch: $+40$ mGal
 
-![](images/Gravimetrie_U%CC%88bersichtskarte.png)
+![](images/Gravimetrie_Uebersichtskarte.png)
 
 ## Bearbeitung primärer Messergebnisse
 
