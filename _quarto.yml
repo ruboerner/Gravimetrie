@@ -50,6 +50,7 @@ format:
       eq-prefix: ""
     lib-dir: site_libs
     code-fold: true
+    code-copy: true
     code-summary: "Code anzeigen"
     html-math-method: mathjax
     include-in-header:

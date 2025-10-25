@@ -357,6 +357,30 @@ V_{zx}(x,y,0)  & = -3 f m \frac{t x}{\left( x^{2} + y^{2} + t^{2} \right)^{5/2}}
 \end{align}
 $$
 
+::: {.callout-note title="Berechnung"}
+Wir nutzen zur Berechnung der Ableitungen die Python-Bibliothek `SymPy`.
+
+Nach Berechnung der Ableitungen erhalten wir für $z=0$:
+
+```{python}
+import sympy as sp
+from IPython.display import display, Latex, HTML, Math
+showlatex = lambda s: display(HTML(f"$${s}$$"))
+
+x, y, z, t, f, m = sp.symbols("x y z t f m")
+V = -f * m / sp.sqrt(x**2 + y**2 + (z - t)**2)
+Vz = -sp.diff(V, z)
+Vzz = sp.diff(Vz, z)
+Vzx = sp.diff(Vz, x)
+
+showlatex(r"V_z = " + sp.latex(Vz.subs(z,0)))
+showlatex(r"V_{zz} = " + sp.latex(Vzz.simplify().subs(z,0)))
+showlatex(r"V_{zx} = " + sp.latex(Vzx.simplify().subs(z,0)))
+
+
+```
+:::
+
 __Beispiel:__ Kugelförmiger, luftgefüllter Hohlraum im Festgestein
 
 Messung entlang eines Profils auf der $x$-Achse.
@@ -441,4 +465,8 @@ $$
 \mathrm{tr}(V_{ik}) = V_{xx} + V_{yy} + V_{zz} = \Delta V = 0
 $$
 
-Dies ist eine der drei _Invarianten_ des Tensors.
+Die Spur ist eine der drei _Invarianten_ des Tensors.
+Weitere Invarianten sind 
+
+- die Determinante $\det(V_{ik})$ und
+- $\frac{1}{2}(\mathrm{tr}(V_{ik})^2 - \mathrm{tr}(V_{ik} \cdot V_{ik}))$.
