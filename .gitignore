@@ -1,5 +1,7 @@
 .quarto/
 
+.DS_Store
+
 /.quarto/
 
 /.ipynb_checkpoints/

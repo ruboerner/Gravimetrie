@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="de"><head>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/tabby.min.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -120,18 +120,15 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Der Gravitationstensor <span class="math inline">\(V_{ik}\)</span></h1>
 
-<div class="quarto-title-authors">
-</div>
-
-</section>
 <section>
 <section id="geophysikalische-grundlagen" class="title-slide slide level1 center">
 <h1>Geophysikalische Grundlagen</h1>
@@ -434,6 +431,33 @@ V_{zz}(x, y, 0) &amp; = f m \frac{2 t^{2} - x^{2} - y^{2} }{\left( x^{2} + y^{2}
 V_{zx}(x,y,0)  &amp; = -3 f m \frac{t x}{\left( x^{2} + y^{2} + t^{2} \right)^{5/2}}\\
 \end{align}
 \]</span></p>
+<div title="Berechnung">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Berechnung</strong></p>
+</div>
+<div class="callout-content">
+<p>Wir nutzen zur Berechnung der Ableitungen die Python-Bibliothek <code>SymPy</code>.</p>
+<p>Nach Berechnung der Ableitungen erhalten wir für <span class="math inline">\(z=0\)</span>:</p>
+<div id="b5ef878d" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+$$V_z = \frac{f m t}{\left(t^{2} + x^{2} + y^{2}\right)^{\frac{3}{2}}}$$
+</div>
+<div class="cell-output cell-output-display">
+$$V_{zz} = \frac{f m \left(2 t^{2} - x^{2} - y^{2}\right)}{\left(t^{2} + x^{2} + y^{2}\right)^{\frac{5}{2}}}$$
+</div>
+<div class="cell-output cell-output-display">
+$$V_{zx} = - \frac{3 f m t x}{\left(t^{2} + x^{2} + y^{2}\right)^{\frac{5}{2}}}$$
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p><strong>Beispiel:</strong> Kugelförmiger, luftgefüllter Hohlraum im Festgestein</p>
 <p>Messung entlang eines Profils auf der <span class="math inline">\(x\)</span>-Achse.</p>
 <p>Parameter:</p>
@@ -443,27 +467,30 @@ V_{zx}(x,y,0)  &amp; = -3 f m \frac{t x}{\left( x^{2} + y^{2} + t^{2} \right)^{5
 <li>Dichtedifferenz zur Umgebung <span class="math inline">\(\Delta \rho = -2700\)</span> kg/m<span class="math inline">\(^3\)</span></li>
 </ul>
 <p>Wir fragen nach <span class="math inline">\(V_{z}\)</span>, <span class="math inline">\(V_{zz}\)</span> und <span class="math inline">\(V_{zx}\)</span>.</p>
-<div id="5acd4b8c" class="cell" data-execution_count="1">
+<div id="1de26ea1" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>max(|Vz|) = 0.017 mGal</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="grundlagen_files/figure-revealjs/cell-2-output-2.png" width="527" height="209"></p>
+<p><img data-src="grundlagen_files/figure-revealjs/cell-3-output-2.png" width="527" height="209"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="4ae7246c" class="cell" data-execution_count="2">
+<div id="7ab8a4f5" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure>
-<p><img data-src="grundlagen_files/figure-revealjs/cell-3-output-1.png" width="438" height="208"></p>
+<p><img data-src="grundlagen_files/figure-revealjs/cell-4-output-1.png" width="438" height="208"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="der-gravitationstensor-v_ik" class="slide level2">
+<h2>Der Gravitationstensor <span class="math inline">\(V_{ik}\)</span></h2>
 <p>Die 2. Ableitungen des Volumenpotentials in die kartesischen Richtungen werden in der Einheit <strong>E</strong> (Eötvös) angegeben.</p>
 <p><span class="math display">\[
 [V_{ik}] = \mathrm{E} = 10^{-9}\ \mathrm{s^{-2}} = 0.1\ \mathrm{\frac{mGal}{km}}
@@ -479,7 +506,11 @@ V_{ik} =
 <p><span class="math inline">\(V_{ik}\)</span> ist symmetrisch, die Spur ist <span class="math display">\[
 \mathrm{tr}(V_{ik}) = V_{xx} + V_{yy} + V_{zz} = \Delta V = 0
 \]</span></p>
-<p>Dies ist eine der drei <em>Invarianten</em> des Tensors.</p>
+<p>Die Spur ist eine der drei <em>Invarianten</em> des Tensors. Weitere Invarianten sind</p>
+<ul>
+<li>die Determinante <span class="math inline">\(\det(V_{ik})\)</span> und</li>
+<li><span class="math inline">\(\frac{1}{2}(\mathrm{tr}(V_{ik})^2 - \mathrm{tr}(V_{ik} \cdot V_{ik}))\)</span>.</li>
+</ul>
 
 
 </section></section>
