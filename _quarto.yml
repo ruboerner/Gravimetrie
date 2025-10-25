@@ -24,7 +24,9 @@ book:
   date: today
   chapters:
     - index.qmd
-    - gliederung.qmd
+    - part: "Einleitung"
+      chapters:
+      - gliederung.qmd
     - part: "Grundlagen"
       chapters:
       - grundlagen.qmd

@@ -196,21 +196,32 @@ window.Quarto = {
  <span class="menu-text">Vorwort</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./gliederung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lernziele der Vorlesung</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Grundlagen</span></a>
+ <span class="menu-text">Einleitung</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gliederung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lernziele der Vorlesung</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grundlagen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grundlagen.html" class="sidebar-item-text sidebar-link">
@@ -227,13 +238,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Praxis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gravimeter.html" class="sidebar-item-text sidebar-link">
@@ -250,13 +261,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Interpretaton</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./modellierung.html" class="sidebar-item-text sidebar-link">
@@ -409,7 +420,7 @@ window.Quarto = {
 \Delta\gamma = \Bigg| \frac{ \partial \gamma }{ \partial \varphi } \Bigg| \Delta \varphi
 \]</span></p>
 <p>Zuerst berechnen wir die Ableitung von <span class="math inline">\(\gamma\)</span> nach dem Winkel <span class="math inline">\(\varphi\)</span> und setzen die Konstanten (mit <span class="math inline">\(\gamma_{e}\)</span> in mGal) ein.</p>
-<div id="8e8eee3c" class="cell" data-execution_count="1">
+<div id="ca7ec2d8" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -432,7 +443,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 <p><span class="math display">\[
 \Delta\varphi = 2 \arcsin \frac{H}{2 R_{E}}
 \]</span></p>
-<div id="4110edd6" class="cell" data-execution_count="2">
+<div id="537df1e5" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R_E <span class="op">=</span> <span class="fl">6370e3</span></span>
@@ -445,7 +456,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 </div>
 </div>
 <p>In mittleren Breiten mit <span class="math inline">\(\varphi \approx 50 \textdegree\)</span> erhalten wir für <span class="math inline">\(\Delta\gamma\)</span></p>
-<div id="d13e7e94" class="cell" data-execution_count="3">
+<div id="09ea1c1e" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> ex.subs(phi, <span class="fl">50.0</span> <span class="op">*</span> sp.pi <span class="op">/</span> <span class="fl">180.0</span>).evalf() <span class="op">*</span> dphi</span>
@@ -491,7 +502,7 @@ g(h) = g_{0} \left(
   \frac{R}{R + h}
 \right)^{2}
 \]</span></p>
-<div id="9cf5a663" class="cell" data-execution_count="4">
+<div id="f8f7f469" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RE, h, g0 <span class="op">=</span> sp.symbols(<span class="st">"R_E, h, g_0"</span>)</span>
@@ -503,7 +514,7 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 </div>
 </div>
 <p>Die Schwere nimmt außerhalb der Erde um</p>
-<div id="12070824" class="cell" data-execution_count="5">
+<div id="e2609006" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>dgf.subs(RE, <span class="fl">6371e3</span>).subs(g0, <span class="fl">9.81e5</span>).subs(h, <span class="dv">1</span>).evalf()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>

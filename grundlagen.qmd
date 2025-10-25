@@ -409,13 +409,13 @@ ax2.tick_params(axis='y', labelcolor='b')
 ```
 
 ```{python}
-fig, ax = plt.subplots(figsize=(5,2))
-ax.plot(x, np.abs(dgx), c='r', marker='.')
-ax.axvline(x=-2, lw=1)
-ax.axvline(x=+2, lw=1)
-ax.set_xlabel("x in m")
-ax.set_ylabel(r"|$V_{zx}$| in E")
-ax.grid(alpha=0.3)
+_fig, _ax = plt.subplots(figsize=(5,2))
+_ax.plot(x, np.abs(dgx), c='r', marker='.')
+_ax.axvline(x=-2, lw=1)
+_ax.axvline(x=+2, lw=1)
+_ax.set_xlabel("x in m")
+_ax.set_ylabel(r"|$V_{zx}$| in E")
+_ax.grid(alpha=0.3)
 ```
 
 ## Der Gravitationstensor $V_{ik}$
