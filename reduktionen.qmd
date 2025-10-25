@@ -218,3 +218,47 @@ Für das oben dargestellte Höhenprofil ergibt sich nach Gl. @eq-freiluftredukti
 ![](images/Freiluftreduktion_Zellwald.png)
 
 ## Bouguerreduktion
+
+Die Normalfeld- und Freiluftreduktionen berücksichtigen lediglich die Abhängigkeit der modellhaften Schwere eines Erdellipsoids von Breite und Höhe des Messpunktes.
+
+Die Bouguerreduktion berechnet die Schwere einer unter dem Messpunkt befindlichen, allseitig ausgedehnten Platte der Mächtigkeit $H$ (_Reduktionshöhe_) und _Reduktionsdichte_ $\rho$.
+
+Sie ergibt sich aus
+$$
+\delta g_{B} = 2 \pi f \rho h
+$$
+
+Beispiel:
+
+Mächtigkeit 100 m, Dichte 2700 kg/m$^3$.
+
+```{python}
+dgb = 2 * np.pi * 6.674e-11 * 2700 * 100 * 1e5
+display(HTML(rf"\( \delta g_B = \) {dgb:.3f} mGal"))
+```
+
+## Geländereduktion
+
+Bei starker Topographie ist eine weitere Reduktion erforderlich.
+Die _Geländereduktion_ hat zum Ziel, den Einfluss von Geländeunebenheiten zu beseitigen, welcher von der Bouguerreduktion nicht erfasst wird.
+
+![](images/Gelaendereduktion.png)
+
+Grundlage:
+
+Näherungsformel für vertikales Prisma mit quadratischer Grundfläche und Kantenlänge $2B$
+
+::: {.columns}
+::: {.column width="72%"}
+$$
+\delta g_{Top}(P) = 2 f \rho B^{2} \frac{h_{i}^{2}}{r_{i}^{3}} \left( 
+  1 + \frac{3 B^{2}}{2 r_{i}^{2}}
+\right)
+$$
+wobei $h_{i}^{2} \ll r_{i}^{2}$ gelten muss. Wenn $r \gg B$ kann der Klammerterm vernachlässigt werden.
+:::
+::: {.column width="25%"}
+![](images/vert_prisma.png)
+:::
+:::
+

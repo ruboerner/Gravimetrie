@@ -296,6 +296,7 @@ window.Quarto = {
   <li><a href="#normalschwerereduktion" id="toc-normalschwerereduktion" class="nav-link" data-scroll-target="#normalschwerereduktion"><span class="header-section-number">5.2</span> Normalschwerereduktion</a></li>
   <li><a href="#freiluftreduktion" id="toc-freiluftreduktion" class="nav-link" data-scroll-target="#freiluftreduktion"><span class="header-section-number">5.3</span> Freiluftreduktion</a></li>
   <li><a href="#bouguerreduktion" id="toc-bouguerreduktion" class="nav-link" data-scroll-target="#bouguerreduktion"><span class="header-section-number">5.4</span> Bouguerreduktion</a></li>
+  <li><a href="#geländereduktion" id="toc-geländereduktion" class="nav-link" data-scroll-target="#geländereduktion"><span class="header-section-number">5.5</span> Geländereduktion</a></li>
   </ul>
 </nav>
     </div>
@@ -420,7 +421,7 @@ window.Quarto = {
 \Delta\gamma = \Bigg| \frac{ \partial \gamma }{ \partial \varphi } \Bigg| \Delta \varphi
 \]</span></p>
 <p>Zuerst berechnen wir die Ableitung von <span class="math inline">\(\gamma\)</span> nach dem Winkel <span class="math inline">\(\varphi\)</span> und setzen die Konstanten (mit <span class="math inline">\(\gamma_{e}\)</span> in mGal) ein.</p>
-<div id="f8fa39fd" class="cell" data-execution_count="1">
+<div id="64a7f8eb" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -443,7 +444,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 <p><span class="math display">\[
 \Delta\varphi = 2 \arcsin \frac{H}{2 R_{E}}
 \]</span></p>
-<div id="b6f854d4" class="cell" data-execution_count="2">
+<div id="edc79436" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R_E <span class="op">=</span> <span class="fl">6370e3</span></span>
@@ -456,7 +457,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 </div>
 </div>
 <p>In mittleren Breiten mit <span class="math inline">\(\varphi \approx 50 \textdegree\)</span> erhalten wir für <span class="math inline">\(\Delta\gamma\)</span></p>
-<div id="c5ed18a1" class="cell" data-execution_count="3">
+<div id="b4b40eaf" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> ex.subs(phi, <span class="fl">50.0</span> <span class="op">*</span> sp.pi <span class="op">/</span> <span class="fl">180.0</span>).evalf() <span class="op">*</span> dphi</span>
@@ -502,7 +503,7 @@ g(h) = g_{0} \left(
   \frac{R}{R + h}
 \right)^{2}
 \]</span></p>
-<div id="a68d0024" class="cell" data-execution_count="4">
+<div id="e1d344a2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RE, h, g0 <span class="op">=</span> sp.symbols(<span class="st">"R_E, h, g_0"</span>)</span>
@@ -514,12 +515,12 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 </div>
 </div>
 <p>Die Schwere nimmt außerhalb der Erde um</p>
-<div id="7dc55d0a" class="cell" data-execution_count="5">
+<div id="d1776739" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>dgf.subs(RE, <span class="fl">6371e3</span>).subs(g0, <span class="fl">9.81e5</span>).subs(h, <span class="dv">1</span>).evalf()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="89">
 <p><span class="math inline">\(\displaystyle -0.307957934390206\)</span></p>
 </div>
 </div>
@@ -544,6 +545,41 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 </section>
 <section id="bouguerreduktion" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="bouguerreduktion"><span class="header-section-number">5.4</span> Bouguerreduktion</h2>
+<p>Die Normalfeld- und Freiluftreduktionen berücksichtigen lediglich die Abhängigkeit der modellhaften Schwere eines Erdellipsoids von Breite und Höhe des Messpunktes.</p>
+<p>Die Bouguerreduktion berechnet die Schwere einer unter dem Messpunkt befindlichen, allseitig ausgedehnten Platte der Mächtigkeit <span class="math inline">\(H\)</span> (<em>Reduktionshöhe</em>) und <em>Reduktionsdichte</em> <span class="math inline">\(\rho\)</span>.</p>
+<p>Sie ergibt sich aus <span class="math display">\[
+\delta g_{B} = 2 \pi f \rho h
+\]</span></p>
+<p>Beispiel:</p>
+<p>Mächtigkeit 100 m, Dichte 2700 kg/m<span class="math inline">\(^3\)</span>.</p>
+<div id="0e050c2b" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dgb <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="fl">6.674e-11</span> <span class="op">*</span> <span class="dv">2700</span> <span class="op">*</span> <span class="dv">100</span> <span class="op">*</span> <span class="fl">1e5</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\d</span><span class="vs">elta g_B = </span><span class="ch">\)</span><span class="vs"> </span><span class="sc">{</span>dgb<span class="sc">:.3f}</span><span class="vs"> mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+\( \delta g_B = \) 11.322 mGal
+</div>
+</div>
+</section>
+<section id="geländereduktion" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="geländereduktion"><span class="header-section-number">5.5</span> Geländereduktion</h2>
+<p>Bei starker Topographie ist eine weitere Reduktion erforderlich. Die <em>Geländereduktion</em> hat zum Ziel, den Einfluss von Geländeunebenheiten zu beseitigen, welcher von der Bouguerreduktion nicht erfasst wird.</p>
+<p><img src="images/Gelaendereduktion.png" class="img-fluid"></p>
+<p>Grundlage:</p>
+<p>Näherungsformel für vertikales Prisma mit quadratischer Grundfläche und Kantenlänge <span class="math inline">\(2B\)</span></p>
+<div class="columns">
+<div class="column" style="width:72%;">
+<p><span class="math display">\[
+\delta g_{Top}(P) = 2 f \rho B^{2} \frac{h_{i}^{2}}{r_{i}^{3}} \left(
+  1 + \frac{3 B^{2}}{2 r_{i}^{2}}
+\right)
+\]</span> wobei <span class="math inline">\(h_{i}^{2} \ll r_{i}^{2}\)</span> gelten muss. Wenn <span class="math inline">\(r \gg B\)</span> kann der Klammerterm vernachlässigt werden.</p>
+</div><div class="column" style="width:25%;">
+<p><img src="images/vert_prisma.png" class="img-fluid"></p>
+</div>
+</div>
 
 
 </section>

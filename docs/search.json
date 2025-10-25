@@ -317,7 +317,7 @@
     "href": "reduktionen.html#bouguerreduktion",
     "title": "5  Reduktionen",
     "section": "5.4 Bouguerreduktion",
-    "text": "5.4 Bouguerreduktion",
+    "text": "5.4 Bouguerreduktion\nDie Normalfeld- und Freiluftreduktionen berücksichtigen lediglich die Abhängigkeit der modellhaften Schwere eines Erdellipsoids von Breite und Höhe des Messpunktes.\nDie Bouguerreduktion berechnet die Schwere einer unter dem Messpunkt befindlichen, allseitig ausgedehnten Platte der Mächtigkeit \\(H\\) (Reduktionshöhe) und Reduktionsdichte \\(\\rho\\).\nSie ergibt sich aus \\[\n\\delta g_{B} = 2 \\pi f \\rho h\n\\]\nBeispiel:\nMächtigkeit 100 m, Dichte 2700 kg/m\\(^3\\).\n\n\nCode anzeigen\ndgb = 2 * np.pi * 6.674e-11 * 2700 * 100 * 1e5\ndisplay(HTML(rf\"\\( \\delta g_B = \\) {dgb:.3f} mGal\"))\n\n\n\\( \\delta g_B = \\) 11.322 mGal",
     "crumbs": [
       "Praxis",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reduktionen</span>"
@@ -400,5 +400,16 @@
     "title": "Der Gravitationstensor \\(V_{ik}\\)",
     "section": "Ableitungen des Potentials",
     "text": "Ableitungen des Potentials\nIn der Geophysik ist \\(\\mathbf{g}\\) die interessante Größe. Wir benötigen also den Gradienten von \\(V\\), d.h. die partiellen Ableitungen von \\(V\\) in Richtung der Koordinatenachsen.\nWir betrachten wieder eine Kugel als einfachsten Störkörper.\n\nIm Punkt \\(P(x,y,z)\\) lautet das Potential \\[\nV(P) = -\\frac{f m}{\\sqrt{ x^{2} + y^{2} + (z - t)^{2}}}\n\\]\n\n\n\n\n\n\n\nGröße\nDefinition\n\n\n\n\n\\(V_{z}\\)\n\\(-\\grad V \\cdot \\mathbf{e}_{z} = \\mathbf{g}\\cdot \\mathbf{e}_{z}\\)\n\n\n\\(V_{zz}\\)\n\\(\\dfrac{\\partial}{\\partial {z}}(\\mathbf{g}\\cdot \\mathbf{e}_{z)}\\)\n\n\n\\(V_{zx}\\)\n\\(\\dfrac{\\partial}{\\partial {x}}(\\mathbf{g}\\cdot \\mathbf{e}_{z)}\\)\n\n\n\nAn der Erdoberfläche (\\(z=0\\)) besitzen die Ableitungen folgende Werte: \\[\n\\begin{align}\nV_{z}(x,y,0) & = f m \\frac{t}{\\left( x^{2} + y^{2} + t^{2}\\right)^{3/2} } \\\\\nV_{zz}(x, y, 0) & = f m \\frac{2 t^{2} - x^{2} - y^{2} }{\\left( x^{2} + y^{2} + t^{2} \\right)^{5/2} } \\\\\nV_{zx}(x,y,0)  & = -3 f m \\frac{t x}{\\left( x^{2} + y^{2} + t^{2} \\right)^{5/2}}\\\\\n\\end{align}\n\\]\nBeispiel: Kugelförmiger, luftgefüllter Hohlraum im Festgestein\nMessung entlang eines Profils auf der \\(x\\)-Achse.\nParameter:\n\nKugelmittelpunkt im Punkt \\((0, 0, t)\\), \\(t=6\\) m\nKugelradius \\(R=2\\) m\nDichtedifferenz zur Umgebung \\(\\Delta \\rho = -2700\\) kg/m\\(^3\\)\n\nWir fragen nach \\(V_{z}\\), \\(V_{zz}\\) und \\(V_{zx}\\).\n\n\nmax(|Vz|) = 0.017 mGal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDie 2. Ableitungen des Volumenpotentials in die kartesischen Richtungen werden in der Einheit E (Eötvös) angegeben.\n\\[\n[V_{ik}] = \\mathrm{E} = 10^{-9}\\ \\mathrm{s^{-2}} = 0.1\\ \\mathrm{\\frac{mGal}{km}}\n\\]\n\\[\nV_{ik} =\n\\begin{pmatrix}\n    V_{xx} & V_{xy} & V_{xz} \\\\\n    V_{yx} & V_{yy} & V_{yz} \\\\\n    V_{zx} & V_{zy} & V_{zz}\n\\end{pmatrix}\n\\]\n\\(V_{ik}\\) ist symmetrisch, die Spur ist \\[\n\\mathrm{tr}(V_{ik}) = V_{xx} + V_{yy} + V_{zz} = \\Delta V = 0\n\\]\nDies ist eine der drei Invarianten des Tensors."
+  },
+  {
+    "objectID": "reduktionen.html#geländereduktion",
+    "href": "reduktionen.html#geländereduktion",
+    "title": "5  Reduktionen",
+    "section": "5.5 Geländereduktion",
+    "text": "5.5 Geländereduktion\nBei starker Topographie ist eine weitere Reduktion erforderlich. Die Geländereduktion hat zum Ziel, den Einfluss von Geländeunebenheiten zu beseitigen, welcher von der Bouguerreduktion nicht erfasst wird.\n\nGrundlage:\nNäherungsformel für vertikales Prisma mit quadratischer Grundfläche und Kantenlänge \\(2B\\)\n\n\n\\[\n\\delta g_{Top}(P) = 2 f \\rho B^{2} \\frac{h_{i}^{2}}{r_{i}^{3}} \\left(\n  1 + \\frac{3 B^{2}}{2 r_{i}^{2}}\n\\right)\n\\] wobei \\(h_{i}^{2} \\ll r_{i}^{2}\\) gelten muss. Wenn \\(r \\gg B\\) kann der Klammerterm vernachlässigt werden.",
+    "crumbs": [
+      "Praxis",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Reduktionen</span>"
+    ]
   }
 ]
