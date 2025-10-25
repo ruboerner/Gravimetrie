@@ -393,7 +393,7 @@ window.Quarto = {
   1 + \alpha \sin^{2}(\varphi) + \beta \sin^{2}(2 \varphi)
 )
 \tag{5.1}\]</span></span></p>
-<p>mit <span class="math inline">\(\gamma_{e}\)</span>: Normalschwere am Äquator, <span class="math inline">\(\alpha,\beta\)</span>: vom verwendeten Erdellipoid abhängige Parameter.</p>
+<p>mit <span class="math inline">\(\gamma_{e}\)</span>: Normalschwere am Äquator, <span class="math inline">\(\alpha,\beta\)</span>: vom verwendeten Erdellipsoid abhängige Parameter.</p>
 <p>Für das <strong>Geodetic Reference System GRS80</strong> sind <span class="math display">\[
 \begin{align}
 \gamma_{e} &amp; = 9.780327\ \mathrm{\frac{m}{s^{2}}} \\
@@ -420,7 +420,7 @@ window.Quarto = {
 \Delta\gamma = \Bigg| \frac{ \partial \gamma }{ \partial \varphi } \Bigg| \Delta \varphi
 \]</span></p>
 <p>Zuerst berechnen wir die Ableitung von <span class="math inline">\(\gamma\)</span> nach dem Winkel <span class="math inline">\(\varphi\)</span> und setzen die Konstanten (mit <span class="math inline">\(\gamma_{e}\)</span> in mGal) ein.</p>
-<div id="8aafa4f9" class="cell" data-execution_count="1">
+<div id="f8fa39fd" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -443,7 +443,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 <p><span class="math display">\[
 \Delta\varphi = 2 \arcsin \frac{H}{2 R_{E}}
 \]</span></p>
-<div id="75bd2ef3" class="cell" data-execution_count="2">
+<div id="b6f854d4" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R_E <span class="op">=</span> <span class="fl">6370e3</span></span>
@@ -456,7 +456,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 </div>
 </div>
 <p>In mittleren Breiten mit <span class="math inline">\(\varphi \approx 50 \textdegree\)</span> erhalten wir für <span class="math inline">\(\Delta\gamma\)</span></p>
-<div id="b7780f39" class="cell" data-execution_count="3">
+<div id="c5ed18a1" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> ex.subs(phi, <span class="fl">50.0</span> <span class="op">*</span> sp.pi <span class="op">/</span> <span class="fl">180.0</span>).evalf() <span class="op">*</span> dphi</span>
@@ -502,7 +502,7 @@ g(h) = g_{0} \left(
   \frac{R}{R + h}
 \right)^{2}
 \]</span></p>
-<div id="87c9909e" class="cell" data-execution_count="4">
+<div id="a68d0024" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RE, h, g0 <span class="op">=</span> sp.symbols(<span class="st">"R_E, h, g_0"</span>)</span>
@@ -514,12 +514,12 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 </div>
 </div>
 <p>Die Schwere nimmt außerhalb der Erde um</p>
-<div id="79843cc0" class="cell" data-execution_count="5">
+<div id="7dc55d0a" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>dgf.subs(RE, <span class="fl">6371e3</span>).subs(g0, <span class="fl">9.81e5</span>).subs(h, <span class="dv">1</span>).evalf()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="10">
 <p><span class="math inline">\(\displaystyle -0.307957934390206\)</span></p>
 </div>
 </div>

@@ -72,7 +72,7 @@ $$
 )
 $$ {#eq-gamma}
 
-mit $\gamma_{e}$: Normalschwere am Äquator, $\alpha,\beta$: vom verwendeten Erdellipoid abhängige Parameter.
+mit $\gamma_{e}$: Normalschwere am Äquator, $\alpha,\beta$: vom verwendeten Erdellipsoid abhängige Parameter.
 
 Für das __Geodetic Reference System GRS80__ sind
 $$
