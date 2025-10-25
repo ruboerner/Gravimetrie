@@ -20,10 +20,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -73,6 +108,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <script>
 window.MathJax = {
   loader: {
@@ -339,11 +377,11 @@ window.Quarto = {
 \gamma_{0} = f(\varphi)
 \]</span></p>
 <p>Neben der Formel von Somigliana <a href="erdgestalt.html#eq-somigliana" class="quarto-xref"><span>3.1</span></a> existieren weitere, über Reihenentwicklung abgeleitete Gleichungen der Bauart</p>
-<p><span class="math display">\[
+<p><span id="eq-gamma"><span class="math display">\[
 \gamma(\varphi) = \gamma_{e}(
   1 + \alpha \sin^{2}(\varphi) + \beta \sin^{2}(2 \varphi)
 )
-\]</span></p>
+\tag{5.1}\]</span></span></p>
 <p>mit <span class="math inline">\(\gamma_{e}\)</span>: Normalschwere am Äquator, <span class="math inline">\(\alpha,\beta\)</span>: vom verwendeten Erdellipoid abhängige Parameter.</p>
 <p>Für das <strong>Geodetic Reference System GRS80</strong> sind <span class="math display">\[
 \begin{align}
@@ -352,9 +390,146 @@ window.Quarto = {
 \beta &amp; = 5.8\times 10^{-6}
 \end{align}
 \]</span></p>
+<p>In mittleren Breiten beträgt die Normalschwerereduktion <span id="eq-normalschwere"><span class="math display">\[
+\delta g_{H} = 0.8\ \text{mGal/km}
+\tag{5.2}\]</span></span> Die Normalschwere nimmt bei <span class="math inline">\(\varphi = 50\textdegree\)</span> auf einem Profil nach Norden um 0.8 mGal/km zu. Ein Lagefehler des Messpunktes von 10 m in N-S-Richtung verursacht damit einen Reduktionsfehler von 0.08 <span class="math inline">\(\mu\)</span>m<span class="math inline">\(s^{-2} =\)</span> 0.008 mGal.</p>
+<p>Die so geforderten Genauigkeiten der Lagebestimmung werden von (D)GPS-Instrumenten ohne weiteres erreicht.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Berechnung">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Berechnung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wir berechnen den Reduktionsfehler für einen Lagefehler von 10 m. Dazu benutzen wir Gl. <a href="#eq-gamma" class="quarto-xref"><span>5.1</span></a> mit den oben angegeben Werten für die Konstanten <span class="math inline">\(\gamma_{e}\)</span>, <span class="math inline">\(\alpha\)</span> und <span class="math inline">\(\beta\)</span>.</p>
+<p>Gesucht wird nach dem Fehlerfortpflanzungsgesetz <span class="math display">\[
+\Delta\gamma = \Bigg| \frac{ \partial \gamma }{ \partial \varphi } \Bigg| \Delta \varphi
+\]</span></p>
+<p>Zuerst berechnen wir die Ableitung von <span class="math inline">\(\gamma\)</span> nach dem Winkel <span class="math inline">\(\varphi\)</span> und setzen die Konstanten (mit <span class="math inline">\(\gamma_{e}\)</span> in mGal) ein.</p>
+<div id="8e8eee3c" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Latex, HTML, Math</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>showlatex <span class="op">=</span> <span class="kw">lambda</span> s: display(HTML(<span class="ss">f"$$</span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">$$"</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>gamma_e, phi, alpha, beta <span class="op">=</span> sp.symbols(<span class="st">"gamma_e, phi, alpha, beta"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> gamma_e <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> alpha <span class="op">*</span> sp.sin(phi)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> beta <span class="op">*</span> sp.sin(<span class="dv">2</span> <span class="op">*</span> phi)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>dgammadphi <span class="op">=</span> sp.diff(gamma, phi).simplify()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ex <span class="op">=</span> dgammadphi.subs(gamma_e, <span class="fl">9.780327e5</span>).subs(alpha, <span class="fl">5.3024e-3</span>).subs(beta, <span class="fl">5.8e-6</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r" </span><span class="ch">\f</span><span class="vs">rac{ </span><span class="er">\</span><span class="vs">partial </span><span class="er">\</span><span class="vs">gamma }{ </span><span class="er">\</span><span class="vs">partial </span><span class="ch">\v</span><span class="vs">arphi } = "</span> <span class="op">+</span> sp.latex(ex))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+$$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \phi \right)} + 11.34517932 \sin{\left(4 \phi \right)}$$
+</div>
+</div>
+<p>Welchem Öffnungswinkel <span class="math inline">\(\Delta\varphi\)</span> entspricht eine N-S-verlaufende Strecke von <span class="math inline">\(H=\)</span> 10 m?</p>
+<p><span class="math display">\[
+\Delta\varphi = 2 \arcsin \frac{H}{2 R_{E}}
+\]</span></p>
+<div id="4110edd6" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R_E <span class="op">=</span> <span class="fl">6370e3</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>dphi <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.arcsin(H<span class="op">/</span>R_E<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="dv">\D</span><span class="vs">elta </span><span class="ch">\v</span><span class="vs">arphi </span><span class="ch">\)</span><span class="vs"> = </span><span class="sc">{</span>dphi <span class="op">*</span> <span class="dv">180</span> <span class="op">/</span> np<span class="sc">.</span>pi <span class="op">*</span> <span class="dv">60</span><span class="sc">:.3e}</span><span class="vs"> Bogenminuten"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+\(\Delta \varphi \) = 5.397e-03 Bogenminuten
+</div>
+</div>
+<p>In mittleren Breiten mit <span class="math inline">\(\varphi \approx 50 \textdegree\)</span> erhalten wir für <span class="math inline">\(\Delta\gamma\)</span></p>
+<div id="d13e7e94" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> ex.subs(phi, <span class="fl">50.0</span> <span class="op">*</span> sp.pi <span class="op">/</span> <span class="fl">180.0</span>).evalf() <span class="op">*</span> dphi</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\D</span><span class="vs">elta </span><span class="er">\</span><span class="vs">gamma </span><span class="ch">\)</span><span class="vs"> = </span><span class="sc">{</span>expr<span class="sc">:.3f}</span><span class="vs"> mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+\( \Delta \gamma \) = 0.008 mGal
+</div>
+</div>
+<p>Ein Lagefehler von 10 m verursacht also einen Reduktionsfehler von 0.008 mGal.</p>
+<p>Andererseits erkennen wir, dass sich bei Bewegung des Messpunktes um 1 km nach Norden die Normalschwere in mittleren Breiten um 0.8 mGal erhöht.</p>
+</div>
+</div>
 </section>
 <section id="freiluftreduktion" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="freiluftreduktion"><span class="header-section-number">5.3</span> Freiluftreduktion</h2>
+<p>Die Normalschwerereduktion nach Gl. <a href="#eq-normalschwere" class="quarto-xref"><span>5.2</span></a> wendet man an, um die breitenabhängige Änderung der Schwere auf der Oberfläche des Erdellipsoids zu kompensieren. Die Höhe des Messpunktes über dem Referenzniveau (Erdellipsoid) werden davon nicht erfasst.</p>
+<p>Diese Abweichung wird durch die Freiluftreduktion korrigiert. Wir erreichen durch die Beseitigung des Einflusses der Geländehöhe des Messpunktes eine Darstellung der gemessenen Daten auf einem gemeinsamen Bezugsniveau.</p>
+<p>Wir unterscheiden folgende Bezugsniveaus:</p>
+<ul>
+<li>Meeresniveau bei Regionalmessungen</li>
+<li>Am tiefsten gelegener Messpunkt bei Spezial- und Mikromessungen</li>
+</ul>
+<p>Der Freiluftgradient beträgt <span class="math display">\[
+\frac{ \partial \gamma_{0} }{ \partial h } = -0.3086\ \text{mGal}/\text{m}
+\]</span> Mit zumehmender Höhe über dem Referenzellipsoid nimmt der Wert der Normalschwere um <span class="math inline">\(0.3086\)</span> mGal pro Meter ab.</p>
+<p>Die Freiluftreduktion beträgt <span id="eq-freiluftreduktion"><span class="math display">\[
+\delta g_{F} = -0.3086 \, h \text{ mGal},
+\tag{5.3}\]</span></span></p>
+<p>wenn die Höhe über dem Referenzniveau <span class="math inline">\(h\)</span> in Metern angegeben wird.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Berechnung">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Berechnung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unter der Annahme einer kugelförmigen, homogenen Erde ergibt sich die Höhenabhängigkeit der Schwere aus <span class="math display">\[
+g(h) = g_{0} \left(
+  \frac{R}{R + h}
+\right)^{2}
+\]</span></p>
+<div id="9cf5a663" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RE, h, g0 <span class="op">=</span> sp.symbols(<span class="st">"R_E, h, g_0"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dgf <span class="op">=</span> g0 <span class="op">-</span> sp.series(g0 <span class="op">*</span> (RE <span class="op">/</span> (RE <span class="op">+</span> h))<span class="op">**</span><span class="dv">2</span>, h, <span class="dv">0</span>, <span class="dv">2</span>).removeO()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r"</span><span class="dv">\d</span><span class="vs">elta g_{F} = "</span> <span class="op">+</span> sp.latex(dgf))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+$$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
+</div>
+</div>
+<p>Die Schwere nimmt außerhalb der Erde um</p>
+<div id="12070824" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>dgf.subs(RE, <span class="fl">6371e3</span>).subs(g0, <span class="fl">9.81e5</span>).subs(h, <span class="dv">1</span>).evalf()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="5">
+<p><span class="math inline">\(\displaystyle -0.307957934390206\)</span></p>
+</div>
+</div>
+<p>mGal pro Meter Höhe ab.</p>
+<p>Dies ist nur eine Näherung.</p>
+</div>
+</div>
+<p>Welche Genauigkeitsforderung ist damit verbunden?</p>
+<p>Wir nutzen das Fehlerfortpflanzungsgesetz:</p>
+<p><span class="math display">\[
+\Delta (\delta g_{F}) = \Bigg|\frac{ \partial \delta g_{F} }{ \partial h }\Bigg| \, \Delta h
+\]</span></p>
+<p>Bei einer geforderten Genauigkeit von <span class="math inline">\(\Delta(\delta g_{F}) \le\)</span> 0.01 mGal erhalten wir <span class="math display">\[
+\Delta h = \frac{1}{0.3086\ \text{mGal/m}} \, 0.01 \text{ mGal} \le 0.03\ \text{m}.
+\]</span></p>
+<p>Diese Forderung wird in der Regel mit einem Nivellement erreicht. Problematisch ist der Einsatz von DGPS. Dort führen Geländebedingungen (Vegetation, Topographie) zu Fehlern, die nicht vernachlässigbar sind.</p>
+<p><img src="images/Vergleich_Nivellement_DGPS.png" class="img-fluid"></p>
+<p><img src="images/Differenz_Nivellement_DGPS.png" class="img-fluid"></p>
+<p>Die Abbildung zeigt den Vergleich der Höhenmessungen mittels Nivellement und DGPS auf identischen Punkten eines Gravimetrieprofils im Zellwald. Das im unteren Bild markierte Intervall von <span class="math inline">\(\pm\ 3\)</span> cm zeigt, dass nur ein Teil der DGPS-Höhen den Genauigkeitsanforderungen von <span class="math inline">\(\Delta (\delta g_{F}) \le\)</span> 0.01 mGal genügt.</p>
+<p>Für das oben dargestellte Höhenprofil ergibt sich nach Gl. <a href="#eq-freiluftreduktion" class="quarto-xref"><span>5.3</span></a> folgende Freiluftreduktion:</p>
+<p><img src="images/Freiluftreduktion_Zellwald.png" class="img-fluid"></p>
 </section>
 <section id="bouguerreduktion" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="bouguerreduktion"><span class="header-section-number">5.4</span> Bouguerreduktion</h2>

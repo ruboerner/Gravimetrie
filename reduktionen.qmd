@@ -2,8 +2,8 @@
 format:
   revealjs:
     output-file: reduktionen_slides.html
-# jupyter:
-  # kernel: python3
+jupyter:
+  kernel: python3
 editor: source
 ---
 
@@ -70,7 +70,7 @@ $$
 \gamma(\varphi) = \gamma_{e}(
   1 + \alpha \sin^{2}(\varphi) + \beta \sin^{2}(2 \varphi)
 )
-$$
+$$ {#eq-gamma}
 
 mit $\gamma_{e}$: Normalschwere am Äquator, $\alpha,\beta$: vom verwendeten Erdellipoid abhängige Parameter.
 
@@ -83,17 +83,138 @@ $$
 \end{align}
 $$
 
+In mittleren Breiten beträgt die Normalschwerereduktion
+$$
+\delta g_{H} = 0.8\ \text{mGal/km}
+$$ {#eq-normalschwere}
+Die Normalschwere nimmt bei $\varphi = 50\textdegree$ auf einem Profil nach Norden um 0.8 mGal/km zu.
+Ein Lagefehler des Messpunktes von 10 m in N-S-Richtung verursacht damit einen Reduktionsfehler von 0.08 $\mu$m$s^{-2} =$ 0.008 mGal.
+
+Die so geforderten Genauigkeiten der Lagebestimmung werden von (D)GPS-Instrumenten ohne weiteres erreicht.
+
+::: {.callout-note title="Berechnung"}
+Wir berechnen den Reduktionsfehler für einen Lagefehler von 10 m. Dazu benutzen wir Gl. @eq-gamma mit den oben angegeben Werten für die Konstanten $\gamma_{e}$, $\alpha$ und $\beta$.
+
+Gesucht wird nach dem Fehlerfortpflanzungsgesetz
+$$
+\Delta\gamma = \Bigg| \frac{ \partial \gamma }{ \partial \varphi } \Bigg| \Delta \varphi
+$$
 
 
+Zuerst berechnen wir die Ableitung von $\gamma$ nach dem Winkel $\varphi$ und setzen die Konstanten (mit $\gamma_{e}$ in mGal) ein.
+```{python}
+import numpy as np
+import sympy as sp
+from IPython.display import display, Latex, HTML, Math
 
+showlatex = lambda s: display(HTML(f"$${s}$$"))
 
+gamma_e, phi, alpha, beta = sp.symbols("gamma_e, phi, alpha, beta")
+gamma = gamma_e * (1 + alpha * sp.sin(phi)**2 + beta * sp.sin(2 * phi)**2)
+dgammadphi = sp.diff(gamma, phi).simplify()
+ex = dgammadphi.subs(gamma_e, 9.780327e5).subs(alpha, 5.3024e-3).subs(beta, 5.8e-6)
+showlatex(r" \frac{ \partial \gamma }{ \partial \varphi } = " + sp.latex(ex))
+```
 
+Welchem Öffnungswinkel $\Delta\varphi$ entspricht eine N-S-verlaufende Strecke von $H=$ 10 m?
 
+$$
+\Delta\varphi = 2 \arcsin \frac{H}{2 R_{E}}
+$$
 
+```{python}
+R_E = 6370e3
+H = 10
+dphi = 2 * np.arcsin(H/R_E/2)
+display(HTML(rf"\(\Delta \varphi \) = {dphi * 180 / np.pi * 60:.3e} Bogenminuten"))
+```
 
+In mittleren Breiten mit $\varphi \approx 50 \textdegree$ erhalten wir für $\Delta\gamma$
 
+```{python}
+expr = ex.subs(phi, 50.0 * sp.pi / 180.0).evalf() * dphi
+display(HTML(rf"\( \Delta \gamma \) = {expr:.3f} mGal"))
+```
+
+Ein Lagefehler von 10 m verursacht also einen Reduktionsfehler von 0.008 mGal.
+
+Andererseits erkennen wir, dass sich bei Bewegung des Messpunktes um 1 km nach Norden die Normalschwere in mittleren Breiten um 0.8 mGal erhöht.
+:::
 
 ## Freiluftreduktion
 
+Die Normalschwerereduktion nach Gl. @eq-normalschwere wendet man an, um die breitenabhängige Änderung der Schwere auf der Oberfläche des Erdellipsoids zu kompensieren.
+Die Höhe des Messpunktes über dem Referenzniveau (Erdellipsoid) werden davon nicht erfasst.
+
+Diese Abweichung wird durch die Freiluftreduktion korrigiert. Wir erreichen durch die Beseitigung des Einflusses der Geländehöhe des Messpunktes eine Darstellung der gemessenen Daten auf einem gemeinsamen Bezugsniveau.
+
+Wir unterscheiden folgende Bezugsniveaus:
+
+- Meeresniveau bei Regionalmessungen
+- Am tiefsten gelegener Messpunkt bei Spezial- und Mikromessungen
+
+
+Der Freiluftgradient beträgt
+$$
+\frac{ \partial \gamma_{0} }{ \partial h } = -0.3086\ \text{mGal}/\text{m}
+$$ 
+Mit zumehmender Höhe über dem Referenzellipsoid nimmt der Wert der Normalschwere um $0.3086$ mGal pro Meter ab.
+
+Die Freiluftreduktion beträgt
+$$
+\delta g_{F} = -0.3086 \, h \text{ mGal},
+$$ {#eq-freiluftreduktion}
+
+wenn die Höhe über dem Referenzniveau $h$ in Metern angegeben wird.
+
+::: {.callout-note title="Berechnung"} 
+Unter der Annahme einer kugelförmigen, homogenen Erde ergibt sich die Höhenabhängigkeit der Schwere aus
+$$
+g(h) = g_{0} \left( 
+  \frac{R}{R + h}
+\right)^{2}
+$$
+
+```{python}
+RE, h, g0 = sp.symbols("R_E, h, g_0")
+dgf = g0 - sp.series(g0 * (RE / (RE + h))**2, h, 0, 2).removeO()
+showlatex(r"\delta g_{F} = " + sp.latex(dgf))
+```
+ 
+Die Schwere nimmt außerhalb der Erde um
+```{python}
+-dgf.subs(RE, 6371e3).subs(g0, 9.81e5).subs(h, 1).evalf()
+```
+mGal pro Meter Höhe ab.
+
+Dies ist nur eine Näherung.
+:::
+
+Welche Genauigkeitsforderung ist damit verbunden?
+
+Wir nutzen das Fehlerfortpflanzungsgesetz:
+
+$$
+\Delta (\delta g_{F}) = \Bigg|\frac{ \partial \delta g_{F} }{ \partial h }\Bigg| \, \Delta h
+$$
+
+Bei einer geforderten Genauigkeit von $\Delta(\delta g_{F}) \le$ 0.01 mGal erhalten wir
+$$
+\Delta h = \frac{1}{0.3086\ \text{mGal/m}} \, 0.01 \text{ mGal} \le 0.03\ \text{m}.
+$$
+
+Diese Forderung wird in der Regel mit einem Nivellement erreicht.
+Problematisch ist der Einsatz von DGPS. Dort führen Geländebedingungen (Vegetation, Topographie) zu Fehlern, die nicht vernachlässigbar sind.
+
+![](images/Vergleich_Nivellement_DGPS.png)
+
+![](images/Differenz_Nivellement_DGPS.png)
+
+Die Abbildung zeigt den Vergleich der Höhenmessungen mittels Nivellement und DGPS auf identischen Punkten eines Gravimetrieprofils im Zellwald.
+Das im unteren Bild markierte Intervall von $\pm\ 3$ cm zeigt, dass nur ein Teil der DGPS-Höhen den Genauigkeitsanforderungen von $\Delta (\delta g_{F}) \le$ 0.01 mGal genügt.
+
+Für das oben dargestellte Höhenprofil ergibt sich nach Gl. @eq-freiluftreduktion folgende Freiluftreduktion:
+
+![](images/Freiluftreduktion_Zellwald.png)
 
 ## Bouguerreduktion
