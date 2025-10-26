@@ -404,8 +404,7 @@ window.Quarto = {
 \]</span></p>
 <p>In mittleren Breiten beträgt die Normalschwerereduktion <span id="eq-normalschwere"><span class="math display">\[
 \delta g_{H} = 0.8\ \text{mGal/km}
-\tag{5.2}\]</span></span></p>
-<p>Die Normalschwere nimmt bei <span class="math inline">\(\varphi = 50\textdegree\)</span> auf einem Profil nach Norden um 0.8 mGal/km zu. Ein Lagefehler des Messpunktes von 10 m in N-S-Richtung verursacht damit einen Reduktionsfehler von 0.08 <span class="math inline">\(\mu\)</span>m<span class="math inline">\(s^{-2} =\)</span> 0.008 mGal.</p>
+\tag{5.2}\]</span></span> Die Normalschwere nimmt bei <span class="math inline">\(\varphi = 50\textdegree\)</span> auf einem Profil nach Norden um 0.8 mGal/km zu. Ein Lagefehler des Messpunktes von 10 m in N-S-Richtung verursacht damit einen Reduktionsfehler von 0.08 <span class="math inline">\(\mu\)</span>m<span class="math inline">\(s^{-2} =\)</span> 0.008 mGal.</p>
 <p>Die so geforderten Genauigkeiten der Lagebestimmung werden von (D)GPS-Instrumenten ohne weiteres erreicht.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Berechnung">
 <div class="callout-header d-flex align-content-center">
@@ -422,26 +421,21 @@ window.Quarto = {
 \Delta\gamma = \Bigg| \frac{ \partial \gamma }{ \partial \varphi } \Bigg| \Delta \varphi
 \]</span></p>
 <p>Zuerst berechnen wir die Ableitung von <span class="math inline">\(\gamma\)</span> nach dem Winkel <span class="math inline">\(\varphi\)</span> und setzen die Konstanten (mit <span class="math inline">\(\gamma_{e}\)</span> in mGal) ein.</p>
-<div id="2f1c4599" class="cell" data-execution_count="1">
+<div id="64a7f8eb" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Latex, HTML, Math</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>showlatex <span class="op">=</span> <span class="kw">lambda</span> s: display(HTML(<span class="ss">f"$$</span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">$$"</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>gamma_e, phi, alpha, beta <span class="op">=</span> sp.symbols(<span class="st">"gamma_e, phi, alpha, beta"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> gamma_e <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> alpha <span class="op">*</span> sp.sin(phi)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> beta <span class="op">*</span> sp.sin(<span class="dv">2</span> <span class="op">*</span> phi)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>dgammadphi <span class="op">=</span> sp.diff(gamma, phi).simplify()</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r" </span><span class="ch">\f</span><span class="vs">rac{ </span><span class="er">\</span><span class="vs">partial </span><span class="er">\</span><span class="vs">gamma }{ </span><span class="er">\</span><span class="vs">partial </span><span class="ch">\v</span><span class="vs">arphi } = "</span> <span class="op">+</span> sp.latex(dgammadphi.simplify()))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>ex <span class="op">=</span> dgammadphi.subs(gamma_e, <span class="fl">9.780327e5</span>).subs(alpha, <span class="fl">5.3024e-3</span>).subs(beta, <span class="fl">5.8e-6</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r" </span><span class="ch">\f</span><span class="vs">rac{ </span><span class="er">\</span><span class="vs">partial </span><span class="er">\</span><span class="vs">gamma }{ </span><span class="er">\</span><span class="vs">partial </span><span class="ch">\v</span><span class="vs">arphi } = "</span> <span class="op">+</span> sp.latex(ex))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Latex, HTML, Math</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>showlatex <span class="op">=</span> <span class="kw">lambda</span> s: display(HTML(<span class="ss">f"$$</span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">$$"</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>gamma_e, phi, alpha, beta <span class="op">=</span> sp.symbols(<span class="st">"gamma_e, phi, alpha, beta"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> gamma_e <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> alpha <span class="op">*</span> sp.sin(phi)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> beta <span class="op">*</span> sp.sin(<span class="dv">2</span> <span class="op">*</span> phi)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>dgammadphi <span class="op">=</span> sp.diff(gamma, phi).simplify()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>ex <span class="op">=</span> dgammadphi.subs(gamma_e, <span class="fl">9.780327e5</span>).subs(alpha, <span class="fl">5.3024e-3</span>).subs(beta, <span class="fl">5.8e-6</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r" </span><span class="ch">\f</span><span class="vs">rac{ </span><span class="er">\</span><span class="vs">partial </span><span class="er">\</span><span class="vs">gamma }{ </span><span class="er">\</span><span class="vs">partial </span><span class="ch">\v</span><span class="vs">arphi } = "</span> <span class="op">+</span> sp.latex(ex))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display">
-$$ \frac{ \partial \gamma }{ \partial \varphi } = \gamma_{e} \left(\alpha \sin{\left(2 \phi \right)} + 2 \beta \sin{\left(4 \phi \right)}\right)$$
-</div>
 <div class="cell-output cell-output-display">
 $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \phi \right)} + 11.34517932 \sin{\left(4 \phi \right)}$$
 </div>
@@ -450,7 +444,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 <p><span class="math display">\[
 \Delta\varphi = 2 \arcsin \frac{H}{2 R_{E}}
 \]</span></p>
-<div id="a8ed40be" class="cell" data-execution_count="2">
+<div id="edc79436" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R_E <span class="op">=</span> <span class="fl">6370e3</span></span>
@@ -463,45 +457,18 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 </div>
 </div>
 <p>In mittleren Breiten mit <span class="math inline">\(\varphi \approx 50 \textdegree\)</span> erhalten wir für <span class="math inline">\(\Delta\gamma\)</span></p>
-<div id="2dead8fb" class="cell" data-execution_count="3">
+<div id="b4b40eaf" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> ex.subs(phi, <span class="fl">50.0</span> <span class="op">*</span> sp.pi <span class="op">/</span> <span class="fl">180.0</span>).evalf() <span class="op">*</span> dphi</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\D</span><span class="vs">elta </span><span class="er">\</span><span class="vs">gamma </span><span class="ch">\)</span><span class="vs"> = </span><span class="sc">{</span>expr<span class="sc">:.3e}</span><span class="vs"> mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\D</span><span class="vs">elta </span><span class="er">\</span><span class="vs">gamma </span><span class="ch">\)</span><span class="vs"> = </span><span class="sc">{</span>expr<span class="sc">:.3f}</span><span class="vs"> mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
-\( \Delta \gamma \) = 8.011e-3 mGal
+\( \Delta \gamma \) = 0.008 mGal
 </div>
 </div>
 <p>Ein Lagefehler von 10 m verursacht also einen Reduktionsfehler von 0.008 mGal.</p>
-<p>Der Verlauf der breitenabhängigen <strong>Änderung</strong> der Normalschwere <span class="math inline">\(\gamma\)</span> wird aus der Ableitung von <span class="math inline">\(\gamma\)</span> nach <span class="math inline">\(\varphi\)</span> entlang eines Meridians in Polarkoordinaten ermittelt, wonach</p>
-<p><span class="math display">\[
-\frac{1}{R_{E}}\frac{ \partial \gamma }{ \partial \varphi } \approx \frac{2 \gamma_{e}\alpha \cos\varphi \sin\varphi}{R_{E}}.
-\]</span></p>
-<div id="a202ebfb" class="cell" data-execution_count="4">
-<details class="code-fold">
-<summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>phis <span class="op">=</span> np.arange(start<span class="op">=</span><span class="fl">0.0</span>, stop<span class="op">=</span><span class="fl">90.1</span>, step<span class="op">=</span><span class="fl">1.0</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>dgdf <span class="op">=</span> np.array([(ex <span class="op">/</span> <span class="fl">6370e3</span>).subs(phi, np.deg2rad(v)) <span class="cf">for</span> v <span class="kw">in</span> phis])</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">3</span>))</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ax.plot(phis, <span class="fl">1e3</span> <span class="op">*</span> dgdf)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Breite in Grad"</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Schwereänderung in mGal/km"</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>ax.set_xlim((<span class="dv">0</span>,<span class="dv">90</span>))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ax.set_ylim((<span class="dv">0</span>,<span class="dv">1</span>))</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="reduktionen_files/figure-html/cell-5-output-1.png" width="523" height="287" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Andererseits erkennen wir an der Abbildung, dass sich bei Bewegung des Messpunktes um 1 km nach Norden die Normalschwere in mittleren Breiten um 0.8 mGal erhöht.</p>
-<p>Daraus resultiert auch die Näherungsformel <a href="#eq-normalschwere" class="quarto-xref"><span>5.2</span></a> für die Normalschwerereduktion in mittleren Breiten.</p>
+<p>Andererseits erkennen wir, dass sich bei Bewegung des Messpunktes um 1 km nach Norden die Normalschwere in mittleren Breiten um 0.8 mGal erhöht.</p>
 </div>
 </div>
 </section>
@@ -536,24 +503,24 @@ g(h) = g_{0} \left(
   \frac{R}{R + h}
 \right)^{2}
 \]</span></p>
-<div id="7bfa64d0" class="cell" data-execution_count="5">
+<div id="e1d344a2" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>RE, h, g0 <span class="op">=</span> sp.symbols(<span class="st">"R_E, h, g_0"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>dgf <span class="op">=</span> g0 <span class="op">-</span> sp.series(g0 <span class="op">*</span> (RE <span class="op">/</span> (RE <span class="op">+</span> h))<span class="op">**</span><span class="dv">2</span>, h, <span class="dv">0</span>, <span class="dv">2</span>).removeO()</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r"</span><span class="dv">\d</span><span class="vs">elta g_{F} = "</span> <span class="op">+</span> sp.latex(dgf))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>RE, h, g0 <span class="op">=</span> sp.symbols(<span class="st">"R_E, h, g_0"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dgf <span class="op">=</span> g0 <span class="op">-</span> sp.series(g0 <span class="op">*</span> (RE <span class="op">/</span> (RE <span class="op">+</span> h))<span class="op">**</span><span class="dv">2</span>, h, <span class="dv">0</span>, <span class="dv">2</span>).removeO()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r"</span><span class="dv">\d</span><span class="vs">elta g_{F} = "</span> <span class="op">+</span> sp.latex(dgf))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 </div>
 </div>
 <p>Die Schwere nimmt außerhalb der Erde um</p>
-<div id="9e797895" class="cell" data-execution_count="6">
+<div id="d1776739" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>dgf.subs(RE, <span class="fl">6371e3</span>).subs(g0, <span class="fl">9.81e5</span>).subs(h, <span class="dv">1</span>).evalf()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>dgf.subs(RE, <span class="fl">6371e3</span>).subs(g0, <span class="fl">9.81e5</span>).subs(h, <span class="dv">1</span>).evalf()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="249">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="89">
 <p><span class="math inline">\(\displaystyle -0.307957934390206\)</span></p>
 </div>
 </div>
@@ -585,11 +552,11 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 \]</span></p>
 <p>Beispiel:</p>
 <p>Mächtigkeit 100 m, Dichte 2700 kg/m<span class="math inline">\(^3\)</span>.</p>
-<div id="6b577a3c" class="cell" data-execution_count="7">
+<div id="0e050c2b" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dgb <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="fl">6.674e-11</span> <span class="op">*</span> <span class="dv">2700</span> <span class="op">*</span> <span class="dv">100</span> <span class="op">*</span> <span class="fl">1e5</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\d</span><span class="vs">elta g_B = </span><span class="ch">\)</span><span class="vs"> </span><span class="sc">{</span>dgb<span class="sc">:.3f}</span><span class="vs"> mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dgb <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="fl">6.674e-11</span> <span class="op">*</span> <span class="dv">2700</span> <span class="op">*</span> <span class="dv">100</span> <span class="op">*</span> <span class="fl">1e5</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\d</span><span class="vs">elta g_B = </span><span class="ch">\)</span><span class="vs"> </span><span class="sc">{</span>dgb<span class="sc">:.3f}</span><span class="vs"> mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 \( \delta g_B = \) 11.322 mGal

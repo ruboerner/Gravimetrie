@@ -87,6 +87,7 @@ In mittleren Breiten beträgt die Normalschwerereduktion
 $$
 \delta g_{H} = 0.8\ \text{mGal/km}
 $$ {#eq-normalschwere}
+
 Die Normalschwere nimmt bei $\varphi = 50\textdegree$ auf einem Profil nach Norden um 0.8 mGal/km zu.
 Ein Lagefehler des Messpunktes von 10 m in N-S-Richtung verursacht damit einen Reduktionsfehler von 0.08 $\mu$m$s^{-2} =$ 0.008 mGal.
 
@@ -105,6 +106,7 @@ Zuerst berechnen wir die Ableitung von $\gamma$ nach dem Winkel $\varphi$ und se
 ```{python}
 import numpy as np
 import sympy as sp
+import matplotlib.pyplot as plt
 from IPython.display import display, Latex, HTML, Math
 
 showlatex = lambda s: display(HTML(f"$${s}$$"))
@@ -112,9 +114,13 @@ showlatex = lambda s: display(HTML(f"$${s}$$"))
 gamma_e, phi, alpha, beta = sp.symbols("gamma_e, phi, alpha, beta")
 gamma = gamma_e * (1 + alpha * sp.sin(phi)**2 + beta * sp.sin(2 * phi)**2)
 dgammadphi = sp.diff(gamma, phi).simplify()
+showlatex(r" \frac{ \partial \gamma }{ \partial \varphi } = " + sp.latex(dgammadphi.simplify()))
 ex = dgammadphi.subs(gamma_e, 9.780327e5).subs(alpha, 5.3024e-3).subs(beta, 5.8e-6)
 showlatex(r" \frac{ \partial \gamma }{ \partial \varphi } = " + sp.latex(ex))
+
 ```
+
+
 
 Welchem Öffnungswinkel $\Delta\varphi$ entspricht eine N-S-verlaufende Strecke von $H=$ 10 m?
 
@@ -133,12 +139,34 @@ In mittleren Breiten mit $\varphi \approx 50 \textdegree$ erhalten wir für $\De
 
 ```{python}
 expr = ex.subs(phi, 50.0 * sp.pi / 180.0).evalf() * dphi
-display(HTML(rf"\( \Delta \gamma \) = {expr:.3f} mGal"))
+display(HTML(rf"\( \Delta \gamma \) = {expr:.3e} mGal"))
 ```
 
 Ein Lagefehler von 10 m verursacht also einen Reduktionsfehler von 0.008 mGal.
 
-Andererseits erkennen wir, dass sich bei Bewegung des Messpunktes um 1 km nach Norden die Normalschwere in mittleren Breiten um 0.8 mGal erhöht.
+Der Verlauf der breitenabhängigen __Änderung__ der Normalschwere $\gamma$ wird aus der Ableitung von $\gamma$ nach $\varphi$ entlang eines Meridians in Polarkoordinaten ermittelt, wonach
+
+$$
+\frac{1}{R_{E}}\frac{ \partial \gamma }{ \partial \varphi } \approx \frac{2 \gamma_{e}\alpha \cos\varphi \sin\varphi}{R_{E}}.
+$$
+
+
+```{python}
+phis = np.arange(start=0.0, stop=90.1, step=1.0)
+
+dgdf = np.array([(ex / 6370e3).subs(phi, np.deg2rad(v)) for v in phis])
+fig, ax = plt.subplots(figsize=(6,3))
+ax.plot(phis, 1e3 * dgdf)
+ax.set_xlabel("Breite in Grad")
+ax.set_ylabel("Schwereänderung in mGal/km")
+ax.set_xlim((0,90))
+ax.set_ylim((0,1))
+ax.grid(alpha=0.3)
+```
+
+Andererseits erkennen wir an der Abbildung, dass sich bei Bewegung des Messpunktes um 1 km nach Norden die Normalschwere in mittleren Breiten um 0.8 mGal erhöht.
+
+Daraus resultiert auch die Näherungsformel @eq-normalschwere für die Normalschwerereduktion in mittleren Breiten.
 :::
 
 ## Freiluftreduktion
