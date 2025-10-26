@@ -290,3 +290,4 @@ wobei $h_{i}^{2} \ll r_{i}^{2}$ gelten muss. Wenn $r \gg B$ kann der Klammerterm
 :::
 :::
 
+![](images/Terrain_reduction.excalidraw.svg)
