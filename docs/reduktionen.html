@@ -373,7 +373,7 @@ window.Quarto = {
 <p></p><figure class="figure"><p></p>
 <div>
 <pre class="mermaid mermaid-js">graph TD
-  A("Rohdaten $$\ g(x,y,z,t)$$") -- "Korrekturen $$\ \Delta g(t)$$" --&gt; B("Gangkorrigierte relative Schwere $$\ \Delta g(x,y,z)$$")
+  A("Rohdaten $$\ g(x,y,z,t)$$") -- "Korrekturen $$\ \Delta g(t)$$" --&gt; B("Gangkorrigierte relative Schwere $$\ g(x,y,z)$$")
   B -- "Reduktionen $$\ \delta g(x,y,z)$$ " --&gt; C("Anomalie $$\ \Delta g(x,y,z)$$")
 </pre>
 </div>
@@ -381,20 +381,27 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Data_to_anomalies.excalidraw.svg" class="img-fluid figure-img"></p>
+<figcaption>Datenprozessing: Von der Normalschwerereduktion (links) über die Freiluftreduktion, Bouguerreduktion und Geländereduktion zur Bougueranomalie <span class="math inline">\(\Delta g\)</span> (rechts)</figcaption>
+</figure>
+</div>
 </section>
 <section id="normalschwerereduktion" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="normalschwerereduktion"><span class="header-section-number">5.2</span> Normalschwerereduktion</h2>
-<p>Beseitigung der gravimetrischen Wirkung der regularisierten Erde (Erdellipsoid) auf den Messpunkt (globales Normalschwerefeld):</p>
+<p>Beseitigung der Breitenabhängigkeit unter Beachtung des Erdellipsoid (WGS84)(globales Normalschwerefeld):</p>
 <p><span class="math display">\[
 \gamma_{0} = f(\varphi)
 \]</span></p>
-<p>Neben der Formel von Somigliana <span class="quarto-unresolved-ref">?eq-somigliana</span> existieren weitere, über Reihenentwicklung abgeleitete Gleichungen der Bauart</p>
+<p>Neben der Formel von Somigliana <a href="erdgestalt.html#eq-somigliana" class="quarto-xref"><span>3.1</span></a> existieren weitere, über Reihenentwicklung abgeleitete Approximationen der Bauart</p>
 <p><span id="eq-gamma"><span class="math display">\[
 \gamma(\varphi) = \gamma_{e}(
   1 + \alpha \sin^{2}(\varphi) + \beta \sin^{2}(2 \varphi)
 )
 \tag{5.1}\]</span></span></p>
 <p>mit <span class="math inline">\(\gamma_{e}\)</span>: Normalschwere am Äquator, <span class="math inline">\(\alpha,\beta\)</span>: vom verwendeten Erdellipsoid abhängige Parameter.</p>
+<p>Vor dem Hintergrund der heute erreichbaren Messgenauigkeiten ist die Formel vn Somigliana <a href="erdgestalt.html#eq-somigliana" class="quarto-xref"><span>3.1</span></a> zu bevorzugen.</p>
 <p>Für das <strong>Geodetic Reference System GRS80</strong> sind <span class="math display">\[
 \begin{align}
 \gamma_{e} &amp; = 9.780327\ \mathrm{\frac{m}{s^{2}}} \\
@@ -422,7 +429,7 @@ window.Quarto = {
 \Delta\gamma = \Bigg| \frac{ \partial \gamma }{ \partial \varphi } \Bigg| \Delta \varphi
 \]</span></p>
 <p>Zuerst berechnen wir die Ableitung von <span class="math inline">\(\gamma\)</span> nach dem Winkel <span class="math inline">\(\varphi\)</span> und setzen die Konstanten (mit <span class="math inline">\(\gamma_{e}\)</span> in mGal) ein.</p>
-<div id="498c08d6" class="cell" data-execution_count="1">
+<div id="a233163d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -450,7 +457,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 <p><span class="math display">\[
 \Delta\varphi = 2 \arcsin \frac{H}{2 R_{E}}
 \]</span></p>
-<div id="ed99cc67" class="cell" data-execution_count="2">
+<div id="adae58e1" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R_E <span class="op">=</span> <span class="fl">6370e3</span></span>
@@ -463,7 +470,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 </div>
 </div>
 <p>In mittleren Breiten mit <span class="math inline">\(\varphi \approx 50 \textdegree\)</span> erhalten wir für <span class="math inline">\(\Delta\gamma\)</span></p>
-<div id="67a83209" class="cell" data-execution_count="3">
+<div id="8182e733" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> ex.subs(phi, <span class="fl">50.0</span> <span class="op">*</span> sp.pi <span class="op">/</span> <span class="fl">180.0</span>).evalf() <span class="op">*</span> dphi</span>
@@ -478,7 +485,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 <p><span class="math display">\[
 \frac{1}{R_{E}}\frac{ \partial \gamma }{ \partial \varphi } \approx \frac{2 \gamma_{e}\alpha \cos\varphi \sin\varphi}{R_{E}}.
 \]</span></p>
-<div id="0dc35abf" class="cell" data-execution_count="4">
+<div id="ea617381" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>phis <span class="op">=</span> np.arange(start<span class="op">=</span><span class="fl">0.0</span>, stop<span class="op">=</span><span class="fl">90.1</span>, step<span class="op">=</span><span class="fl">1.0</span>)</span>
@@ -507,8 +514,8 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 </section>
 <section id="freiluftreduktion" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="freiluftreduktion"><span class="header-section-number">5.3</span> Freiluftreduktion</h2>
-<p>Die Normalschwerereduktion nach Gl. <a href="#eq-normalschwere" class="quarto-xref"><span>5.2</span></a> wendet man an, um die breitenabhängige Änderung der Schwere auf der Oberfläche des Erdellipsoids zu kompensieren. Die Höhe des Messpunktes über dem Referenzniveau (Erdellipsoid) werden davon nicht erfasst.</p>
-<p>Diese Abweichung wird durch die Freiluftreduktion korrigiert. Wir erreichen durch die Beseitigung des Einflusses der Geländehöhe des Messpunktes eine Darstellung der gemessenen Daten auf einem gemeinsamen Bezugsniveau.</p>
+<p>Die Normalschwerereduktion nach Gl. <a href="#eq-normalschwere" class="quarto-xref"><span>5.2</span></a> wendet man an, um die breitenabhängige Änderung der Schwere auf der Oberfläche des Erdellipsoids zu kompensieren. Die Höhe des Messpunktes über dem Referenzniveau (Erdellipsoid) wird davon nicht erfasst.</p>
+<p>Diese Wirkung der Höhenabhängigkeit wird durch die Freiluftreduktion korrigiert. Wir erreichen durch die Beseitigung des Einflusses der Geländehöhe des Messpunktes eine Darstellung der gemessenen Daten auf einem gemeinsamen Bezugsniveau.</p>
 <p>Wir unterscheiden folgende Bezugsniveaus:</p>
 <ul>
 <li>Meeresniveau bei Regionalmessungen</li>
@@ -516,8 +523,8 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 </ul>
 <p>Der Freiluftgradient beträgt <span class="math display">\[
 \frac{ \partial \gamma_{0} }{ \partial h } = -0.3086\ \text{mGal}/\text{m}
-\]</span> Mit zumehmender Höhe über dem Referenzellipsoid nimmt der Wert der Normalschwere um <span class="math inline">\(0.3086\)</span> mGal pro Meter ab.</p>
-<p>Die Freiluftreduktion beträgt <span id="eq-freiluftreduktion"><span class="math display">\[
+\]</span> Mit zunehmender Höhe über dem Referenzellipsoid nimmt der Wert der Normalschwere in mittleren Breiten um etwa <span class="math inline">\(0.3086\)</span> mGal pro Meter ab.</p>
+<p>Die <strong>Freiluftreduktion</strong> beträgt <span id="eq-freiluftreduktion"><span class="math display">\[
 \delta g_{F} = -0.3086 \, h \text{ mGal},
 \tag{5.3}\]</span></span></p>
 <p>wenn die Höhe über dem Referenzniveau <span class="math inline">\(h\)</span> in Metern angegeben wird.</p>
@@ -536,7 +543,7 @@ g(h) = g_{0} \left(
   \frac{R}{R + h}
 \right)^{2}
 \]</span></p>
-<div id="e41484d0" class="cell" data-execution_count="5">
+<div id="3ce3c0ee" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>RE, h, g0 <span class="op">=</span> sp.symbols(<span class="st">"R_E, h, g_0"</span>)</span>
@@ -548,20 +555,20 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 </div>
 </div>
 <p>Die Schwere nimmt außerhalb der Erde um</p>
-<div id="c71898df" class="cell" data-execution_count="6">
+<div id="efea1e45" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>dgf.subs(RE, <span class="fl">6371e3</span>).subs(g0, <span class="fl">9.81e5</span>).subs(h, <span class="dv">1</span>).evalf()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="6">
+<div class="cell-output cell-output-display cell-output-markdown" data-execution_count="132">
 <p><span class="math inline">\(\displaystyle -0.307957934390206\)</span></p>
 </div>
 </div>
-<p>mGal pro Meter Höhe ab.</p>
-<p>Dies ist nur eine Näherung.</p>
+<p>mGal pro Meter Höhe ab. Dieser Wert ist nur eine Näherung, der von dem in der Praxis als Standard verwenden Zahlenwert von <span class="math inline">\(-0.3086\)</span> etwas abweicht.</p>
+<p>Genauere Zahlen erhält man, wenn das Modell der Erdbeschleunigung über ein Erdellipsoid definiert wird. So kann bspw. berechnet werden, dass der Wert der Freiluftreduktion selbst höhenabhängig ist. In diesem Zusammenhang sind Kugelfunktionen bedeutsam.</p>
 </div>
 </div>
-<p>Welche Genauigkeitsforderung ist damit verbunden?</p>
+<p>Welche Genauigkeitsforderung ist mit der Freiluftreduktion verbunden?</p>
 <p>Wir nutzen das Fehlerfortpflanzungsgesetz:</p>
 <p><span class="math display">\[
 \Delta (\delta g_{F}) = \Bigg|\frac{ \partial \delta g_{F} }{ \partial h }\Bigg| \, \Delta h
@@ -575,24 +582,56 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 <p>Die Abbildung zeigt den Vergleich der Höhenmessungen mittels Nivellement und DGPS auf identischen Punkten eines Gravimetrieprofils im Zellwald. Das im unteren Bild markierte Intervall von <span class="math inline">\(\pm\ 3\)</span> cm zeigt, dass nur ein Teil der DGPS-Höhen den Genauigkeitsanforderungen von <span class="math inline">\(\Delta (\delta g_{F}) \le\)</span> 0.01 mGal genügt.</p>
 <p>Für das oben dargestellte Höhenprofil ergibt sich nach Gl. <a href="#eq-freiluftreduktion" class="quarto-xref"><span>5.3</span></a> folgende Freiluftreduktion:</p>
 <p><img src="images/Freiluftreduktion_Zellwald.png" class="img-fluid"></p>
+<p>Wir haben gesehen, dass die Freiluftreduktion pro Meter Höhenänderung in mittleren Breiten einen etwa 400 mal größeren Effekt auf den Messwert hat als eine gleiche Änderung in der Breite (genauer: im Hochwert).</p>
+<div id="18b5d6ca" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Betragsverhältnis: </span><span class="sc">{</span><span class="fl">0.3086</span> <span class="op">/</span> <span class="fl">0.8e-3</span><span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Betragsverhältnis: 385.750</code></pre>
+</div>
+</div>
+<p>Zusammenfassung: Die Freiluftanomalie ergibt sich nach Anwendung der Freiluftreduktion <span class="math display">\[
+\Delta g_{F} = g_{0} - \gamma_{0} - \delta g_{F}
+\]</span> Der erste Term ist die an Messpunkt beobachtete, gezeiten- und instrumentendriftkorrigierte relative Schwere, der zweite Term ist die theoretische Schwere auf der Oberfläche des Referenzellipsoids. Der dritte Term korrigiert die Schwere auf eine Äquipotentialfläche oder Bezugsfläche.</p>
+<p>Die Reduktion ist nur dann exakt, wenn keine Massen zwischen Messpunkt und Bezugsniveau liegen. Diese Annahme trifft in der Praxis nicht zu, daher sind weitere Reduktionen zur Korrektur der zwischen Mess- und Bezugsniveau vorhandenen Massen notwendig.</p>
 </section>
 <section id="bouguerreduktion" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="bouguerreduktion"><span class="header-section-number">5.4</span> Bouguerreduktion</h2>
 <p>Die Normalfeld- und Freiluftreduktionen berücksichtigen lediglich die Abhängigkeit der modellhaften Schwere eines Erdellipsoids von Breite und Höhe des Messpunktes.</p>
 <p>Die Bouguerreduktion berechnet die Schwere einer unter dem Messpunkt befindlichen, allseitig ausgedehnten Platte der Mächtigkeit <span class="math inline">\(H\)</span> (<em>Reduktionshöhe</em>) und <em>Reduktionsdichte</em> <span class="math inline">\(\rho\)</span>.</p>
-<p>Sie ergibt sich aus <span class="math display">\[
-\delta g_{B} = 2 \pi f \rho h
+<p>Wir unterscheiden grundsätzlich zwischen</p>
+<ul>
+<li>einfacher Bouguerreduktion und</li>
+<li>vollständige Bouguerreduktion einschließlich Geländereduktion.</li>
+</ul>
+<p>Die einfache Bouguerreduktion ergibt sich aus <span class="math display">\[
+\delta g_{B} = 2 \pi f \rho \, h
 \]</span></p>
 <p>Beispiel:</p>
 <p>Mächtigkeit 100 m, Dichte 2700 kg/m<span class="math inline">\(^3\)</span>.</p>
-<div id="55f81e5f" class="cell" data-execution_count="7">
+<div id="f88389fe" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dgb <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="fl">6.674e-11</span> <span class="op">*</span> <span class="dv">2700</span> <span class="op">*</span> <span class="dv">100</span> <span class="op">*</span> <span class="fl">1e5</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\d</span><span class="vs">elta g_B = </span><span class="ch">\)</span><span class="vs"> </span><span class="sc">{</span>dgb<span class="sc">:.3f}</span><span class="vs"> mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dgb <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="fl">6.674e-11</span> <span class="op">*</span> <span class="dv">2700</span> <span class="op">*</span> <span class="dv">100</span> <span class="op">*</span> <span class="fl">1e5</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\d</span><span class="vs">elta g_B = </span><span class="ch">\)</span><span class="vs"> </span><span class="sc">{</span>dgb<span class="sc">:.3f}</span><span class="vs"> mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 \( \delta g_B = \) 11.322 mGal
+</div>
+</div>
+<p><span class="math display">\[
+\Delta g_{B} = g_{0} -\gamma_{0} - \delta g_{F} -\delta g_{B}
+\]</span></p>
+<p>Näherung für Reduktionsdichte <span class="math inline">\(\rho=2670\)</span> kg/m<span class="math inline">\(^{3}\)</span>, <span class="math inline">\(h\)</span> in Meter:</p>
+<div id="8f9ff112" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\d</span><span class="vs">elta g_B </span><span class="ch">\a</span><span class="vs">pprox </span><span class="ch">\)</span><span class="vs"> </span><span class="sc">{</span><span class="dv">2</span> <span class="op">*</span> np<span class="sc">.</span>pi <span class="op">*</span> <span class="fl">6.674e-11</span> <span class="op">*</span> <span class="dv">2670</span> <span class="op">*</span> <span class="fl">1e5</span><span class="sc">:.4f}</span><span class="vs"> </span><span class="ch">\(</span><span class="vs"> </span><span class="er">\</span><span class="vs">cdot h </span><span class="ch">\)</span><span class="vs"> in mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+\( \delta g_B \approx \) 0.1120 \( \cdot h \) in mGal
 </div>
 </div>
 </section>
@@ -614,6 +653,9 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 </div>
 </div>
 <p><img src="images/Terrain_reduction.excalidraw.svg" class="img-fluid"></p>
+<p><span class="math display">\[
+\Delta g_{B} = g_{0} -\gamma_{0} - \delta g_{F} -\delta g_{B} + \delta g_{T}
+\]</span></p>
 
 
 </section>

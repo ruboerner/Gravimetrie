@@ -14,8 +14,6 @@ editor: source
 - Geländereduktion
 :::
 
-
-
 # Reduktionen
 
 Ein an der Erdoberfläche beobachteter Schwerewert ist abhängig
@@ -52,19 +50,20 @@ Beseitigung aller orts- und zeitabhängigen Einflüsse durch Reduktionen bzw. Ko
 
 ```{mermaid}
 graph TD
-  A("Rohdaten $$\ g(x,y,z,t)$$") -- "Korrekturen $$\ \Delta g(t)$$" --> B("Gangkorrigierte relative Schwere $$\ \Delta g(x,y,z)$$")
+  A("Rohdaten $$\ g(x,y,z,t)$$") -- "Korrekturen $$\ \Delta g(t)$$" --> B("Gangkorrigierte relative Schwere $$\ g(x,y,z)$$")
   B -- "Reduktionen $$\ \delta g(x,y,z)$$ " --> C("Anomalie $$\ \Delta g(x,y,z)$$")
 ```
 
+![Datenprozessing: Von der Normalschwerereduktion (links) über die Freiluftreduktion, Bouguerreduktion und Geländereduktion zur Bougueranomalie $\Delta g$ (rechts)](images/Data_to_anomalies.excalidraw.svg)
 
 ## Normalschwerereduktion
-Beseitigung der gravimetrischen Wirkung der regularisierten Erde (Erdellipsoid) auf den Messpunkt (globales Normalschwerefeld):
+Beseitigung der Breitenabhängigkeit unter Beachtung des Erdellipsoid (WGS84)(globales Normalschwerefeld):
 
 $$
 \gamma_{0} = f(\varphi)
 $$
 
-Neben der Formel von Somigliana @eq-somigliana existieren weitere, über Reihenentwicklung abgeleitete Gleichungen der Bauart
+Neben der Formel von Somigliana @eq-somigliana existieren weitere, über Reihenentwicklung abgeleitete Approximationen der Bauart
 
 $$
 \gamma(\varphi) = \gamma_{e}(
@@ -73,6 +72,8 @@ $$
 $$ {#eq-gamma}
 
 mit $\gamma_{e}$: Normalschwere am Äquator, $\alpha,\beta$: vom verwendeten Erdellipsoid abhängige Parameter.
+
+Vor dem Hintergrund der heute erreichbaren Messgenauigkeiten ist die Formel vn Somigliana @eq-somigliana zu bevorzugen.
 
 Für das __Geodetic Reference System GRS80__ sind
 $$
@@ -172,9 +173,9 @@ Daraus resultiert auch die Näherungsformel @eq-normalschwere für die Normalsch
 ## Freiluftreduktion
 
 Die Normalschwerereduktion nach Gl. @eq-normalschwere wendet man an, um die breitenabhängige Änderung der Schwere auf der Oberfläche des Erdellipsoids zu kompensieren.
-Die Höhe des Messpunktes über dem Referenzniveau (Erdellipsoid) werden davon nicht erfasst.
+Die Höhe des Messpunktes über dem Referenzniveau (Erdellipsoid) wird davon nicht erfasst.
 
-Diese Abweichung wird durch die Freiluftreduktion korrigiert. Wir erreichen durch die Beseitigung des Einflusses der Geländehöhe des Messpunktes eine Darstellung der gemessenen Daten auf einem gemeinsamen Bezugsniveau.
+Diese Wirkung der Höhenabhängigkeit wird durch die Freiluftreduktion korrigiert. Wir erreichen durch die Beseitigung des Einflusses der Geländehöhe des Messpunktes eine Darstellung der gemessenen Daten auf einem gemeinsamen Bezugsniveau.
 
 Wir unterscheiden folgende Bezugsniveaus:
 
@@ -186,9 +187,9 @@ Der Freiluftgradient beträgt
 $$
 \frac{ \partial \gamma_{0} }{ \partial h } = -0.3086\ \text{mGal}/\text{m}
 $$ 
-Mit zumehmender Höhe über dem Referenzellipsoid nimmt der Wert der Normalschwere um $0.3086$ mGal pro Meter ab.
+Mit zunehmender Höhe über dem Referenzellipsoid nimmt der Wert der Normalschwere in mittleren Breiten um etwa $0.3086$ mGal pro Meter ab.
 
-Die Freiluftreduktion beträgt
+Die __Freiluftreduktion__ beträgt
 $$
 \delta g_{F} = -0.3086 \, h \text{ mGal},
 $$ {#eq-freiluftreduktion}
@@ -214,11 +215,12 @@ Die Schwere nimmt außerhalb der Erde um
 -dgf.subs(RE, 6371e3).subs(g0, 9.81e5).subs(h, 1).evalf()
 ```
 mGal pro Meter Höhe ab.
+Dieser Wert ist nur eine Näherung, der von dem in der Praxis als Standard verwenden Zahlenwert von $-0.3086$ etwas abweicht. 
 
-Dies ist nur eine Näherung.
+Genauere Zahlen erhält man, wenn das Modell der Erdbeschleunigung über ein Erdellipsoid definiert wird. So kann bspw. berechnet werden, dass der Wert der Freiluftreduktion selbst höhenabhängig ist. In diesem Zusammenhang sind Kugelfunktionen bedeutsam.
 :::
 
-Welche Genauigkeitsforderung ist damit verbunden?
+Welche Genauigkeitsforderung ist mit der Freiluftreduktion verbunden?
 
 Wir nutzen das Fehlerfortpflanzungsgesetz:
 
@@ -245,15 +247,36 @@ Für das oben dargestellte Höhenprofil ergibt sich nach Gl. @eq-freiluftredukti
 
 ![](images/Freiluftreduktion_Zellwald.png)
 
+Wir haben gesehen, dass die Freiluftreduktion pro Meter Höhenänderung in mittleren Breiten einen etwa 400 mal größeren Effekt auf den Messwert hat als eine gleiche Änderung in der Breite (genauer: im Hochwert).
+
+```{python}
+print(f"Betragsverhältnis: {0.3086 / 0.8e-3:.3f}")
+```
+
+Zusammenfassung: Die Freiluftanomalie ergibt sich nach Anwendung der Freiluftreduktion
+$$
+\Delta g_{F} = g_{0} - \gamma_{0} - \delta g_{F}
+$$
+Der erste Term ist die an Messpunkt beobachtete, gezeiten- und instrumentendriftkorrigierte relative Schwere, der zweite Term ist die theoretische Schwere auf der Oberfläche des Referenzellipsoids.
+Der dritte Term korrigiert die Schwere auf eine Äquipotentialfläche oder Bezugsfläche.
+
+Die Reduktion ist nur dann exakt, wenn keine Massen zwischen Messpunkt und Bezugsniveau liegen.
+Diese Annahme trifft in der Praxis nicht zu, daher sind weitere Reduktionen zur Korrektur der zwischen Mess- und Bezugsniveau vorhandenen Massen notwendig.
+
 ## Bouguerreduktion
 
 Die Normalfeld- und Freiluftreduktionen berücksichtigen lediglich die Abhängigkeit der modellhaften Schwere eines Erdellipsoids von Breite und Höhe des Messpunktes.
 
 Die Bouguerreduktion berechnet die Schwere einer unter dem Messpunkt befindlichen, allseitig ausgedehnten Platte der Mächtigkeit $H$ (_Reduktionshöhe_) und _Reduktionsdichte_ $\rho$.
 
-Sie ergibt sich aus
+Wir unterscheiden grundsätzlich zwischen
+
+- einfacher Bouguerreduktion und
+- vollständige Bouguerreduktion einschließlich Geländereduktion.
+
+Die einfache Bouguerreduktion ergibt sich aus
 $$
-\delta g_{B} = 2 \pi f \rho h
+\delta g_{B} = 2 \pi f \rho \, h
 $$
 
 Beispiel:
@@ -263,6 +286,15 @@ Mächtigkeit 100 m, Dichte 2700 kg/m$^3$.
 ```{python}
 dgb = 2 * np.pi * 6.674e-11 * 2700 * 100 * 1e5
 display(HTML(rf"\( \delta g_B = \) {dgb:.3f} mGal"))
+```
+
+$$
+\Delta g_{B} = g_{0} -\gamma_{0} - \delta g_{F} -\delta g_{B}
+$$
+
+Näherung für Reduktionsdichte $\rho=2670$ kg/m$^{3}$, $h$ in Meter:
+```{python}
+display(HTML(rf"\( \delta g_B \approx \) {2 * np.pi * 6.674e-11 * 2670 * 1e5:.4f} \( \cdot h \) in mGal"))
 ```
 
 ## Geländereduktion
@@ -291,3 +323,7 @@ wobei $h_{i}^{2} \ll r_{i}^{2}$ gelten muss. Wenn $r \gg B$ kann der Klammerterm
 :::
 
 ![](images/Terrain_reduction.excalidraw.svg)
+
+$$
+\Delta g_{B} = g_{0} -\gamma_{0} - \delta g_{F} -\delta g_{B} + \delta g_{T}
+$$
