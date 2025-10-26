@@ -8,4 +8,6 @@
 
 **/*.quarto_ipynb
 
+/*_files/
+
 Untitled.ipynb
