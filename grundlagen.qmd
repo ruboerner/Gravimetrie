@@ -444,7 +444,7 @@ _ax.grid(alpha=0.3)
 
 ## Der Gravitationstensor $V_{ik}$
 
-Die 2. Ableitungen des Volumenpotentials in die kartesischen Richtungen werden in der Einheit __E__ (Eötvös) angegeben.
+Die 2. partiellen Ableitungen des Volumenpotentials in die kartesischen Richtungen werden in der Einheit __E__ (Eötvös) angegeben.
 
 $$
 [V_{ik}] = \mathrm{E} = 10^{-9}\ \mathrm{s^{-2}} = 0.1\ \mathrm{\frac{mGal}{km}}

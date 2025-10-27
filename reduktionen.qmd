@@ -18,8 +18,8 @@ editor: source
 
 Ein an der Erdoberfläche beobachteter Schwerewert ist abhängig
 
-- vom Ort des Beobachtungspunktes (geopgraphische Breite $\varphi$ und Höhe $h$) __$\to$ Reduktionen__
-- von sichtbaren Masseinhomogenitäten (Morphologie) __$\to$ Reduktionen__
+- vom Ort des Beobachtungspunktes (geographische Breite $\varphi$ und Höhe $h$) __$\to$ Reduktionen__
+- von sichtbaren Masseninhomogenitäten (Topographie) __$\to$ Reduktionen__
 - von zeitlichen Änderungen der Schwerebeschleunigung (Gezeiten, Gerätedrift) __$\to$ Korrekturen__
 
 __Schwereanomalien__ $\Delta g$ sind Abweichungen der gemessenen, korrigierten und reduzierten Schwerewerte von der Normalschwerebeschleunigung $\gamma_{0}$:
@@ -42,7 +42,7 @@ Beispiele für regionale Schwereanomalien:
 - Magdeburger Schwerehoch: $+60$ mGal
 - Lausitzer Schwerehoch: $+40$ mGal
 
-![](images/Gravimetrie_Uebersichtskarte.png)
+![Bouguer-Schwereanomalie Sachsen](images/Gravimetrie_Uebersichtskarte.png)
 
 ## Bearbeitung primärer Messergebnisse
 
@@ -55,6 +55,33 @@ graph TD
 ```
 
 ![Datenprozessing: Von der Normalschwerereduktion (links) über die Freiluftreduktion, Bouguerreduktion und Geländereduktion zur Bougueranomalie $\Delta g$ (rechts)](images/Data_to_anomalies.excalidraw.svg)
+
+## Korrekturen
+
+- Driftkorrektur
+- Gezeitenkorrektur
+
+Driftkorrektur:
+
+Beseitigung aller zeitabhängigen Schwankungen im Messwert durch wiederholtes Anmessen einer Basisstation im Punkt $(x_{0}, y_{0}, z_{0})$:
+$$
+\Delta g(x,y,z) = g(x,y,z,t) - g(x_{0}, y_{0}, z_{0}, t)
+$$
+
+Gezeitenkorrektur:
+
+Erfassen der Gezeitendrift durch 
+
+- Vorhersage mittels mathematischer Modelle
+- Erfassung an Basispunkt
+
+In der Praxis erfasst Basispunktablesung $g(x_{0}, y_{0}, z_{0}, t)$ beide Effekte.
+
+Die so erhaltenen Schwerewerte sind nach Anwendung der Korrekturen nur noch vom Ort abhängig.
+Die vorliegende relative Schwere ist von Dichteunterschieden in der Erde abhängig, wobei die Erde selbst als massebehaftetes Objekt auf die Schwere wirkt, ebenso wie kleinskalige Dichtekontraste geologischer Körper.
+
+Die Wirkuung der Erde kann modellhaft beschrieben werden, die verbleibenden Residuen liefern Informationen über geologische EInheiten und ihre Massenunterschiede zum umgebenenden Gestein.
+
 
 ## Normalschwerereduktion
 Beseitigung der Breitenabhängigkeit unter Beachtung des Erdellipsoid (WGS84)(globales Normalschwerefeld):

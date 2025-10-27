@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dr.&nbsp;Ralph-Uwe Börner">
 
-<title>Gravimetrie</title>
+<title>3&nbsp; Erdgestalt – Gravimetrie</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -31,7 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./gliederung.html" rel="next">
+<link href="./gravimeter.html" rel="next">
+<link href="./grundlagen.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -81,6 +116,35 @@ window.MathJax = {
 };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -93,7 +157,7 @@ window.MathJax = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Vorwort</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./grundlagen.html">Grundlagen</a></li><li class="breadcrumb-item"><a href="./erdgestalt.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Erdgestalt</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -122,7 +186,7 @@ window.MathJax = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorwort</span></a>
   </div>
 </li>
@@ -160,7 +224,7 @@ window.MathJax = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./erdgestalt.html" class="sidebar-item-text sidebar-link">
+  <a href="./erdgestalt.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Erdgestalt</span></span></a>
   </div>
 </li>
@@ -222,43 +286,31 @@ window.MathJax = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#vorwort" id="toc-vorwort" class="nav-link active" data-scroll-target="#vorwort">Vorwort</a>
+  <li><a href="#erdellipsoid" id="toc-erdellipsoid" class="nav-link active" data-scroll-target="#erdellipsoid"><span class="header-section-number">3.1</span> Erdellipsoid</a>
   <ul class="collapse">
-  <li><a href="#bemerkungen" id="toc-bemerkungen" class="nav-link" data-scroll-target="#bemerkungen">Bemerkungen</a></li>
-  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
-  <li><a href="#selbststudium" id="toc-selbststudium" class="nav-link" data-scroll-target="#selbststudium">Selbststudium</a></li>
-  <li><a href="#referenzen" id="toc-referenzen" class="nav-link" data-scroll-target="#referenzen">Referenzen</a></li>
-  <li><a href="#lizenz" id="toc-lizenz" class="nav-link" data-scroll-target="#lizenz">Lizenz</a></li>
+  <li><a href="#somigliana-gleichung" id="toc-somigliana-gleichung" class="nav-link" data-scroll-target="#somigliana-gleichung"><span class="header-section-number">3.1.1</span> Somigliana-Gleichung</a></li>
   </ul></li>
+  <li><a href="#das-geoid" id="toc-das-geoid" class="nav-link" data-scroll-target="#das-geoid"><span class="header-section-number">3.2</span> Das Geoid</a>
+  <ul class="collapse">
+  <li><a href="#mathematische-beschreibung-der-geoidgestalt" id="toc-mathematische-beschreibung-der-geoidgestalt" class="nav-link" data-scroll-target="#mathematische-beschreibung-der-geoidgestalt"><span class="header-section-number">3.2.1</span> Mathematische Beschreibung der Geoidgestalt</a></li>
+  </ul></li>
+  <li><a href="#gezeiten-der-festen-erde" id="toc-gezeiten-der-festen-erde" class="nav-link" data-scroll-target="#gezeiten-der-festen-erde"><span class="header-section-number">3.3</span> Gezeiten der festen Erde</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./grundlagen.html">Grundlagen</a></li><li class="breadcrumb-item"><a href="./erdgestalt.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Erdgestalt</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Gravimetrie</h1>
-<p class="subtitle lead">Modul Gravimetrie und Magnetik</p>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Erdgestalt</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Autor:in</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dr.&nbsp;Ralph-Uwe Börner </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">27. Oktober 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -268,53 +320,168 @@ window.MathJax = {
 </header>
 
 
-<section id="vorwort" class="level1 unnumbered">
-<h1 class="unnumbered">Vorwort</h1>
-<section id="bemerkungen" class="level2">
-<h2 class="anchored" data-anchor-id="bemerkungen">Bemerkungen</h2>
-<p>Dieses GitHub-Repository enthält das Vorlesungsskript zur Vorlesung “Gravimetrie” im Rahmen des Moduls “Gravimetrie und Magnetik” im Wintersemester 2025/26. Das Modul ist für Studierende des Bachelorstudienganges “Geophysik und Geoinformatik” an der TU Bergakademie Freiberg entworfen.</p>
-</section>
-<section id="code" class="level2">
-<h2 class="anchored" data-anchor-id="code">Code</h2>
-<p>Das Kursmaterial auf der Website enthält Abschnitte mit eingebettetem Python-Code.</p>
-<p>Sie können den Code kopieren und in einer kompatiblen Python- oder Julia-Umgebung ausführen.</p>
-<p>Für optimales Arbeiten und Lernen wird empfohlen, Python über <a href="https://conda-forge.org/download/">miniforge</a> zu installieren.</p>
-<p>Darüber hinaus haben Sie die Möglichkeit, eigene Konzepte zu erkunden, indem Sie eigene Jupyter-Notebooks erstellen. Dabei können Sie eine der folgenden Plattformen verwenden:</p>
-<ul>
-<li><a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
-<li><a href="https://jupyter.org/">JupyterLab</a></li>
-<li><a href="https://quarto.org/">Quarto</a></li>
-<li><a href="https://marimo.io/">marimo</a></li>
-</ul>
-<p>Die Arbeit mit Jupyter-Notebooks in Visual Studio Code ist <a href="https://code.visualstudio.com/docs/datascience/jupyter-notebooks">besonders unkompliziert</a>.</p>
-</section>
-<section id="selbststudium" class="level2">
-<h2 class="anchored" data-anchor-id="selbststudium">Selbststudium</h2>
-<p>Es gibt kleine Übungsaufgaben, die über die Vorlesung verteilt sind.</p>
-<div class="callout callout-style-simple callout-none no-icon callout-titled" title="Self study">
+<div class="callout callout-style-default callout-tip callout-titled" title="Lernziele">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">None</span>Self study
+<span class="screen-reader-only">Tipp</span>Lernziele
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Diese Aufgaben sind leicht zu erkennen.</p>
+<ul>
+<li>Berechnung der Normalschwere auf dem Erdellipsoid</li>
+<li>Geoid und seine mathematische Beschreibung</li>
+<li>Verformung der festen Erde durch Gezeiten</li>
+</ul>
 </div>
 </div>
+<p>Zur mathematischen Darstellung der physikalischen Figur des Erdkörpers werden Modelle benutzt:</p>
+<ul>
+<li>Erdellipsoid</li>
+<li>Geoid</li>
+</ul>
+<section id="erdellipsoid" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="erdellipsoid"><span class="header-section-number">3.1</span> Erdellipsoid</h2>
+<p>Eingeführt 1924 als <em>Hayfordsches Erdellipsoid</em>.</p>
+<ul>
+<li>Schwach abgeplattetes Rotationsellipsoid als einfache Näherung an das Geoid</li>
+<li>Das zugehörige Schwerefeld ist die Normalschwerebeschleunigung <span class="math inline">\(\gamma_{0}\)</span></li>
+</ul>
+<section id="somigliana-gleichung" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="somigliana-gleichung"><span class="header-section-number">3.1.1</span> Somigliana-Gleichung</h3>
+<p>Berechnung der Normalschwere <span class="math inline">\(\gamma\)</span> eines Ellipsoids aus <span class="math display">\[
+\begin{align}
+\mathbf{g} &amp; = -\grad W = -\grad ( V + \Phi_{Z} ) \\
+\gamma(\varphi) &amp; = \mathbf{g}(\varphi) \cdot \hat{\mathbf{r}}
+\end{align}
+\]</span></p>
+<p>mittels der <em>Somigliana-Gleichung</em> für die geographische Breite <span class="math inline">\(\varphi\)</span> <span id="eq-somigliana"><span class="math display">\[
+\gamma(\varphi) = \gamma_{E}\,\frac{1 + k \sin^2\varphi}{\sqrt{1 - e^2 \sin^2\varphi}}
+\tag{3.1}\]</span></span></p>
+<p><span class="math display">\[
+\begin{align}
+e^2 &amp; = 2f - f^2 \\
+k &amp; = \frac{b\,\gamma_p - a\,\gamma_e}{a\,\gamma_e} \\
+b &amp; = a(1-f)
+\end{align}
+\]</span></p>
+<p>Mit den Daten aus WGS-84:</p>
+<p><span class="math display">\[
+\begin{align}
+a &amp;= 6\,378\,137\ \text{m} \\
+f &amp;= \frac{1}{298.257223563} \\
+\gamma_e &amp;= 9.780\,325\,3359\ \text{m s}^{-2} \\
+\gamma_p &amp;= 9.832\,184\,9378\ \text{m s}^{-2}.
+\end{align}
+\]</span></p>
+<div id="cfa1b948" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">6378.137e3</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> <span class="fl">298.257223563</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>gamma_E <span class="op">=</span> <span class="fl">9.7803253359</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>gamma_P <span class="op">=</span> <span class="fl">9.8321849378</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> <span class="fl">72.92115e-6</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>e2 <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> f <span class="op">-</span> f <span class="op">*</span> f</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> a <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> f)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> (b <span class="op">*</span> gamma_P <span class="op">-</span> a <span class="op">*</span> gamma_E) <span class="op">/</span> a <span class="op">/</span> gamma_E</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>gamma <span class="op">=</span> <span class="kw">lambda</span> phi: gamma_E <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> k <span class="op">*</span> np.sin(phi)<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> np.sqrt(<span class="dv">1</span> <span class="op">-</span> e2 <span class="op">*</span> np.sin(phi)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>aE <span class="op">=</span> omega<span class="op">**</span><span class="dv">2</span> <span class="op">*</span> a</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"gamma(0)      = </span><span class="sc">{</span>gamma(np.deg2rad(<span class="fl">0.0</span>))<span class="sc">:.4f}</span><span class="ss"> m/s**2"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"gamma(45)     = </span><span class="sc">{</span>gamma(np.deg2rad(<span class="fl">45.0</span>))<span class="sc">:.4f}</span><span class="ss"> m/s**2"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"gamma(0) + az = </span><span class="sc">{</span>aE <span class="op">+</span> gamma(np.deg2rad(<span class="fl">0.0</span>))<span class="sc">:.4f}</span><span class="ss"> m/s**2"</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"az            = </span><span class="sc">{</span>aE<span class="sc">:.4f}</span><span class="ss"> m/s**2"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"gamma(0)/az   = </span><span class="sc">{</span>gamma(np.deg2rad(<span class="fl">0.0</span>))<span class="op">/</span>aE<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>gamma(0)      = 9.7803 m/s**2
+gamma(45)     = 9.8062 m/s**2
+gamma(0) + az = 9.8142 m/s**2
+az            = 0.0339 m/s**2
+gamma(0)/az   = 288.3716</code></pre>
+</div>
+</div>
+<p>Die Gravitationsbeschleunigung übertrifft die Zentrifugalbeschleunigung am Äquator um das 288-fache.</p>
+<p>Wir berechnen die Normalschwere nach der <em>Somigliana-Gleichung</em> und stellen den Verlauf grafisch dar:</p>
+<div id="32b1e843" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>phi_d <span class="op">=</span> np.arange(start<span class="op">=</span><span class="fl">0.0</span>, stop<span class="op">=</span><span class="fl">90.1</span>, step<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>gamma_phi <span class="op">=</span> [gamma(np.deg2rad(v)) <span class="cf">for</span> v <span class="kw">in</span> phi_d]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ax.plot(phi_d, gamma_phi)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Nördliche Breite in Grad'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="er">\</span><span class="vs">gamma_</span><span class="op">{0}</span><span class="dv">$</span><span class="vs"> in m/s</span><span class="dv">$^</span><span class="vs">2</span><span class="dv">$</span><span class="vs">"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Breitenabhängigkeit der Normalschwere"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="erdgestalt_files/figure-html/cell-3-output-1.png" width="527" height="376" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="referenzen" class="level2">
-<h2 class="anchored" data-anchor-id="referenzen">Referenzen</h2>
-<p>Dieses Skript basiert zum großen Teil auf Lehrmaterialien, welche mir freundlicherweise von meinen ehemaligen Kollegen Rolf Käppler und Jana Börner zur Verfügung gestellt wurden.</p>
 </section>
-<section id="lizenz" class="level2">
-<h2 class="anchored" data-anchor-id="lizenz">Lizenz</h2>
-<p>Das Material steht unter der Creative Commons Lizenz.</p>
+<section id="das-geoid" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="das-geoid"><span class="header-section-number">3.2</span> Das Geoid</h2>
+<p>Die Äquipotentialfläche, die mit der ruhenden (mittleren, gezeitenfreien) Meeresoberfläche zusammenfällt, heißt <strong>Geoid</strong>.</p>
+<p>Das Geoid</p>
+<ul>
+<li>ist eine ausgewählte Äquipotentialfläche des Schwerepotentials mit <span class="math inline">\(W_{0}=\mathrm{const}\)</span></li>
+<li>fällt mit ruhender (mittlerer gezeitenfreier) Meeresoberfläche zusammen</li>
+<li>setzt sich im Bereich unter den Kontinenten durch gedachte Kanäle fort</li>
+<li>Geoid ist gleichermaßen Ort und physikalische Größe mit <span class="math inline">\(W_{0} \approx 62.2 \times 10^{6} \, \frac{\mathrm{m}^{2}}{\mathrm{s}^{2}}\)</span>, festgelegt durch International Association of Geodesy (IAG), 2015.</li>
+</ul>
+<p>Darstellung als lokale Abweichung vom Erdellipsoid in Einheit von Metern (<em>Geoidhöhen</em> oder <em>Geoidundulationen</em>).</p>
+<p><img src="images/Geoidundulation.excalidraw.svg" class="img-fluid"></p>
+<p>Wir unterscheiden</p>
+<ul>
+<li><em>Kontinentale</em> Geoidundulationen: Masseninhomgenitäten im Mantel und der tieferen Erdkruste</li>
+<li><em>Regionale</em> Geoidundulationen: Regionale geologische Strukturen, Undulationen der Grenzfläche Kruste/Mantel</li>
+<li><em>Lokale</em> Geoidundulationen: Lokale Masseninhomogenitäten in den oberen km der Erdkruste</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p>Das Geoidmodell EGM96 (Earth Gravitational Model 1996) entstand aus einer Kooperation zwischen NIMA, dem NASA Goddard Space Flight Center und der Ohio State University. Es basiert auf weltweit erfassten Schwerefelddaten – einschließlich neuer Airborne-Schweremessungen über Grönland, der Arktis und Antarktis – und kombiniert terrestrische sowie satellitenaltimetrische Messungen. Das Modell liegt mit einer Rasterauflösung von 15′ × 15′ vor.</p>
+</div><div class="column" style="width:35%;">
+<p><img src="images/Geoid_wiki.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Aktuell: EGM2008, EGM2020 in Vorbereitung (Stand Oktober 2025)</p>
+<section id="mathematische-beschreibung-der-geoidgestalt" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="mathematische-beschreibung-der-geoidgestalt"><span class="header-section-number">3.2.1</span> Mathematische Beschreibung der Geoidgestalt</h3>
+<p>Entwicklung nach Kugelflächenfunktionen <span class="math display">\[
+\begin{align}
+N(r, \theta, \lambda) &amp; = \frac{f m_{E}}{r \, \pmb\gamma_{0}(r, \theta)} \\
+&amp; = \sum_{n=0}^{\infty} \left( \frac{a}{r} \right)^{n} \sum_{m=0}^{n} P_{nm}(\cos \theta)\left( C_{nm} \cos m\lambda + S_{nm} \sin m \lambda\right)
+\end{align}
+\]</span> mit</p>
+<ul>
+<li><span class="math inline">\(C_{nm}, S_{nm}\)</span> - Stokessche Koeffizienten</li>
+<li><span class="math inline">\(P_{nm}(\cos \theta)\)</span> - zugeordnete Legendrepolynome</li>
+<li><span class="math inline">\(n\)</span> - Grad</li>
+<li><span class="math inline">\(m\)</span> - Ordnung der harmonischen Koeffizienten.</li>
+</ul>
+<p>Koeffizienten mit endlichem Grad <span class="math inline">\(n\)</span> werden aus Schweremessungen, geodätischen Messungen und Bahnstörungen von Satelliten bestimmt.</p>
+</section>
+</section>
+<section id="gezeiten-der-festen-erde" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="gezeiten-der-festen-erde"><span class="header-section-number">3.3</span> Gezeiten der festen Erde</h2>
+<p>Die Gezeitenkräfte von Mond und Sonne bewirken auf einer elastisch verformbaren Erde messbare Effekte, die sich in der Hebung des Bodens sowie in der damit verbundenen Änderung der Erdschwerebeschleunigung äußern.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -720,10 +887,13 @@ window.MathJax = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./grundlagen.html" class="pagination-link" aria-label="Geophysikalische Grundlagen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Geophysikalische Grundlagen</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./gliederung.html" class="pagination-link" aria-label="Lernziele der Vorlesung">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lernziele der Vorlesung</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./gravimeter.html" class="pagination-link" aria-label="Messgrößen und Messgeräte">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

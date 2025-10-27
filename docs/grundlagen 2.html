@@ -58,7 +58,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-27c261d06b905028a18691de25d09dde.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-5ea8f22911a6df30576a2a25a24cdd7a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,6 +105,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <script>
 window.MathJax = {
   loader: {
@@ -190,21 +193,32 @@ window.Quarto = {
  <span class="menu-text">Vorwort</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./gliederung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lernziele der Vorlesung</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Grundlagen</span></a>
+ <span class="menu-text">Einleitung</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gliederung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Lernziele der Vorlesung</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grundlagen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./grundlagen.html" class="sidebar-item-text sidebar-link active">
@@ -221,25 +235,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Praxis</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./gravimeter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Interpretaton</span></a>
+ <span class="menu-text">Praxis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -247,14 +244,37 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./gravimeter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Messgrößen und Messgeräte</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reduktionen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reduktionen</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Interpretaton</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./modellierung.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modellierung gravimetrischer Anomalien</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modellierung gravimetrischer Anomalien</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./gis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Arbeit mit QGIS</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Arbeit mit QGIS</span></span></a>
   </div>
 </li>
       </ul>
@@ -613,6 +633,47 @@ V_{zz}(x, y, 0) &amp; = f m \frac{2 t^{2} - x^{2} - y^{2} }{\left( x^{2} + y^{2}
 V_{zx}(x,y,0)  &amp; = -3 f m \frac{t x}{\left( x^{2} + y^{2} + t^{2} \right)^{5/2}}\\
 \end{align}
 \]</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Berechnung">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Hinweis</span>Berechnung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wir nutzen zur Berechnung der Ableitungen die Python-Bibliothek <code>SymPy</code>.</p>
+<p>Nach Berechnung der Ableitungen erhalten wir für <span class="math inline">\(z=0\)</span>:</p>
+<div id="9b46c75d" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sympy <span class="im">as</span> sp</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, Latex, HTML, Math</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>showlatex <span class="op">=</span> <span class="kw">lambda</span> s: display(HTML(<span class="ss">f"$$</span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">$$"</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>x, y, z, t, f, m <span class="op">=</span> sp.symbols(<span class="st">"x y z t f m"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> <span class="op">-</span>f <span class="op">*</span> m <span class="op">/</span> sp.sqrt(x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> y<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (z <span class="op">-</span> t)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>Vz <span class="op">=</span> <span class="op">-</span>sp.diff(V, z)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Vzz <span class="op">=</span> sp.diff(Vz, z)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>Vzx <span class="op">=</span> sp.diff(Vz, x)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r"V_z = "</span> <span class="op">+</span> sp.latex(Vz.subs(z,<span class="dv">0</span>)))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r"V_{zz} = "</span> <span class="op">+</span> sp.latex(Vzz.simplify().subs(z,<span class="dv">0</span>)))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>showlatex(<span class="vs">r"V_{zx} = "</span> <span class="op">+</span> sp.latex(Vzx.simplify().subs(z,<span class="dv">0</span>)))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+$$V_z = \frac{f m t}{\left(t^{2} + x^{2} + y^{2}\right)^{\frac{3}{2}}}$$
+</div>
+<div class="cell-output cell-output-display">
+$$V_{zz} = \frac{f m \left(2 t^{2} - x^{2} - y^{2}\right)}{\left(t^{2} + x^{2} + y^{2}\right)^{\frac{5}{2}}}$$
+</div>
+<div class="cell-output cell-output-display">
+$$V_{zx} = - \frac{3 f m t x}{\left(t^{2} + x^{2} + y^{2}\right)^{\frac{5}{2}}}$$
+</div>
+</div>
+</div>
+</div>
 <p><strong>Beispiel:</strong> Kugelförmiger, luftgefüllter Hohlraum im Festgestein</p>
 <p>Messung entlang eines Profils auf der <span class="math inline">\(x\)</span>-Achse.</p>
 <p>Parameter:</p>
@@ -622,45 +683,45 @@ V_{zx}(x,y,0)  &amp; = -3 f m \frac{t x}{\left( x^{2} + y^{2} + t^{2} \right)^{5
 <li>Dichtedifferenz zur Umgebung <span class="math inline">\(\Delta \rho = -2700\)</span> kg/m<span class="math inline">\(^3\)</span></li>
 </ul>
 <p>Wir fragen nach <span class="math inline">\(V_{z}\)</span>, <span class="math inline">\(V_{zz}\)</span> und <span class="math inline">\(V_{zx}\)</span>.</p>
-<div id="5b02d1eb" class="cell" data-execution_count="1">
+<div id="004d5763" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="fl">2.0</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="fl">6.0</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>drho <span class="op">=</span> <span class="op">-</span><span class="fl">2700.0</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fl">6.674e-11</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> drho <span class="op">*</span> <span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>np.pi <span class="op">*</span> R<span class="op">**</span><span class="dv">3</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Vz <span class="op">=</span> <span class="kw">lambda</span> x: <span class="fl">1e5</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> t <span class="op">/</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">3</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Vzx <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span><span class="fl">3e9</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> t <span class="op">*</span> x <span class="op">/</span>  (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>Vzz <span class="op">=</span> <span class="kw">lambda</span> x: <span class="fl">1e9</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span>  (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(start<span class="op">=-</span><span class="dv">20</span>, stop<span class="op">=</span><span class="fl">20.1</span>, step<span class="op">=</span><span class="fl">1.0</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>dg <span class="op">=</span> [Vz(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>dgx <span class="op">=</span> [Vzx(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>dgz <span class="op">=</span> [Vzz(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"max(|Vz|) = </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(np.<span class="bu">abs</span>(dg))<span class="sc">:.3f}</span><span class="ss"> mGal"</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>ax.plot(x, dg, c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>ax.axhspan(<span class="op">-</span><span class="fl">0.017</span>, <span class="op">-</span><span class="fl">0.01</span>, color<span class="op">=</span><span class="st">'0.95'</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.axvspan(-2, 2, color='g', alpha=0.2)</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=-</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=+</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Messgenauigkeit 0.01 mGal'</span>, size<span class="op">=</span><span class="dv">8</span>, xy<span class="op">=</span>(<span class="op">-</span><span class="dv">14</span>, <span class="op">-</span><span class="fl">0.01</span>), xytext<span class="op">=</span>(<span class="op">-</span><span class="dv">20</span>, <span class="op">-</span><span class="fl">0.016</span>), arrowprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'black'</span>, shrink<span class="op">=</span><span class="fl">0.05</span>, width<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">V_{z}</span><span class="dv">$</span><span class="vs"> in mGal"</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x in m"</span>)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'r'</span>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax.twinx()</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>ax2.plot(x, dgz, c<span class="op">=</span><span class="st">'b'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">V_{zz}</span><span class="dv">$</span><span class="vs"> in E"</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>ax2.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'b'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="fl">6.0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>drho <span class="op">=</span> <span class="op">-</span><span class="fl">2700.0</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="fl">6.674e-11</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> drho <span class="op">*</span> <span class="dv">4</span><span class="op">/</span><span class="dv">3</span><span class="op">*</span>np.pi <span class="op">*</span> R<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>Vz <span class="op">=</span> <span class="kw">lambda</span> x: <span class="fl">1e5</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> t <span class="op">/</span> (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">3</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>Vzx <span class="op">=</span> <span class="kw">lambda</span> x: <span class="op">-</span><span class="fl">3e9</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> t <span class="op">*</span> x <span class="op">/</span>  (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Vzz <span class="op">=</span> <span class="kw">lambda</span> x: <span class="fl">1e9</span> <span class="op">*</span> f <span class="op">*</span> m <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> t<span class="op">**</span><span class="dv">2</span> <span class="op">-</span> x<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span>  (x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> t<span class="op">**</span><span class="dv">2</span>)<span class="op">**</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(start<span class="op">=-</span><span class="dv">20</span>, stop<span class="op">=</span><span class="fl">20.1</span>, step<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>dg <span class="op">=</span> [Vz(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>dgx <span class="op">=</span> [Vzx(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>dgz <span class="op">=</span> [Vzz(v) <span class="cf">for</span> v <span class="kw">in</span> x]</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"max(|Vz|) = </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(np.<span class="bu">abs</span>(dg))<span class="sc">:.3f}</span><span class="ss"> mGal"</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>ax.plot(x, dg, c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>ax.axhspan(<span class="op">-</span><span class="fl">0.017</span>, <span class="op">-</span><span class="fl">0.01</span>, color<span class="op">=</span><span class="st">'0.95'</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># ax.axvspan(-2, 2, color='g', alpha=0.2)</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=-</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=+</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>ax.annotate(<span class="st">'Messgenauigkeit 0.01 mGal'</span>, size<span class="op">=</span><span class="dv">8</span>, xy<span class="op">=</span>(<span class="op">-</span><span class="dv">14</span>, <span class="op">-</span><span class="fl">0.01</span>), xytext<span class="op">=</span>(<span class="op">-</span><span class="dv">20</span>, <span class="op">-</span><span class="fl">0.016</span>), arrowprops<span class="op">=</span><span class="bu">dict</span>(facecolor<span class="op">=</span><span class="st">'black'</span>, shrink<span class="op">=</span><span class="fl">0.05</span>, width<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">V_{z}</span><span class="dv">$</span><span class="vs"> in mGal"</span>, color<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x in m"</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'r'</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> ax.twinx()</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>ax2.plot(x, dgz, c<span class="op">=</span><span class="st">'b'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="vs">r"</span><span class="dv">$</span><span class="vs">V_{zz}</span><span class="dv">$</span><span class="vs"> in E"</span>, color<span class="op">=</span><span class="st">'b'</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>ax2.tick_params(axis<span class="op">=</span><span class="st">'y'</span>, labelcolor<span class="op">=</span><span class="st">'b'</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>max(|Vz|) = 0.017 mGal</code></pre>
@@ -668,26 +729,26 @@ V_{zx}(x,y,0)  &amp; = -3 f m \frac{t x}{\left( x^{2} + y^{2} + t^{2} \right)^{5
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="grundlagen_files/figure-html/cell-2-output-2.png" width="527" height="209" class="figure-img"></p>
+<p><img src="grundlagen_files/figure-html/cell-3-output-2.png" width="527" height="209" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="bbb6ec9a" class="cell" data-execution_count="2">
+<div id="7e9cbb7a" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, np.<span class="bu">abs</span>(dgx), c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=-</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=+</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x in m"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r"</span><span class="cf">|</span><span class="dv">$</span><span class="vs">V_{zx}</span><span class="dv">$</span><span class="cf">|</span><span class="vs"> in E"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>_fig, _ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">2</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>_ax.plot(x, np.<span class="bu">abs</span>(dgx), c<span class="op">=</span><span class="st">'r'</span>, marker<span class="op">=</span><span class="st">'.'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>_ax.axvline(x<span class="op">=-</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>_ax.axvline(x<span class="op">=+</span><span class="dv">2</span>, lw<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>_ax.set_xlabel(<span class="st">"x in m"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>_ax.set_ylabel(<span class="vs">r"</span><span class="cf">|</span><span class="dv">$</span><span class="vs">V_{zx}</span><span class="dv">$</span><span class="cf">|</span><span class="vs"> in E"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>_ax.grid(alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="grundlagen_files/figure-html/cell-3-output-1.png" width="438" height="208" class="figure-img"></p>
+<p><img src="grundlagen_files/figure-html/cell-4-output-1.png" width="438" height="208" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -708,8 +769,13 @@ V_{ik} =
 \end{pmatrix}
 \]</span></p>
 <p><span class="math inline">\(V_{ik}\)</span> ist symmetrisch, die Spur ist <span class="math display">\[
-\mathrm{tr}(V_{ik}) = V_{x x} + V_{yy} + V_{zz} = \Delta V = 0
+\mathrm{tr}(V_{ik}) = V_{xx} + V_{yy} + V_{zz} = \Delta V = 0
 \]</span></p>
+<p>Die Spur ist eine der drei <em>Invarianten</em> des Tensors. Weitere Invarianten sind</p>
+<ul>
+<li>die Determinante <span class="math inline">\(\det(V_{ik})\)</span> und</li>
+<li><span class="math inline">\(\frac{1}{2}(\mathrm{tr}(V_{ik})^2 - \mathrm{tr}(V_{ik} \cdot V_{ik}))\)</span>.</li>
+</ul>
 
 
 </section>
