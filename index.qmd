@@ -6,7 +6,7 @@ editor: source
 ## Bemerkungen
 
 Dieses GitHub-Repository enthält das Vorlesungsskript zur Vorlesung "Gravimetrie" im Rahmen des Moduls "Gravimetrie und Magnetik" im Wintersemester 2025/26.
-Das Modul ist für Studierende des Bachelorstudienganges "Geophysik und Geoinformatik" an der TU Bergakademie Freiberg entworfen.
+Das Modul ist für Studierende des 5. Semesters des Bachelorstudienganges "Geophysik und Geoinformatik" an der TU Bergakademie Freiberg entworfen.
 
 ## Code
 
