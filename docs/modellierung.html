@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -81,6 +116,35 @@ window.MathJax = {
 };
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -222,7 +286,13 @@ window.MathJax = {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#digitale-geländemodelle" id="toc-digitale-geländemodelle" class="nav-link active" data-scroll-target="#digitale-geländemodelle"><span class="header-section-number">6.1</span> Digitale Geländemodelle</a></li>
+  <li><a href="#störkörperformeln" id="toc-störkörperformeln" class="nav-link active" data-scroll-target="#störkörperformeln"><span class="header-section-number">6.1</span> Störkörperformeln</a>
+  <ul class="collapse">
+  <li><a href="#kugel" id="toc-kugel" class="nav-link" data-scroll-target="#kugel"><span class="header-section-number">6.1.1</span> Kugel</a></li>
+  <li><a href="#prisma" id="toc-prisma" class="nav-link" data-scroll-target="#prisma"><span class="header-section-number">6.1.2</span> Prisma</a></li>
+  </ul></li>
+  <li><a href="#digitale-geländemodelle" id="toc-digitale-geländemodelle" class="nav-link" data-scroll-target="#digitale-geländemodelle"><span class="header-section-number">6.2</span> Digitale Geländemodelle</a></li>
+  <li><a href="#feldtransformationen" id="toc-feldtransformationen" class="nav-link" data-scroll-target="#feldtransformationen"><span class="header-section-number">6.3</span> Feldtransformationen</a></li>
   </ul>
 </nav>
     </div>
@@ -248,6 +318,12 @@ window.MathJax = {
 </header>
 
 
+<div id="561491fb" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Lernziele">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -285,13 +361,180 @@ window.MathJax = {
 <li><code>pygimli</code></li>
 <li><code>pyGravMag3D</code></li>
 <li><code>scipy</code></li>
+<li><code>xarray</code></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<section id="digitale-geländemodelle" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="digitale-geländemodelle"><span class="header-section-number">6.1</span> Digitale Geländemodelle</h2>
-<p>Werden vom SLfULG vorgehalten.</p>
+<section id="störkörperformeln" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="störkörperformeln"><span class="header-section-number">6.1</span> Störkörperformeln</h2>
+<p>Explizite Ausdrücke für einfache geometrische Körper. Dienen zur Berechnung der Schwere, d.h., der Vertikalkomponenten der relativen Gravitationsbeschleunigung.</p>
+<section id="kugel" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="kugel"><span class="header-section-number">6.1.1</span> Kugel</h3>
+<p>Einfachste aller Störkörperformeln.</p>
+<p>Für Kugel in Punkt <span class="math inline">\((0,0,t), t&gt;0\)</span> beträgt die Schwere</p>
+<p><span class="math display">\[
+V_{z}(x,y,z) = f \Delta\rho \frac{t-z}{\sqrt{x^2 + y^2 + (z-t)^2}^3}
+\]</span></p>
+<div id="dc9acf2d" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sphere(X, Y, Z, x0, y0, z0, radius, density):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the vertical component of gravitational acceleration due to a sphere.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    X : array_like</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">        X-coordinates of observation points (m)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Y : array_like</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">        Y-coordinates of observation points (m)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Z : float or array_like</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">        Z-coordinates of observation points (m), positive downward</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    x0 : float</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">        X-coordinate of sphere center (m)</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">    y0 : float</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">        Y-coordinate of sphere center (m)</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">    z0 : float</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">        Z-coordinate of sphere center (m), positive downward</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">    radius : float</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">        Radius of the sphere (m)</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">    density : float</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">        Density of the sphere (kg/m³)</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">    g_z : array_like</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co">        Vertical component of gravitational acceleration (mGal), positive downward</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co">    Notes</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">    -----</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">    Uses the point mass approximation for a homogeneous sphere.</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co">    The gravitational constant G = 6.67430e-11 m³/(kg·s²) is used.</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">    Output is converted from m/s² to mGal (1 mGal = 10⁻⁵ m/s²).</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> <span class="fl">6.67430e-11</span>  <span class="co"># gravitational constant in m^3 kg^-1 s^-2</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> np.sqrt((X <span class="op">-</span> x0)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (Y <span class="op">-</span> y0)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> (Z <span class="op">-</span> z0)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    V <span class="op">=</span> (<span class="dv">4</span><span class="op">/</span><span class="dv">3</span>) <span class="op">*</span> np.pi <span class="op">*</span> radius<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    mass <span class="op">=</span> density <span class="op">*</span> V</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    g_z <span class="op">=</span> G <span class="op">*</span> mass <span class="op">*</span> (z0 <span class="op">-</span> Z) <span class="op">/</span> r<span class="op">**</span><span class="dv">3</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> g_z <span class="op">*</span> <span class="fl">1e5</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="prisma" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="prisma"><span class="header-section-number">6.1.2</span> Prisma</h3>
+<p>Häufig verwendeter Baustein für 3D-Dichtemodelle.</p>
+<p>Für Rechteckprisma mit den Begrenzungsflächen <span class="math inline">\((x_{1}, x_{2})\)</span>, <span class="math inline">\((y_{1},y_{2})\)</span> sowie <span class="math inline">\((z_{1},z_{2})\)</span> gilt</p>
+<p><span class="math display">\[
+V_{z}(x,y,z) = f \Delta \rho
+\sum_{i=1}^{2}
+\sum_{j=1}^{2}
+\sum_{k=1}^{2}
+(-1)^{i+j+k}
+F(x - x_{i}, y-y_{j}, z-z_{k})
+\]</span> mit <span class="math display">\[
+F(u,v,w) = \mathrm{sign} (uv) \left\{
+|u| \ln \frac{(|v| + R_{3})R_{2}}{|u|(|v|+R)}
++
+|v| \ln \frac{(|u| + R_{3})R_{1}}{|v|(|u|+R)}
++
+w \atan \frac{|uv|}{wR}
+\right\}
+\]</span> und <span class="math display">\[
+\begin{align}
+R_{1}^{2} &amp; =v^{2}+w^{2} \\
+R_{2}^{2} &amp; =u^{2}+w^{2} \\
+R_{3}^{2} &amp; =u^{2}+v^{2} \\
+R^{2} &amp; = u^{2} + v^{2} + w^{2}
+\end{align}.
+\]</span></p>
+<div id="8ce86a16" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gz_prism(x, y, z, prism, rho):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the vertical gravity component gz (after Nagy 1966)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    at point (x, y, z) for a homogeneous rectangular prism.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">    x, y, z : float</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">        Observation point (in m)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">    prism : tuple</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">        Prism boundaries (x1, x2, y1, y2, z1, z2) in m</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">        (z1 and z2 relative to the same reference level as z)</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">    rho : float</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co">        Density contrast (kg/m³)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co">    gz : float</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co">        Vertical gravity component (in mGal)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> <span class="fl">6.67430e-11</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    x1, x2, y1, y2, z1, z2 <span class="op">=</span> prism</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    gz <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, xi <span class="kw">in</span> <span class="bu">enumerate</span>([x1 <span class="op">-</span> x, x2 <span class="op">-</span> x]):</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j, yj <span class="kw">in</span> <span class="bu">enumerate</span>([y1 <span class="op">-</span> y, y2 <span class="op">-</span> y]):</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> k, zk <span class="kw">in</span> <span class="bu">enumerate</span>([z1 <span class="op">-</span> z, z2 <span class="op">-</span> z]):</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>                sgn <span class="op">=</span> (<span class="op">-</span><span class="dv">1</span>)<span class="op">**</span>(i <span class="op">+</span> j <span class="op">+</span> k)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                r <span class="op">=</span> np.sqrt(xi<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> yj<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> zk<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>                <span class="co"># if r == 0:</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># continue</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>                gz <span class="op">+=</span> sgn <span class="op">*</span> (</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>                    xi <span class="op">*</span> np.log(yj <span class="op">+</span> r)</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                    <span class="op">+</span> yj <span class="op">*</span> np.log(xi <span class="op">+</span> r)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                    <span class="op">-</span> zk <span class="op">*</span> np.arctan((xi <span class="op">*</span> yj) <span class="op">/</span> (zk <span class="op">*</span> r))</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> G <span class="op">*</span> rho <span class="op">*</span> gz <span class="op">*</span> <span class="fl">1e5</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+</section>
+<section id="digitale-geländemodelle" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="digitale-geländemodelle"><span class="header-section-number">6.2</span> Digitale Geländemodelle</h2>
+<p>Werden vom SLfULG <a href="https://www.geodaten.sachsen.de/digitale-hoehenmodelle-3994.html">hier</a> vorgehalten und als CSV-Dateien bereitgestellt.</p>
+<p>Diese CSV-Dateien haben typischerweise folgende Struktur:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fl">396000.00</span> <span class="fl">5648000.00</span> <span class="fl">356.69</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fl">396001.00</span> <span class="fl">5648000.00</span> <span class="fl">356.69</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fl">396002.00</span> <span class="fl">5648000.00</span> <span class="fl">356.82</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fl">396003.00</span> <span class="fl">5648000.00</span> <span class="fl">356.95</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Die Spalten enthalten <em>easting</em>, <em>northing</em> und <em>Höhe</em> in UTM 33N. Die Auflösung beträgt in diesem Beispiel <span class="math inline">\(1 \times 1\)</span> m<span class="math inline">\(^{2}\)</span>.</p>
+</section>
+<section id="feldtransformationen" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="feldtransformationen"><span class="header-section-number">6.3</span> Feldtransformationen</h2>
+<p>Feldtransformationen erleichtern die Deutung der gemessenen Felddaten.</p>
+<p>Hilfreich ist die Darstellung des Potentials (oder seiner Ableitungen) über ein Fourierintegral. Das eröffnet weitreichende Möglichkeiten zur Transformation von Potentialfeldgrößen in übersichtlicher und klarer Form.</p>
+<p>Ansatz:</p>
+<p><span class="math display">\[
+V(x,y,z) = \frac{1}{4 \pi^{2}} \iint S(u,v) \, e^{ z \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v}
+\]</span></p>
+<p>Differenzieren unter dem Integral bestätigt Gültigkeit der Laplace-Gleichung.</p>
+<p>Das Potential verschwindet für <span class="math inline">\(z \to \infty\)</span>.</p>
+<p><span class="math inline">\(S(u,v)\)</span> ist das 2D-Fourier-Spektrum des Potentials in der Ebene <span class="math inline">\(z=0\)</span>.</p>
+<p>Die Größen <span class="math inline">\(u\)</span> und <span class="math inline">\(v\)</span> sind die zur <span class="math inline">\(x\)</span>- bzw. <span class="math inline">\(y\)</span>-Richtung gehörenden Wellenzahlen.</p>
+<p>Durch Differentiation kann man die Spektren der Ableitungen der Potentialfunktion auf <span class="math inline">\(S(u, v)\)</span> zurückführen.</p>
+<p><span class="math display">\[
+\frac{ \partial V }{ \partial z } = \frac{1}{4 \pi^{2}} \iint \sqrt{ u^{2}+v^{2} } \,S(u,v) \, e^{ z \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v}
+\]</span> oder kurz <span class="math display">\[
+S_{z}(u,v) = \Phi_{z}(u,v) S(u,v) = \mathcal F\{V_{z}(x,y,0); u, v\}
+\]</span> <span class="math inline">\(S_{z}(u,v)\)</span> ist das 2D-Spektrum von <span class="math inline">\(V_{z}(x,y,0)\)</span>. Der Spektraloperator (oder auch die Übertragungsfunktion) der vertikalen Ableitung lautet <span class="math display">\[
+\Phi_{z}(u,v) = \sqrt{ u^{2} + v^{2} }.
+\]</span> Auf ähnliche Weise erhalten wir <span class="math display">\[
+\Phi_{x}(u,v) = iu, \qquad \Phi_{y}(u,v) = i v
+\]</span> und <span class="math display">\[
+S_{x} = \Phi_{x} S, \quad S_{y}=\Phi_{y}S, \quad S_{xz}=\Phi_{z}S_{x}=\Phi_{x}S_{z} \quad\text{ etc.}
+\]</span></p>
+<p>Eine bedeutende Feldtransformation ist die <em>Feldfortsetzung</em>. Sie beruht auf der Spektraldarstellung <span class="math display">\[
+V(x,y,-h) = = \frac{1}{4 \pi^{2}} \iint S(u,v) \, e^{ -h \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v},
+\]</span> woraus ersichtlich wird, dass <span class="math display">\[
+\Phi_{FF} = e^{ -h \sqrt{ u^{2}+v^{2} } }
+\]</span> die Übertragungsfunktion der Feldfortsetzung ist.</p>
+<p>Die Feldfortsetzung berechnet auf der Grundlage einer in <span class="math inline">\(z=0\)</span> flächenhaft vorliegenden Messgröße ihren Wert in der Ebene <span class="math inline">\(z=-h, h&gt;0\)</span>.</p>
+<p>Wir erkennen an den Eigenschaften der Übertragungsfunktion (reellwertig), dass das Phasenspektrum nicht verändert wird. Die Amplitude der Messgröße in der Fortsetzungsebene wird exponentiell gedämpft, kurze Wellenlängen (große Werte von <span class="math inline">\(u\)</span> und <span class="math inline">\(v\)</span>) werden mit zunehmender Fortsetzungshöhe unterdrückt. Dies ist die Wirkung eines Tiefpassfilters.</p>
 
 
 </section>

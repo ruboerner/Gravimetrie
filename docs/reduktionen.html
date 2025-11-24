@@ -455,7 +455,7 @@ window.Quarto = {
 \Delta\gamma = \Bigg| \frac{ \partial \gamma }{ \partial \varphi } \Bigg| \Delta \varphi
 \]</span></p>
 <p>Zuerst berechnen wir die Ableitung von <span class="math inline">\(\gamma\)</span> nach dem Winkel <span class="math inline">\(\varphi\)</span> und setzen die Konstanten (mit <span class="math inline">\(\gamma_{e}\)</span> in mGal) ein.</p>
-<div id="25db5c41" class="cell" data-execution_count="1">
+<div id="8763dc9f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -483,7 +483,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 <p><span class="math display">\[
 \Delta\varphi = 2 \arcsin \frac{H}{2 R_{E}}
 \]</span></p>
-<div id="2af4be77" class="cell" data-execution_count="2">
+<div id="2b54ff1c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>R_E <span class="op">=</span> <span class="fl">6370e3</span></span>
@@ -496,7 +496,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 </div>
 </div>
 <p>In mittleren Breiten mit <span class="math inline">\(\varphi \approx 50 \textdegree\)</span> erhalten wir für <span class="math inline">\(\Delta\gamma\)</span></p>
-<div id="f5a68bae" class="cell" data-execution_count="3">
+<div id="61828a2a" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>expr <span class="op">=</span> ex.subs(phi, <span class="fl">50.0</span> <span class="op">*</span> sp.pi <span class="op">/</span> <span class="fl">180.0</span>).evalf() <span class="op">*</span> dphi</span>
@@ -511,7 +511,7 @@ $$ \frac{ \partial \gamma }{ \partial \varphi } = 5185.92058848 \sin{\left(2 \ph
 <p><span class="math display">\[
 \frac{1}{R_{E}}\frac{ \partial \gamma }{ \partial \varphi } \approx \frac{2 \gamma_{e}\alpha \cos\varphi \sin\varphi}{R_{E}}.
 \]</span></p>
-<div id="1374ec7b" class="cell" data-execution_count="4">
+<div id="48614217" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>phis <span class="op">=</span> np.arange(start<span class="op">=</span><span class="fl">0.0</span>, stop<span class="op">=</span><span class="fl">90.1</span>, step<span class="op">=</span><span class="fl">1.0</span>)</span>
@@ -569,7 +569,7 @@ g(h) = g_{0} \left(
   \frac{R}{R + h}
 \right)^{2}
 \]</span></p>
-<div id="42813ff7" class="cell" data-execution_count="5">
+<div id="9020d76b" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>RE, h, g0 <span class="op">=</span> sp.symbols(<span class="st">"R_E, h, g_0"</span>)</span>
@@ -581,7 +581,7 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 </div>
 </div>
 <p>Die Schwere nimmt außerhalb der Erde um</p>
-<div id="56246443" class="cell" data-execution_count="6">
+<div id="533130a6" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">-</span>dgf.subs(RE, <span class="fl">6371e3</span>).subs(g0, <span class="fl">9.81e5</span>).subs(h, <span class="dv">1</span>).evalf()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -609,7 +609,7 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 <p>Für das oben dargestellte Höhenprofil ergibt sich nach Gl. <a href="#eq-freiluftreduktion" class="quarto-xref"><span>5.3</span></a> folgende Freiluftreduktion:</p>
 <p><img src="images/Freiluftreduktion_Zellwald.png" class="img-fluid"></p>
 <p>Wir haben gesehen, dass die Freiluftreduktion pro Meter Höhenänderung in mittleren Breiten einen etwa 400 mal größeren Effekt auf den Messwert hat als eine gleiche Änderung in der Breite (genauer: im Hochwert).</p>
-<div id="907a23da" class="cell" data-execution_count="7">
+<div id="c9107f09" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Betragsverhältnis: </span><span class="sc">{</span><span class="fl">0.3086</span> <span class="op">/</span> <span class="fl">0.8e-3</span><span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -637,7 +637,7 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 \]</span></p>
 <p>Beispiel:</p>
 <p>Mächtigkeit 100 m, Dichte 2700 kg/m<span class="math inline">\(^3\)</span>.</p>
-<div id="1889d9c6" class="cell" data-execution_count="8">
+<div id="cc87cab2" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dgb <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> <span class="fl">6.674e-11</span> <span class="op">*</span> <span class="dv">2700</span> <span class="op">*</span> <span class="dv">100</span> <span class="op">*</span> <span class="fl">1e5</span></span>
@@ -651,7 +651,7 @@ $$\delta g_{F} = \frac{2 g_{0} h}{R_{E}}$$
 \Delta g_{B} = g_{0} -\gamma_{0} - \delta g_{F} -\delta g_{B}
 \]</span></p>
 <p>Näherung für Reduktionsdichte <span class="math inline">\(\rho=2670\)</span> kg/m<span class="math inline">\(^{3}\)</span>, <span class="math inline">\(h\)</span> in Meter:</p>
-<div id="a63f6487" class="cell" data-execution_count="9">
+<div id="799635bf" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="vs">rf"</span><span class="ch">\(</span><span class="vs"> </span><span class="dv">\d</span><span class="vs">elta g_B </span><span class="ch">\a</span><span class="vs">pprox </span><span class="ch">\)</span><span class="vs"> </span><span class="sc">{</span><span class="dv">2</span> <span class="op">*</span> np<span class="sc">.</span>pi <span class="op">*</span> <span class="fl">6.674e-11</span> <span class="op">*</span> <span class="dv">2670</span> <span class="op">*</span> <span class="fl">1e5</span><span class="sc">:.4f}</span><span class="vs"> </span><span class="ch">\(</span><span class="vs"> </span><span class="er">\</span><span class="vs">cdot h </span><span class="ch">\)</span><span class="vs"> in mGal"</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>

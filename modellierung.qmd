@@ -7,6 +7,10 @@ jupyter:
 editor: source
 ---
 
+```{python}
+import numpy as np
+```
+
 # Modellierung gravimetrischer Anomalien
 
 ::: {.callout-tip title="Lernziele"}
@@ -24,8 +28,221 @@ editor: source
     - `pygimli`
     - `pyGravMag3D`
     - `scipy`
+    - `xarray`
 :::
+
+## Störkörperformeln
+
+Explizite Ausdrücke für einfache geometrische Körper. Dienen zur Berechnung der Schwere, d.h., der Vertikalkomponenten der relativen Gravitationsbeschleunigung.
+
+### Kugel
+
+Einfachste aller Störkörperformeln.
+
+Für Kugel in Punkt $(0,0,t), t>0$ beträgt die Schwere
+
+$$
+V_{z}(x,y,z) = f \Delta\rho \frac{t-z}{\sqrt{x^2 + y^2 + (z-t)^2}^3}
+$$
+
+```{python}
+def sphere(X, Y, Z, x0, y0, z0, radius, density):
+    """
+    Calculate the vertical component of gravitational acceleration due to a sphere.
+    
+    Parameters
+    ----------
+    X : array_like
+        X-coordinates of observation points (m)
+    Y : array_like
+        Y-coordinates of observation points (m)
+    Z : float or array_like
+        Z-coordinates of observation points (m), positive downward
+    x0 : float
+        X-coordinate of sphere center (m)
+    y0 : float
+        Y-coordinate of sphere center (m)
+    z0 : float
+        Z-coordinate of sphere center (m), positive downward
+    radius : float
+        Radius of the sphere (m)
+    density : float
+        Density of the sphere (kg/m³)
+    
+    Returns
+    -------
+    g_z : array_like
+        Vertical component of gravitational acceleration (mGal), positive downward
+    
+    Notes
+    -----
+    Uses the point mass approximation for a homogeneous sphere.
+    The gravitational constant G = 6.67430e-11 m³/(kg·s²) is used.
+    Output is converted from m/s² to mGal (1 mGal = 10⁻⁵ m/s²).
+    """
+    G = 6.67430e-11  # gravitational constant in m^3 kg^-1 s^-2
+    r = np.sqrt((X - x0)**2 + (Y - y0)**2 + (Z - z0)**2)
+    V = (4/3) * np.pi * radius**3
+    mass = density * V
+    g_z = G * mass * (z0 - Z) / r**3
+    return g_z * 1e5
+```
+
+### Prisma
+
+Häufig verwendeter Baustein für 3D-Dichtemodelle.
+
+Für Rechteckprisma mit den Begrenzungsflächen $(x_{1}, x_{2})$, $(y_{1},y_{2})$ sowie $(z_{1},z_{2})$ gilt
+
+$$
+V_{z}(x,y,z) = f \Delta \rho 
+\sum_{i=1}^{2}
+\sum_{j=1}^{2}
+\sum_{k=1}^{2}
+(-1)^{i+j+k}
+F(x - x_{i}, y-y_{j}, z-z_{k})
+$$
+mit
+$$
+F(u,v,w) = \mathrm{sign} (uv) \left\{ 
+|u| \ln \frac{(|v| + R_{3})R_{2}}{|u|(|v|+R)}
++
+|v| \ln \frac{(|u| + R_{3})R_{1}}{|v|(|u|+R)}
++
+w \atan \frac{|uv|}{wR}
+\right\} 
+$$
+und
+$$
+\begin{align}
+R_{1}^{2} & =v^{2}+w^{2} \\
+R_{2}^{2} & =u^{2}+w^{2} \\
+R_{3}^{2} & =u^{2}+v^{2} \\
+R^{2} & = u^{2} + v^{2} + w^{2}
+\end{align}.
+$$
+
+```{python}
+def gz_prism(x, y, z, prism, rho):
+    """
+    Calculate the vertical gravity component gz (after Nagy 1966)
+    at point (x, y, z) for a homogeneous rectangular prism.
+
+    Parameters
+    ----------
+    x, y, z : float
+        Observation point (in m)
+    prism : tuple
+        Prism boundaries (x1, x2, y1, y2, z1, z2) in m
+        (z1 and z2 relative to the same reference level as z)
+    rho : float
+        Density contrast (kg/m³)
+
+    Returns
+    -------
+    gz : float
+        Vertical gravity component (in mGal)
+    """
+    G = 6.67430e-11
+    x1, x2, y1, y2, z1, z2 = prism
+    gz = 0.0
+
+    for i, xi in enumerate([x1 - x, x2 - x]):
+        for j, yj in enumerate([y1 - y, y2 - y]):
+            for k, zk in enumerate([z1 - z, z2 - z]):
+                sgn = (-1)**(i + j + k)
+                r = np.sqrt(xi**2 + yj**2 + zk**2)
+                # if r == 0:
+                    # continue
+                gz += sgn * (
+                    xi * np.log(yj + r)
+                    + yj * np.log(xi + r)
+                    - zk * np.arctan((xi * yj) / (zk * r))
+                )
+
+    return G * rho * gz * 1e5
+```
+
 
 ## Digitale Geländemodelle
 
-Werden vom SLfULG vorgehalten.
+Werden vom SLfULG [hier](https://www.geodaten.sachsen.de/digitale-hoehenmodelle-3994.html) vorgehalten und als CSV-Dateien bereitgestellt.
+
+Diese CSV-Dateien haben typischerweise folgende Struktur:
+```python
+396000.00 5648000.00 356.69
+396001.00 5648000.00 356.69
+396002.00 5648000.00 356.82
+396003.00 5648000.00 356.95
+```
+Die Spalten enthalten _easting_, _northing_ und _Höhe_ in UTM 33N. Die Auflösung beträgt in diesem Beispiel $1 \times 1$ m$^{2}$.
+
+## Feldtransformationen
+
+Feldtransformationen erleichtern die Deutung der gemessenen Felddaten.
+
+Hilfreich ist die Darstellung des Potentials (oder seiner Ableitungen) über ein Fourierintegral.
+Das eröffnet weitreichende Möglichkeiten zur Transformation von Potentialfeldgrößen in übersichtlicher und klarer Form.
+
+Ansatz:
+
+$$
+V(x,y,z) = \frac{1}{4 \pi^{2}} \iint S(u,v) \, e^{ z \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v}
+$$
+
+Differenzieren unter dem Integral bestätigt Gültigkeit der Laplace-Gleichung.
+
+Das Potential verschwindet für $z \to \infty$. 
+
+$S(u,v)$ ist das 2D-Fourier-Spektrum des Potentials in der Ebene $z=0$.
+
+Die Größen $u$ und $v$ sind die zur $x$- bzw. $y$-Richtung gehörenden Wellenzahlen. 
+
+Durch Differentiation kann
+man die Spektren der Ableitungen der Potentialfunktion auf $S(u, v)$ zurückführen.
+
+$$
+\frac{ \partial V }{ \partial z } = \frac{1}{4 \pi^{2}} \iint \sqrt{ u^{2}+v^{2} } \,S(u,v) \, e^{ z \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v}
+$$
+oder kurz
+$$
+S_{z}(u,v) = \Phi_{z}(u,v) S(u,v) = \mathcal F\{V_{z}(x,y,0); u, v\}
+$$
+$S_{z}(u,v)$ ist das 2D-Spektrum von $V_{z}(x,y,0)$.
+Der Spektraloperator (oder auch die Übertragungsfunktion) der vertikalen Ableitung lautet
+$$
+\Phi_{z}(u,v) = \sqrt{ u^{2} + v^{2} }.
+$$
+Auf ähnliche Weise erhalten wir
+$$
+\Phi_{x}(u,v) = iu, \qquad \Phi_{y}(u,v) = i v
+$$
+und
+$$
+S_{x} = \Phi_{x} S, \quad S_{y}=\Phi_{y}S, \quad S_{xz}=\Phi_{z}S_{x}=\Phi_{x}S_{z} \quad\text{ etc.}
+$$
+
+Eine bedeutende Feldtransformation ist die _Feldfortsetzung_.
+Sie beruht auf der Spektraldarstellung
+$$
+V(x,y,-h) = = \frac{1}{4 \pi^{2}} \iint S(u,v) \, e^{ -h \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v},
+$$
+woraus ersichtlich wird, dass
+$$
+\Phi_{FF} = e^{ -h \sqrt{ u^{2}+v^{2} } }
+$$
+die Übertragungsfunktion der Feldfortsetzung ist.
+
+Die Feldfortsetzung berechnet auf der Grundlage einer in $z=0$ flächenhaft vorliegenden Messgröße ihren Wert in der Ebene $z=-h, h>0$.
+
+Wir erkennen an den Eigenschaften der Übertragungsfunktion (reellwertig), dass das Phasenspektrum nicht verändert wird. 
+Die Amplitude der Messgröße in der Fortsetzungsebene wird exponentiell gedämpft, kurze Wellenlängen (große Werte von $u$ und $v$) werden mit zunehmender Fortsetzungshöhe unterdrückt.
+Dies ist die Wirkung eines Tiefpassfilters.
+
+
+
+
+
+
+
+
