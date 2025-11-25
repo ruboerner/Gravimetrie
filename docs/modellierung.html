@@ -318,7 +318,7 @@ window.Quarto = {
 </header>
 
 
-<div id="561491fb" class="cell" data-execution_count="1">
+<div id="1eb42d7d" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
@@ -376,7 +376,7 @@ window.Quarto = {
 <p><span class="math display">\[
 V_{z}(x,y,z) = f \Delta\rho \frac{t-z}{\sqrt{x^2 + y^2 + (z-t)^2}^3}
 \]</span></p>
-<div id="dc9acf2d" class="cell" data-execution_count="2">
+<div id="9f1918ac" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sphere(X, Y, Z, x0, y0, z0, radius, density):</span>
@@ -449,7 +449,7 @@ R_{3}^{2} &amp; =u^{2}+v^{2} \\
 R^{2} &amp; = u^{2} + v^{2} + w^{2}
 \end{align}.
 \]</span></p>
-<div id="8ce86a16" class="cell" data-execution_count="3">
+<div id="df47abc7" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gz_prism(x, y, z, prism, rho):</span>
@@ -513,7 +513,7 @@ R^{2} &amp; = u^{2} + v^{2} + w^{2}
 V(x,y,z) = \frac{1}{4 \pi^{2}} \iint S(u,v) \, e^{ z \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v}
 \]</span></p>
 <p>Differenzieren unter dem Integral bestätigt Gültigkeit der Laplace-Gleichung.</p>
-<p>Das Potential verschwindet für <span class="math inline">\(z \to \infty\)</span>.</p>
+<p>Das Potential verschwindet für <span class="math inline">\(z \to -\infty\)</span>.</p>
 <p><span class="math inline">\(S(u,v)\)</span> ist das 2D-Fourier-Spektrum des Potentials in der Ebene <span class="math inline">\(z=0\)</span>.</p>
 <p>Die Größen <span class="math inline">\(u\)</span> und <span class="math inline">\(v\)</span> sind die zur <span class="math inline">\(x\)</span>- bzw. <span class="math inline">\(y\)</span>-Richtung gehörenden Wellenzahlen.</p>
 <p>Durch Differentiation kann man die Spektren der Ableitungen der Potentialfunktion auf <span class="math inline">\(S(u, v)\)</span> zurückführen.</p>

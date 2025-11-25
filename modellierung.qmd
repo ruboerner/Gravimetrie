@@ -192,7 +192,7 @@ $$
 
 Differenzieren unter dem Integral bestätigt Gültigkeit der Laplace-Gleichung.
 
-Das Potential verschwindet für $z \to \infty$. 
+Das Potential verschwindet für $z \to -\infty$. 
 
 $S(u,v)$ ist das 2D-Fourier-Spektrum des Potentials in der Ebene $z=0$.
 
