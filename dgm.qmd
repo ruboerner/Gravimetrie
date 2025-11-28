@@ -1,0 +1,17 @@
+---
+title: "DGM"
+editor: source
+---
+
+## Digitale Geländemodelle
+
+Werden vom SLfULG [hier](https://www.geodaten.sachsen.de/digitale-hoehenmodelle-3994.html) vorgehalten und als CSV-Dateien bereitgestellt.
+
+Diese CSV-Dateien haben typischerweise folgende Struktur:
+```python
+396000.00 5648000.00 356.69
+396001.00 5648000.00 356.69
+396002.00 5648000.00 356.82
+396003.00 5648000.00 356.95
+```
+Die Spalten enthalten _easting_, _northing_ und _Höhe_ in UTM 33N. Die Auflösung beträgt in diesem Beispiel $1 \times 1$ m$^{2}$.

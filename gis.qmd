@@ -11,6 +11,9 @@ editor: source
 
 ::: {.callout-tip title="Lernziel"}
 Wir erstellen in QGIS eine Isolinienkarte der Bouguer-Anomalie Sachsens auf der Grundlage vom SLfULG bereitgestellten _ArcGIS_ Shapefiles.
+
+- Berechnung der Geländereduktion mit Hilfe digitaler Geländemodelle (DGM)
+
 :::
 
 ::: {.callout-note title="Voraussetzungen"}

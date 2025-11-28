@@ -9,6 +9,10 @@ editor: source
 
 ```{python}
 import numpy as np
+from numpy import isclose
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+import xarray as xr
 ```
 
 # Modellierung gravimetrischer Anomalien
@@ -17,21 +21,120 @@ import numpy as np
 - Anwendung einfacher Störkörperformeln
 - 2-D Modelle
 - 3-D Modelle
-- Berechnung der Geländereduktion mit Hilfe digitaler Geländemodelle (DGM)
-- Feldtransformationen
-- Inversion
 :::
 
 ::: {.callout-note title="Voraussetzungen"}
-- [GMT - Generic Mapping Tools](www.generic-mapping-tools.org)
 - Python-Pakete
-    - `pygimli`
-    - `pyGravMag3D`
-    - `scipy`
-    - `xarray`
+    - `numpy`, `matplotlib`, `xarray`
 :::
 
-## Störkörperformeln
+## Störkörperformeln in 2D
+
+Die gebräuchlichste Methode besteht in der Approximation des vertikalen Störkörperquerschnitts durch Polygone.
+
+```{python}
+ATOL = 1e-8
+RTOL = 1e-8
+
+class Polygon:
+    def __init__(self, x, z, density):
+        xc = np.mean(x)
+        zc = np.mean(z)
+        angles = np.array([np.arctan2(p[1] - zc, p[0] - xc) for p in zip(x, z)])
+        ind = np.argsort(angles) # if reverse order is required, flip sign of angles 
+        x = x[ind]
+        z = z[ind]
+        x = np.append(x, x[0])
+        z = np.append(z, z[0])
+        x[isclose(x, 0.0)] = 0.0
+        z[isclose(z, 0.0)] = 0.0
+        self.x = x
+        self.z = z
+        self.density = density
+        self.n = len(x) - 1
+
+    def __str__(self):
+        return f"n: {self.n} \nx:\n {self.x} \nz:\n {self.z} \nDensity:\n {self.density}"
+
+def talwani(obs, polygon):
+    gz = 0.0
+    density = polygon.density
+    x = polygon.x
+    z = polygon.z
+    n = polygon.n
+    xp = obs[0]
+    zp = obs[1]
+    for k in range(n):   
+        xv = x[k] - xp
+        zv = z[k] - zp
+        xvp1 = x[k+1] - xp
+        zvp1 = z[k+1] - zp
+
+        if np.isclose(xv, 0.0, atol=1e-12):
+            xv += 0.01  
+        if np.isclose(xvp1, 0.0, atol=1e-12):
+            xvp1 += 0.01
+        if np.isclose(zv, 0.0, atol=1e-12):
+            zv += 0.01
+        if np.isclose(zvp1, 0.0, atol=1e-12):
+            zvp1 += 0.01
+        if np.isclose(xv, xvp1, atol=1e-12):
+            xvp1 += 0.01
+        if np.isclose(zv, zvp1, atol=1e-12):
+            zvp1 += 0.01
+
+        a_i = xvp1 + zvp1 * (xvp1 - xv) / (zv - zvp1)
+        phi_i = np.arctan2(zvp1 - zv, xvp1 - xv)
+        theta_v = np.arctan2(zv, xv)
+        theta_vp1 = np.arctan2(zvp1, xvp1)
+        
+        if theta_v < 0:
+            theta_v += np.pi
+        if theta_vp1 < 0:
+            theta_vp1 += np.pi
+            
+        Zi = a_i * np.sin(phi_i) * np.cos(phi_i) * ( 
+            theta_v - theta_vp1 + np.tan(phi_i) * 
+            np.log( 
+                np.cos(theta_v) * ( np.tan(theta_v) - np.tan(phi_i) ) /
+                np.cos(theta_vp1) / ( np.tan(theta_vp1) - np.tan(phi_i) )))
+
+        gz += Zi
+
+    gz = gz * 2 * 6.674e-11 * density
+
+    return gz
+```
+
+Beispiel: Horizontales Prisma
+
+```{python}
+prism = np.array([[-20.0, 2.0], [-20.0, 8.0], [20.0, 8.0], 
+    [20.0, 2.0]])
+density = 2670.0
+poly = Polygon(prism[:, 0], prism[:, 1], density)
+
+profile = np.arange(-100.0, 101.0, 1.0)
+
+gz = np.array([talwani(np.array([v, -0.2]), poly) for v in profile])
+
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(4, 6))
+ax1.plot(profile, 1e5 * gz, marker='.')
+ax1.grid(alpha=0.5)
+ax1.set_ylabel(r"$g_{z}$ in mGal")
+ax2.plot(poly.x, poly.z)
+ax2.set_xlim(profile[0], profile[-1])
+ax2.set_ylim(40.0, 0.0)
+ax2.set_xlabel("Profil in m")
+ax2.set_ylabel("Tiefe in m")
+ax2.grid(alpha=0.5)
+ax2.set_aspect("equal")
+fig.tight_layout()
+
+```
+
+
+## Störkörperformeln in 3D
 
 Explizite Ausdrücke für einfache geometrische Körper. Dienen zur Berechnung der Schwere, d.h., der Vertikalkomponenten der relativen Gravitationsbeschleunigung.
 
@@ -162,87 +265,4 @@ def gz_prism(x, y, z, prism, rho):
 
     return G * rho * gz * 1e5
 ```
-
-
-## Digitale Geländemodelle
-
-Werden vom SLfULG [hier](https://www.geodaten.sachsen.de/digitale-hoehenmodelle-3994.html) vorgehalten und als CSV-Dateien bereitgestellt.
-
-Diese CSV-Dateien haben typischerweise folgende Struktur:
-```python
-396000.00 5648000.00 356.69
-396001.00 5648000.00 356.69
-396002.00 5648000.00 356.82
-396003.00 5648000.00 356.95
-```
-Die Spalten enthalten _easting_, _northing_ und _Höhe_ in UTM 33N. Die Auflösung beträgt in diesem Beispiel $1 \times 1$ m$^{2}$.
-
-## Feldtransformationen
-
-Feldtransformationen erleichtern die Deutung der gemessenen Felddaten.
-
-Hilfreich ist die Darstellung des Potentials (oder seiner Ableitungen) über ein Fourierintegral.
-Das eröffnet weitreichende Möglichkeiten zur Transformation von Potentialfeldgrößen in übersichtlicher und klarer Form.
-
-Ansatz:
-
-$$
-V(x,y,z) = \frac{1}{4 \pi^{2}} \iint S(u,v) \, e^{ z \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v}
-$$
-
-Differenzieren unter dem Integral bestätigt Gültigkeit der Laplace-Gleichung.
-
-Das Potential verschwindet für $z \to -\infty$. 
-
-$S(u,v)$ ist das 2D-Fourier-Spektrum des Potentials in der Ebene $z=0$.
-
-Die Größen $u$ und $v$ sind die zur $x$- bzw. $y$-Richtung gehörenden Wellenzahlen. 
-
-Durch Differentiation kann
-man die Spektren der Ableitungen der Potentialfunktion auf $S(u, v)$ zurückführen.
-
-$$
-\frac{ \partial V }{ \partial z } = \frac{1}{4 \pi^{2}} \iint \sqrt{ u^{2}+v^{2} } \,S(u,v) \, e^{ z \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v}
-$$
-oder kurz
-$$
-S_{z}(u,v) = \Phi_{z}(u,v) S(u,v) = \mathcal F\{V_{z}(x,y,0); u, v\}
-$$
-$S_{z}(u,v)$ ist das 2D-Spektrum von $V_{z}(x,y,0)$.
-Der Spektraloperator (oder auch die Übertragungsfunktion) der vertikalen Ableitung lautet
-$$
-\Phi_{z}(u,v) = \sqrt{ u^{2} + v^{2} }.
-$$
-Auf ähnliche Weise erhalten wir
-$$
-\Phi_{x}(u,v) = iu, \qquad \Phi_{y}(u,v) = i v
-$$
-und
-$$
-S_{x} = \Phi_{x} S, \quad S_{y}=\Phi_{y}S, \quad S_{xz}=\Phi_{z}S_{x}=\Phi_{x}S_{z} \quad\text{ etc.}
-$$
-
-Eine bedeutende Feldtransformation ist die _Feldfortsetzung_.
-Sie beruht auf der Spektraldarstellung
-$$
-V(x,y,-h) = = \frac{1}{4 \pi^{2}} \iint S(u,v) \, e^{ -h \sqrt{ u^{2}+v^{2} } }e^{ i(ux + vy) }\,\dd{u}\,\dd{v},
-$$
-woraus ersichtlich wird, dass
-$$
-\Phi_{FF} = e^{ -h \sqrt{ u^{2}+v^{2} } }
-$$
-die Übertragungsfunktion der Feldfortsetzung ist.
-
-Die Feldfortsetzung berechnet auf der Grundlage einer in $z=0$ flächenhaft vorliegenden Messgröße ihren Wert in der Ebene $z=-h, h>0$.
-
-Wir erkennen an den Eigenschaften der Übertragungsfunktion (reellwertig), dass das Phasenspektrum nicht verändert wird. 
-Die Amplitude der Messgröße in der Fortsetzungsebene wird exponentiell gedämpft, kurze Wellenlängen (große Werte von $u$ und $v$) werden mit zunehmender Fortsetzungshöhe unterdrückt.
-Dies ist die Wirkung eines Tiefpassfilters.
-
-
-
-
-
-
-
 

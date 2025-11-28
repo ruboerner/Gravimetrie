@@ -38,6 +38,8 @@ book:
     - part: "Interpretaton"
       chapters:
       - modellierung.qmd
+      - feldtransformationen.qmd
+      - dgm.qmd
       - gis.qmd
 #    - slidedecks.qmd
 
@@ -52,7 +54,9 @@ format:
     code-fold: true
     code-copy: true
     code-summary: "Code anzeigen"
-    html-math-method: mathjax
+    html-math-method: 
+      method: mathjax
+      url: "https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"
     include-in-header:
       - text: |
           <script>
