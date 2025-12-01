@@ -13,6 +13,8 @@ from numpy import isclose
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import xarray as xr
+
+import pygravmag3d as pgm
 ```
 
 # Modellierung gravimetrischer Anomalien
@@ -30,7 +32,15 @@ import xarray as xr
 
 ## Störkörperformeln in 2D
 
-Die gebräuchlichste Methode besteht in der Approximation des vertikalen Störkörperquerschnitts durch Polygone.
+Geologische Körper mit ausgedehnter Streichrichtung können als zweidimensionale Dichteverteilung angenommen werden, d.h., $\rho = \rho(y,z)$.
+Die Schwerewirkung ist dabei invariant gegenüber einer Verschiebung in $x$-Richtung.
+Das Messprofil verläuft dabei senkrecht zur Streichrichtung, d.h., in $y$=Richtnug.
+
+Die gebräuchlichste Methode besteht in der Approximation des vertikalen Störkörperquerschnitts durch ein geschlossenes Polygon.
+
+__Beispiel:__
+
+Die Python-Klasse `Polygon` verwaltet die Eckpunkte eines Polygons. Die Reihenfolge der Eckpunkte wird automatisch bestimmt, so dass die Eckpunote im umgekehrten Uhrzeigersinn durchlaufen werden.
 
 ```{python}
 ATOL = 1e-8
@@ -106,7 +116,10 @@ def talwani(obs, polygon):
     return gz
 ```
 
-Beispiel: Horizontales Prisma
+Ein horizontales Prisma wird durch die Koordinaten seiner Eckpunkte in einer vertikalen Ebene defininert.
+
+Auf einem Profil $-100 \lt y \lt 100$ m wird die Schwere berechnet.
+
 
 ```{python}
 prism = np.array([[-20.0, 2.0], [-20.0, 8.0], [20.0, 8.0], 
@@ -266,3 +279,32 @@ def gz_prism(x, y, z, prism, rho):
     return G * rho * gz * 1e5
 ```
 
+### Polyeder
+
+Die allgemeinste Berechnungsmethode in 3D beruht auf der Approximation des Störkörpers durch eine Punktwolke auf seiner Oberfläche.
+Diese Punkte sind Stützstellen einer Dreieckszerlegung (Triangulation).
+
+Eine Python-Implementierung finden wir hier: [pygravmag3d](https://github.com/ruboerner/pygravmag3d).
+
+Wir testen diese Routine, indem wir mit den oben gewonnenen Schwerewerten für das Prisma vergleichen.
+
+```{python}
+rho = 2700.0
+prism = (-20.0, 20.0, -10.0, 10.0, 10.0, 30.0)
+
+vertices = np.array([[-20.0, -10.0, 10.0], [20.0, -10.0, 10.0], [20.0, 10.0, 10.0], [-20., 10.0, 10.0],
+    [-20.0, -10.0, 30.0], [20.0, -10.0, 30.0], [20.0, 10.0, 30.0], [-20., 10.0, 30.0]])
+
+profile = np.arange(-200.0, 201.0, 5.0)
+face, corners, normal, volume = pgm.get_triangulation(vertices)
+g = np.zeros(len(profile))
+for i, y in enumerate(profile):
+    xyz = np.array([0, y, 0])
+    _, _, _, _, _, g[i] = pgm.get_H(face, corners - xyz, normal, [0,0,1], rho)
+
+g_p = [gz_prism(0.0, v, 0.0, prism, rho) for v in profile]
+
+plt.plot(profile, g * 1e5)
+plt.plot(profile, g_p)
+plt.show()
+```

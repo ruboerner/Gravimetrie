@@ -301,6 +301,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#kugel" id="toc-kugel" class="nav-link" data-scroll-target="#kugel"><span class="header-section-number">6.2.1</span> Kugel</a></li>
   <li><a href="#prisma" id="toc-prisma" class="nav-link" data-scroll-target="#prisma"><span class="header-section-number">6.2.2</span> Prisma</a></li>
+  <li><a href="#polyeder" id="toc-polyeder" class="nav-link" data-scroll-target="#polyeder"><span class="header-section-number">6.2.3</span> Polyeder</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -327,14 +328,16 @@ window.Quarto = {
 </header>
 
 
-<div id="a641161c" class="cell" data-execution_count="1">
+<div id="e2c799ee" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> isclose</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> patches</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xarray <span class="im">as</span> xr</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> xarray <span class="im">as</span> xr</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygravmag3d <span class="im">as</span> pgm</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Lernziele">
@@ -374,8 +377,11 @@ window.Quarto = {
 </div>
 <section id="störkörperformeln-in-2d" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="störkörperformeln-in-2d"><span class="header-section-number">6.1</span> Störkörperformeln in 2D</h2>
-<p>Die gebräuchlichste Methode besteht in der Approximation des vertikalen Störkörperquerschnitts durch Polygone.</p>
-<div id="c5000638" class="cell" data-execution_count="2">
+<p>Geologische Körper mit ausgedehnter Streichrichtung können als zweidimensionale Dichteverteilung angenommen werden, d.h., <span class="math inline">\(\rho = \rho(y,z)\)</span>. Die Schwerewirkung ist dabei invariant gegenüber einer Verschiebung in <span class="math inline">\(x\)</span>-Richtung. Das Messprofil verläuft dabei senkrecht zur Streichrichtung, d.h., in <span class="math inline">\(y\)</span>=Richtnug.</p>
+<p>Die gebräuchlichste Methode besteht in der Approximation des vertikalen Störkörperquerschnitts durch ein geschlossenes Polygon.</p>
+<p><strong>Beispiel:</strong></p>
+<p>Die Python-Klasse <code>Polygon</code> verwaltet die Eckpunkte eines Polygons. Die Reihenfolge der Eckpunkte wird automatisch bestimmt, so dass die Eckpunote im umgekehrten Uhrzeigersinn durchlaufen werden.</p>
+<div id="81148d05" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ATOL <span class="op">=</span> <span class="fl">1e-8</span></span>
@@ -451,8 +457,9 @@ window.Quarto = {
 <span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> gz</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Beispiel: Horizontales Prisma</p>
-<div id="11184072" class="cell" data-execution_count="3">
+<p>Ein horizontales Prisma wird durch die Koordinaten seiner Eckpunkte in einer vertikalen Ebene defininert.</p>
+<p>Auf einem Profil <span class="math inline">\(-100 \lt y \lt 100\)</span> m wird die Schwere berechnet.</p>
+<div id="daecf32f" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>prism <span class="op">=</span> np.array([[<span class="op">-</span><span class="fl">20.0</span>, <span class="fl">2.0</span>], [<span class="op">-</span><span class="fl">20.0</span>, <span class="fl">8.0</span>], [<span class="fl">20.0</span>, <span class="fl">8.0</span>], </span>
@@ -496,7 +503,7 @@ window.Quarto = {
 <p><span class="math display">\[
 V_{z}(x,y,z) = f \Delta\rho \frac{t-z}{\sqrt{x^2 + y^2 + (z-t)^2}^3}
 \]</span></p>
-<div id="b953623e" class="cell" data-execution_count="4">
+<div id="af69d34f" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sphere(X, Y, Z, x0, y0, z0, radius, density):</span>
@@ -569,7 +576,7 @@ R_{3}^{2} &amp; =u^{2}+v^{2} \\
 R^{2} &amp; = u^{2} + v^{2} + w^{2}
 \end{align}.
 \]</span></p>
-<div id="2e08acd4" class="cell" data-execution_count="5">
+<div id="f7d3233f" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gz_prism(x, y, z, prism, rho):</span>
@@ -611,6 +618,42 @@ R^{2} &amp; = u^{2} + v^{2} + w^{2}
 <span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> G <span class="op">*</span> rho <span class="op">*</span> gz <span class="op">*</span> <span class="fl">1e5</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+</div>
+</section>
+<section id="polyeder" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="polyeder"><span class="header-section-number">6.2.3</span> Polyeder</h3>
+<p>Die allgemeinste Berechnungsmethode in 3D beruht auf der Approximation des Störkörpers durch eine Punktwolke auf seiner Oberfläche. Diese Punkte sind Stützstellen einer Dreieckszerlegung (Triangulation).</p>
+<p>Eine Python-Implementierung finden wir hier: <a href="https://github.com/ruboerner/pygravmag3d">pygravmag3d</a>.</p>
+<p>Wir testen diese Routine, indem wir mit den oben gewonnenen Schwerewerten für das Prisma vergleichen.</p>
+<div id="5870304f" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code anzeigen</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> <span class="fl">2700.0</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>prism <span class="op">=</span> (<span class="op">-</span><span class="fl">20.0</span>, <span class="fl">20.0</span>, <span class="op">-</span><span class="fl">10.0</span>, <span class="fl">10.0</span>, <span class="fl">10.0</span>, <span class="fl">30.0</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>vertices <span class="op">=</span> np.array([[<span class="op">-</span><span class="fl">20.0</span>, <span class="op">-</span><span class="fl">10.0</span>, <span class="fl">10.0</span>], [<span class="fl">20.0</span>, <span class="op">-</span><span class="fl">10.0</span>, <span class="fl">10.0</span>], [<span class="fl">20.0</span>, <span class="fl">10.0</span>, <span class="fl">10.0</span>], [<span class="op">-</span><span class="fl">20.</span>, <span class="fl">10.0</span>, <span class="fl">10.0</span>],</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    [<span class="op">-</span><span class="fl">20.0</span>, <span class="op">-</span><span class="fl">10.0</span>, <span class="fl">30.0</span>], [<span class="fl">20.0</span>, <span class="op">-</span><span class="fl">10.0</span>, <span class="fl">30.0</span>], [<span class="fl">20.0</span>, <span class="fl">10.0</span>, <span class="fl">30.0</span>], [<span class="op">-</span><span class="fl">20.</span>, <span class="fl">10.0</span>, <span class="fl">30.0</span>]])</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>profile <span class="op">=</span> np.arange(<span class="op">-</span><span class="fl">200.0</span>, <span class="fl">201.0</span>, <span class="fl">5.0</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>face, corners, normal, volume <span class="op">=</span> pgm.get_triangulation(vertices)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> np.zeros(<span class="bu">len</span>(profile))</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, y <span class="kw">in</span> <span class="bu">enumerate</span>(profile):</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    xyz <span class="op">=</span> np.array([<span class="dv">0</span>, y, <span class="dv">0</span>])</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    _, _, _, _, _, g[i] <span class="op">=</span> pgm.get_H(face, corners <span class="op">-</span> xyz, normal, [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>], rho)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>g_p <span class="op">=</span> [gz_prism(<span class="fl">0.0</span>, v, <span class="fl">0.0</span>, prism, rho) <span class="cf">for</span> v <span class="kw">in</span> profile]</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.plot(profile, g <span class="op">*</span> <span class="fl">1e5</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>plt.plot(profile, g_p)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="modellierung_files/figure-html/cell-7-output-1.png" width="571" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 
 
