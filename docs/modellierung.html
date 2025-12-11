@@ -328,7 +328,7 @@ window.Quarto = {
 </header>
 
 
-<div id="e2c799ee" class="cell" data-execution_count="1">
+<div id="34c689e5" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -381,7 +381,7 @@ window.Quarto = {
 <p>Die gebräuchlichste Methode besteht in der Approximation des vertikalen Störkörperquerschnitts durch ein geschlossenes Polygon.</p>
 <p><strong>Beispiel:</strong></p>
 <p>Die Python-Klasse <code>Polygon</code> verwaltet die Eckpunkte eines Polygons. Die Reihenfolge der Eckpunkte wird automatisch bestimmt, so dass die Eckpunote im umgekehrten Uhrzeigersinn durchlaufen werden.</p>
-<div id="81148d05" class="cell" data-execution_count="2">
+<div id="7d0ccca3" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ATOL <span class="op">=</span> <span class="fl">1e-8</span></span>
@@ -459,7 +459,7 @@ window.Quarto = {
 </div>
 <p>Ein horizontales Prisma wird durch die Koordinaten seiner Eckpunkte in einer vertikalen Ebene defininert.</p>
 <p>Auf einem Profil <span class="math inline">\(-100 \lt y \lt 100\)</span> m wird die Schwere berechnet.</p>
-<div id="daecf32f" class="cell" data-execution_count="3">
+<div id="b186bb58" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>prism <span class="op">=</span> np.array([[<span class="op">-</span><span class="fl">20.0</span>, <span class="fl">2.0</span>], [<span class="op">-</span><span class="fl">20.0</span>, <span class="fl">8.0</span>], [<span class="fl">20.0</span>, <span class="fl">8.0</span>], </span>
@@ -503,7 +503,7 @@ window.Quarto = {
 <p><span class="math display">\[
 V_{z}(x,y,z) = f \Delta\rho \frac{t-z}{\sqrt{x^2 + y^2 + (z-t)^2}^3}
 \]</span></p>
-<div id="af69d34f" class="cell" data-execution_count="4">
+<div id="31c1bd2c" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sphere(X, Y, Z, x0, y0, z0, radius, density):</span>
@@ -576,7 +576,7 @@ R_{3}^{2} &amp; =u^{2}+v^{2} \\
 R^{2} &amp; = u^{2} + v^{2} + w^{2}
 \end{align}.
 \]</span></p>
-<div id="f7d3233f" class="cell" data-execution_count="5">
+<div id="a607cff9" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> gz_prism(x, y, z, prism, rho):</span>
@@ -625,7 +625,7 @@ R^{2} &amp; = u^{2} + v^{2} + w^{2}
 <p>Die allgemeinste Berechnungsmethode in 3D beruht auf der Approximation des Störkörpers durch eine Punktwolke auf seiner Oberfläche. Diese Punkte sind Stützstellen einer Dreieckszerlegung (Triangulation).</p>
 <p>Eine Python-Implementierung finden wir hier: <a href="https://github.com/ruboerner/pygravmag3d">pygravmag3d</a>.</p>
 <p>Wir testen diese Routine, indem wir mit den oben gewonnenen Schwerewerten für das Prisma vergleichen.</p>
-<div id="5870304f" class="cell" data-execution_count="6">
+<div id="5a5df7aa" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rho <span class="op">=</span> <span class="fl">2700.0</span></span>
