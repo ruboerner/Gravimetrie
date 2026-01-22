@@ -31,8 +31,8 @@ $$
 \begin{align}
 g_{abs} & = 981043.767\ \text{mGal} \\
 h & = 395.183\ \text{m} \\
-\varphi & = 50 \textdegree \,55' \,30.3''\ \text{N} \\
-\theta & = 13 \textdegree \,19' \,48.1''\ \text{E}
+\varphi & = 50 ^\circ \,55' \,30.3''\ \text{N} \\
+\theta & = 13 ^\circ \,19' \,48.1''\ \text{E}
 \end{align}
 $$
 

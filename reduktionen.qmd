@@ -116,7 +116,7 @@ $$
 \delta g_{H} = 0.8\ \text{mGal/km}
 $$ {#eq-normalschwere}
 
-Die Normalschwere nimmt bei $\varphi = 50\textdegree$ auf einem Profil nach Norden um 0.8 mGal/km zu.
+Die Normalschwere nimmt bei $\varphi = 50^\circ$ auf einem Profil nach Norden um 0.8 mGal/km zu.
 Ein Lagefehler des Messpunktes von 10 m in N-S-Richtung verursacht damit einen Reduktionsfehler von 0.08 $\mu$m$s^{-2} =$ 0.008 mGal.
 
 Die so geforderten Genauigkeiten der Lagebestimmung werden von (D)GPS-Instrumenten ohne weiteres erreicht.
@@ -163,7 +163,7 @@ dphi = 2 * np.arcsin(H/R_E/2)
 display(HTML(rf"\(\Delta \varphi \) = {dphi * 180 / np.pi * 60:.3e} Bogenminuten"))
 ```
 
-In mittleren Breiten mit $\varphi \approx 50 \textdegree$ erhalten wir für $\Delta\gamma$
+In mittleren Breiten mit $\varphi \approx 50 ^\circ$ erhalten wir für $\Delta\gamma$
 
 ```{python}
 expr = ex.subs(phi, 50.0 * sp.pi / 180.0).evalf() * dphi
