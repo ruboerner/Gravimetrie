@@ -341,7 +341,7 @@ window.Quarto = {
 </ul>
 </div>
 </div>
-<div id="d6014ba0" class="cell" data-execution_count="1">
+<div id="c53092e3" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.patches <span class="im">as</span> patches</span>
@@ -389,7 +389,7 @@ V(x,y,-h) = = \frac{1}{4 \pi^{2}} \iint S(u,v) \, e^{ -h \sqrt{ u^{2}+v^{2} } }e
 </div>
 <div class="callout-body-container callout-body">
 <p>Wir erzeugen uns einen Datensatz. Dieser enthält die <span class="math inline">\(z\)</span>-Komponente <span class="math inline">\(g_{z}\)</span> der Schwerebeschleunigung als Funktion der horizontalen Positionen im Koordinatengitter.</p>
-<div id="0aeab533" class="cell" data-execution_count="3">
+<div id="bb07b56d" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nx <span class="op">=</span> <span class="dv">81</span></span>
@@ -474,7 +474,7 @@ f = [0, 1, ..., (N-1)/2, -(N-1)/2, ..., -1] / (d*N)   wenn N ungerade</code></pr
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    np.arange(<span class="op">-</span>np.ceil((N <span class="op">-</span> <span class="dv">1</span>) <span class="op">/</span> <span class="dv">2</span>), <span class="dv">0</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>])</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>kx</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="973bb830" class="cell" data-execution_count="4">
+<div id="6c598c10" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">7</span></span>
@@ -496,7 +496,7 @@ N=8 k=[ 0  1  2  3 -4 -3 -2 -1]</code></pre>
 </div>
 </div>
 <p><code>fftfreq</code> liefert für die beiden Fälle identische Ergebnisse:</p>
-<div id="0a85f468" class="cell" data-execution_count="5">
+<div id="b3f0d9b4" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"N=8: k=</span><span class="sc">{</span>np<span class="sc">.</span>fft<span class="sc">.</span>fftfreq(<span class="dv">8</span>, d<span class="op">=</span><span class="dv">1</span>) <span class="op">*</span> <span class="dv">8</span><span class="sc">}</span><span class="ss">"</span>)</span>
@@ -510,7 +510,7 @@ N=7: k=[ 0.  1.  2.  3. -3. -2. -1.]</code></pre>
 </div>
 </div>
 <p>Damit können wir jetzt unsere Wellenzahlen auf der Grundlage der im <code>xarray</code> enthaltenen Informationen bereitstellen.</p>
-<div id="a29e182c" class="cell" data-execution_count="6">
+<div id="adf25610" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>kx <span class="op">=</span> np.fft.fftfreq(gz.sizes[<span class="st">"x"</span>], d<span class="op">=</span>dx) <span class="op">*</span> <span class="dv">2</span> <span class="op">*</span> np.pi</span>
@@ -521,7 +521,7 @@ N=7: k=[ 0.  1.  2.  3. -3. -2. -1.]</code></pre>
 </details>
 </div>
 <p>Die Feldfortsetzung berechnen wir wie oben definiert mit Hilfe der Übertragungsfunktion der Feldfortsetzung (<a href="#eq-ff" class="quarto-xref"><span>7.3</span></a>).</p>
-<div id="92e0b228" class="cell" data-execution_count="7">
+<div id="7f3d836d" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>gz_spec <span class="op">=</span> np.fft.fft2(gz.values)</span>
@@ -534,7 +534,7 @@ N=7: k=[ 0.  1.  2.  3. -3. -2. -1.]</code></pre>
 </details>
 </div>
 <p>Die im <code>xarray</code>-Datensatz <code>data</code> enthaltenen Daten stellen wir grafisch dar:</p>
-<div id="61f9c1f5" class="cell" data-execution_count="8">
+<div id="3ad8f35d" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>circle1 <span class="op">=</span> np.array(sp1)</span>
@@ -577,7 +577,7 @@ N=7: k=[ 0.  1.  2.  3. -3. -2. -1.]</code></pre>
 <p>Als Resultat erhalten wir <span class="math display">\[
 g_{zz} = \frac{ \partial g_{z} }{ \partial z }
 \]</span></p>
-<div id="fa6f5e40" class="cell" data-execution_count="9">
+<div id="db005ff2" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>gzz <span class="op">=</span> <span class="fl">1e4</span> <span class="op">*</span> np.real(np.fft.ifft2(gz_spec <span class="op">*</span> np.sqrt(KX<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> KY<span class="op">**</span><span class="dv">2</span>)))</span>
@@ -586,7 +586,7 @@ g_{zz} = \frac{ \partial g_{z} }{ \partial z }
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"g_z_z"</span>].attrs[<span class="st">"long_name"</span>] <span class="op">=</span> <span class="st">"$g_</span><span class="sc">{zz}</span><span class="st">$"</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="3be155f6" class="cell" data-execution_count="10">
+<div id="dc0d9c49" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">3</span>))</span>
@@ -637,7 +637,7 @@ Hinweis
 <section id="horizontalableitungen" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="horizontalableitungen"><span class="header-section-number">7.3</span> Horizontalableitungen</h2>
 <p>Wir wenden die jeweiligen Übertragungsfunktionen der Horizontalalableitungen <a href="#eq-ddh" class="quarto-xref"><span>7.2</span></a> an.</p>
-<div id="ca7fa532" class="cell" data-execution_count="11">
+<div id="5628f253" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>gzx <span class="op">=</span> <span class="fl">1e4</span> <span class="op">*</span> np.real(np.fft.ifft2(gz_spec <span class="op">*</span> <span class="ot">1j</span> <span class="op">*</span> KX))</span>
@@ -650,7 +650,7 @@ Hinweis
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"g_z_y"</span>].attrs[<span class="st">"long_name"</span>] <span class="op">=</span> <span class="st">"$g_</span><span class="sc">{zy}</span><span class="st">$"</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="a1e60a97" class="cell" data-execution_count="12">
+<div id="c883a9be" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">3</span>))</span>
@@ -686,7 +686,7 @@ Hinweis
 <p>Der Betrag des Horizontalgradienten ist <span class="math display">\[
 g_{zh} := \left|\frac{ \partial g }{ \partial h } \right| = \sqrt{\left(\frac{ \partial g_{z} }{ \partial x }\right)^{2} + \left(\frac{ \partial g_{z} }{ \partial y }\right)^{2}}
 \]</span></p>
-<div id="12031acc" class="cell" data-execution_count="13">
+<div id="a82967d9" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>data[<span class="st">"g_z_h"</span>] <span class="op">=</span> ([<span class="st">"y"</span>, <span class="st">"x"</span>], np.sqrt(gzx<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> gzy<span class="op">**</span><span class="dv">2</span>))</span>
@@ -723,7 +723,7 @@ g_{zh} := \left|\frac{ \partial g }{ \partial h } \right| = \sqrt{\left(\frac{ \
 </div>
 </div>
 <p>Das folgende Beispiel zeigt den Betrag des Horizontalgradienten am Beispiel eines rechtwinkligen Quaders:</p>
-<div id="5a47145f" class="cell" data-execution_count="14">
+<div id="e1be9132" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code anzeigen</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>prism <span class="op">=</span> (<span class="fl">800.0</span>, <span class="fl">1200.0</span>, <span class="op">-</span><span class="fl">200.0</span>, <span class="fl">200.0</span>, <span class="fl">80.0</span>, <span class="fl">120.0</span>)</span>
