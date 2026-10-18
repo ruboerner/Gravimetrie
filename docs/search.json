@@ -14,7 +14,7 @@
     "href": "index.html#bemerkungen",
     "title": "Gravimetrie",
     "section": "Bemerkungen",
-    "text": "Bemerkungen\nDieses GitHub-Repository enthält das Vorlesungsskript zur Vorlesung “Gravimetrie” im Rahmen des Moduls “Gravimetrie und Magnetik” im Wintersemester 2025/26. Das Modul ist für Studierende des 5. Semesters des Bachelorstudienganges “Geophysik und Geoinformatik” an der TU Bergakademie Freiberg entworfen.",
+    "text": "Bemerkungen\nDieses GitHub-Repository enthält das Vorlesungsskript zur Vorlesung “Gravimetrie” im Rahmen des Moduls “Gravimetrie und Magnetik” im Wintersemester 2026/27. Das Modul ist für Studierende des 5. Semesters des Bachelorstudienganges “Geophysik und Geoinformatik” an der TU Bergakademie Freiberg entworfen.",
     "crumbs": [
       "Vorwort"
     ]
@@ -44,7 +44,7 @@
     "href": "index.html#referenzen",
     "title": "Gravimetrie",
     "section": "Referenzen",
-    "text": "Referenzen\nDieses Skript basiert zum großen Teil auf Lehrmaterialien, welche mir freundlicherweise von meinen ehemaligen Kollegen Rolf Käppler und Jana Börner zur Verfügung gestellt wurden.",
+    "text": "Referenzen\nDieses Skript basiert zum Teil auf Lehrmaterialien, welche mir freundlicherweise von meinen ehemaligen Kollegen Dr. Rolf Käppler und Dr. Jana Börner zur Verfügung gestellt wurden.",
     "crumbs": [
       "Vorwort"
     ]
@@ -64,7 +64,7 @@
     "href": "gliederung.html",
     "title": "1  Lernziele der Vorlesung",
     "section": "",
-    "text": "In dieser Lehrveranstaltung entwickeln Sie sich von der Stufe des Wissens über das Verstehen, Anwenden und Analysieren hin zum Evaluieren und schließlich zum Produzieren eigener wissenschaftlicher Erkenntnisse in der Gravimetrie.\n\nZum Erreichen dieser Ziele wird der Aufbau der Vorlesung entsprechend den Stufen der Kompetenzentwicklung gestaltet.\nWir setzen dabei folgende Schwerpunkte:\n\nMathematisch-physikalische Grundlagen\nGravitationsfeld der Erde\nMessgrößen und Messgeräte\nVorbereitung und Durchführung von gravimetrischen Messungen\nReduktionen und Schwereanomalien\nPetrophysikalische Grundlagen\nBearbeitung und Interpretation\nDarstellung der Resultate, Berichtserstellung\n\nIm Rahmen der Lehrveranstaltung werden Sie den Umgang mit dem Gravimeter Autograv CG-5 (Scintrex Ltd., Kanada) erlernen und eigenständig Messungen durchführen. Der gesamte Prozess von der Messplanung über die Datenerfassung und -verarbeitung bis zur geologischen Interpretation der Ergebnisse wird in einem Praktikumsbericht dokumentiert.",
+    "text": "In dieser Lehrveranstaltung entwickeln Sie sich von der Stufe des Wissens über das Verstehen, Anwenden und Analysieren hin zum Evaluieren und schließlich zum Produzieren eigener wissenschaftlicher Erkenntnisse in der Gravimetrie.\n\nZum Erreichen dieser Ziele wird der Aufbau der Vorlesung den Stufen der Kompetenzentwicklung entsprechend gestaltet.\nWir setzen dabei folgende Schwerpunkte:\n\nMathematisch-physikalische Grundlagen\nGravitationsfeld der Erde\nMessgrößen und Messgeräte\nVorbereitung und Durchführung von gravimetrischen Messungen\nReduktionen und Schwereanomalien\nPetrophysikalische Grundlagen\nBearbeitung und Interpretation\nDarstellung der Resultate, Berichtserstellung\n\nIm Rahmen der Lehrveranstaltung werden Sie den Umgang mit dem Gravimeter Autograv CG-5 (Scintrex Ltd., Kanada) erlernen und eigenständig Messungen durchführen. Der gesamte Prozess von der Messplanung über die Datenerfassung und -verarbeitung bis zur geologischen Interpretation der Ergebnisse wird in einem Praktikumsbericht dokumentiert.",
     "crumbs": [
       "Einleitung",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Lernziele der Vorlesung</span>"
